@@ -13,6 +13,9 @@ import Pricing from "@/pages/Pricing";
 import Security from "@/pages/Security";
 import Company from "@/pages/Company";
 import Resources from "@/pages/Resources";
+import ResourcesGuides from "@/pages/ResourcesGuides";
+import ResourcesGuideDetail from "@/pages/ResourcesGuideDetail";
+import ResourcesDocs from "@/pages/ResourcesDocs";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
@@ -27,6 +30,9 @@ function Router() {
       <Route path="/security" component={Security} />
       <Route path="/company" component={Company} />
       <Route path="/resources" component={Resources} />
+      <Route path="/resources/guides" component={ResourcesGuides} />
+      <Route path="/resources/guides/:slug" component={ResourcesGuideDetail} />
+      <Route path="/resources/docs" component={ResourcesDocs} />
       <Route path="/contact" component={Contact} />
       
       {/* Legal place holders */}
