@@ -83,7 +83,11 @@ export default function Home() {
               alt="Shaw Industries" 
               className="h-6 w-auto"
             />
-            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">SISL Infotech</span>
+            <img 
+              src="/assets/cloudverse-import/images/partners/sisl.svg" 
+              alt="SISL Infotech" 
+              className="h-6 w-auto"
+            />
           </div>
         </div>
       </section>

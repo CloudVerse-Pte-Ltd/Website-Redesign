@@ -1,0 +1,21 @@
+<svg viewBox="0 0 280 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Geometric chevron arrow (red/orange) -->
+  <!-- Top left diamond -->
+  <polygon points="15,10 30,25 15,40 0,25" fill="#E85D2B"/>
+  <!-- Middle left diamond -->
+  <polygon points="30,10 45,25 30,40 15,25" fill="#D94B1B"/>
+  <!-- Bottom left diamond -->
+  <polygon points="15,35 30,50 15,65 0,50" fill="#C23D0D"/>
+  <!-- Top right diamond -->
+  <polygon points="40,10 55,25 40,40 25,25" fill="#F0803D"/>
+  <!-- Middle right diamond -->
+  <polygon points="55,10 70,25 55,40 40,25" fill="#E85D2B"/>
+  <!-- Bottom right diamond -->
+  <polygon points="40,35 55,50 40,65 25,50" fill="#D94B1B"/>
+  
+  <!-- Diagonal line through center -->
+  <line x1="0" y1="65" x2="45" y2="20" stroke="#000000" stroke-width="2"/>
+  
+  <!-- SISL text -->
+  <text x="100" y="55" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#FFFFFF">SISL</text>
+</svg>
