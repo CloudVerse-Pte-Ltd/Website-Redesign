@@ -56,26 +56,28 @@ export default function Home() {
       </Section>
 
       {/* Customer Logos */}
-      <Section padding="primary" className="py-cv-sec-md">
-        <p className="text-center text-[15px] leading-[24px] text-cv-muted mb-6">
-          Used by FinOps teams at leading enterprises.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 grayscale opacity-70">
-          <img 
-            src="/assets/cloudverse-import/images/partners/drreddy.svg" 
-            alt="Dr. Reddy's" 
-            className="h-6 w-auto"
-          />
-          <img 
-            src="/assets/cloudverse-import/images/partners/infogain.svg" 
-            alt="Infogain" 
-            className="h-6 w-auto"
-          />
-          <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">MaxLife Insurance</span>
-          <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">Shaw Industries</span>
-          <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">SISL Infotech</span>
+      <section className="py-cv-sec-md">
+        <div className="cv-container">
+          <p className="text-center text-[15px] leading-[24px] text-cv-muted mb-6">
+            Used by FinOps teams at leading enterprises.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 grayscale opacity-70">
+            <img 
+              src="/assets/cloudverse-import/images/partners/drreddy.svg" 
+              alt="Dr. Reddy's" 
+              className="h-6 w-auto"
+            />
+            <img 
+              src="/assets/cloudverse-import/images/partners/infogain.svg" 
+              alt="Infogain" 
+              className="h-6 w-auto"
+            />
+            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">MaxLife Insurance</span>
+            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">Shaw Industries</span>
+            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">SISL Infotech</span>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Pillars */}
       <Section padding="primary">
