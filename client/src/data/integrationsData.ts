@@ -12,6 +12,11 @@ export type Integration = {
     timeToValue: string;
     permissions: string;
   };
+  logo?: {
+    src: string;
+    alt: string;
+    invert?: boolean;
+  };
 };
 
 export const integrationsData: Integration[] = [
@@ -22,6 +27,7 @@ export const integrationsData: Integration[] = [
     category: "Cloud",
     status: "Available",
     short: "Billing and usage ingestion with allocation dimensions.",
+    logo: { src: "/logos/aws.svg", alt: "AWS" },
     whatWeIngest: [
       "Cost and Usage Report data with resource tags",
       "Multi-account and cross-region billing",
@@ -47,6 +53,7 @@ export const integrationsData: Integration[] = [
     category: "Cloud",
     status: "Available",
     short: "Billing, subscriptions, and cost dimensions across tenants.",
+    logo: { src: "/logos/azure.svg", alt: "Microsoft Azure" },
     whatWeIngest: [
       "Cost Management API and billing exports",
       "Subscriptions and resource groups",
@@ -72,6 +79,7 @@ export const integrationsData: Integration[] = [
     category: "Cloud",
     status: "Available",
     short: "Billing and usage via BigQuery-backed exports and APIs.",
+    logo: { src: "/logos/gcp.svg", alt: "Google Cloud" },
     whatWeIngest: [
       "BigQuery billing export data",
       "Committed use discounts and pricing",
@@ -97,6 +105,7 @@ export const integrationsData: Integration[] = [
     category: "Cloud",
     status: "Available",
     short: "Billing and usage across tenancy compartments.",
+    logo: { src: "/logos/oci.svg", alt: "Oracle Cloud" },
     whatWeIngest: [
       "OCI billing and metering APIs",
       "Compartment and resource tagging",
@@ -122,6 +131,7 @@ export const integrationsData: Integration[] = [
     category: "Cloud",
     status: "Available",
     short: "Billing and usage ingestion for multi-cloud visibility.",
+    logo: { src: "/logos/alibaba.svg", alt: "Alibaba Cloud" },
     whatWeIngest: [
       "Billing and metering APIs",
       "Resource tagging and metadata",
@@ -146,6 +156,7 @@ export const integrationsData: Integration[] = [
     category: "Cloud",
     status: "Available",
     short: "Billing and usage ingestion for enterprise reporting.",
+    logo: { src: "/logos/huawei.svg", alt: "Huawei Cloud" },
     whatWeIngest: [
       "Cloud billing and cost APIs",
       "Resource inventory and tagging",
@@ -170,6 +181,7 @@ export const integrationsData: Integration[] = [
     category: "Cloud",
     status: "Available",
     short: "Billing and usage ingestion across accounts and regions.",
+    logo: { src: "/logos/tencent.svg", alt: "Tencent Cloud" },
     whatWeIngest: [
       "Billing and metering APIs",
       "Cost allocation data",
@@ -196,6 +208,7 @@ export const integrationsData: Integration[] = [
     category: "Data",
     status: "Available",
     short: "Workspace usage and compute costs for analytics spend.",
+    logo: { src: "/logos/databricks.svg", alt: "Databricks" },
     whatWeIngest: [
       "Workspace and cluster metrics",
       "Compute hours and SKU data",
@@ -222,6 +235,7 @@ export const integrationsData: Integration[] = [
     category: "Data",
     status: "Coming soon",
     short: "Warehouse consumption and credits for data spend.",
+    logo: { src: "/logos/snowflake.svg", alt: "Snowflake" },
     whatWeIngest: [
       "Account usage views and query costs",
       "Storage metrics and capacity",
@@ -248,6 +262,7 @@ export const integrationsData: Integration[] = [
     category: "AI",
     status: "Available",
     short: "API usage, token consumption, and cost signals.",
+    logo: { src: "/logos/openai.svg", alt: "OpenAI" },
     whatWeIngest: [
       "API usage and request counts",
       "Token consumption by model",
@@ -274,6 +289,7 @@ export const integrationsData: Integration[] = [
     category: "Kubernetes",
     status: "Available",
     short: "Cluster usage and workload attribution via agent.",
+    logo: { src: "/logos/kubernetes.svg", alt: "Kubernetes" },
     whatWeIngest: [
       "Node and pod metrics from Prometheus",
       "Container resource requests and limits",
@@ -299,6 +315,7 @@ export const integrationsData: Integration[] = [
     category: "Kubernetes",
     status: "Available",
     short: "Cluster and namespace attribution for enterprise platforms.",
+    logo: { src: "/logos/openshift.svg", alt: "OpenShift" },
     whatWeIngest: [
       "Cluster and node metrics",
       "Namespace and project data",
@@ -326,6 +343,7 @@ export const integrationsData: Integration[] = [
     category: "Infrastructure",
     status: "Available",
     short: "Virtual infrastructure inventory and usage attribution.",
+    logo: { src: "/logos/vcenter.svg", alt: "vCenter" },
     whatWeIngest: [
       "VM and host inventory",
       "Resource utilization metrics",
@@ -352,6 +370,7 @@ export const integrationsData: Integration[] = [
     category: "Identity",
     status: "Available",
     short: "SSO via Microsoft OAuth for secure login.",
+    logo: { src: "/logos/microsoft-oauth.svg", alt: "Microsoft OAuth" },
     whatWeIngest: [
       "User identity and attributes",
       "Organization and tenant data",
@@ -377,6 +396,7 @@ export const integrationsData: Integration[] = [
     category: "Identity",
     status: "Available",
     short: "SSO via Google OAuth for secure login.",
+    logo: { src: "/logos/google-oauth.svg", alt: "Google OAuth" },
     whatWeIngest: [
       "User identity and profile data",
       "Organization and workspace data",
@@ -403,6 +423,7 @@ export const integrationsData: Integration[] = [
     category: "Identity",
     status: "Available",
     short: "Directory sync for identity-based allocation and governance.",
+    logo: { src: "/logos/entra.svg", alt: "Microsoft Entra ID" },
     whatWeIngest: [
       "User and group metadata",
       "Role assignments and permissions",
@@ -429,6 +450,7 @@ export const integrationsData: Integration[] = [
     category: "Ticketing",
     status: "Available",
     short: "Tickets and ownership context for allocation and ops.",
+    logo: { src: "/logos/jira.svg", alt: "Jira" },
     whatWeIngest: [
       "Project and issue metadata",
       "Epic and story tracking",
@@ -454,6 +476,7 @@ export const integrationsData: Integration[] = [
     category: "Ticketing",
     status: "Available",
     short: "ITSM + ownership context for governance and accountability.",
+    logo: { src: "/logos/servicenow.svg", alt: "ServiceNow" },
     whatWeIngest: [
       "Configuration items and CMDB data",
       "Incident and change tracking",
@@ -480,6 +503,7 @@ export const integrationsData: Integration[] = [
     category: "Collaboration",
     status: "Available",
     short: "Alerts and notifications delivery for anomalies and automation.",
+    logo: { src: "/logos/slack.svg", alt: "Slack" },
     whatWeIngest: [
       "Workspace and channel metadata",
       "Team and user information",
@@ -505,6 +529,7 @@ export const integrationsData: Integration[] = [
     category: "Collaboration",
     status: "Available",
     short: "Notifications and approvals for automation workflows.",
+    logo: { src: "/logos/teams.svg", alt: "Microsoft Teams" },
     whatWeIngest: [
       "Organization and team data",
       "Channel and user information",
@@ -532,6 +557,7 @@ export const integrationsData: Integration[] = [
     category: "Observability",
     status: "Available",
     short: "Signals from major cloud monitoring suites.",
+    logo: { src: "/logos/cloud-monitoring.svg", alt: "Cloud Monitoring" },
     whatWeIngest: [
       "CloudWatch metrics and usage signals",
       "Azure Monitor signals for resources and services",
@@ -556,6 +582,7 @@ export const integrationsData: Integration[] = [
     category: "SaaS",
     status: "Coming soon",
     short: "Key SaaS spend and usage normalization.",
+    logo: { src: "/logos/saas.svg", alt: "SaaS" },
     whatWeIngest: [
       "Billing and subscription data",
       "Usage and feature consumption",

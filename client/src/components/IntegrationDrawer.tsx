@@ -1,5 +1,6 @@
 import { Integration } from "@/data/integrationsData";
 import { Button } from "@/components/Button";
+import { IntegrationLogo } from "./IntegrationLogo";
 import { X } from "lucide-react";
 
 interface IntegrationDrawerProps {
@@ -33,7 +34,8 @@ export function IntegrationDrawer({ integration, onClose }: IntegrationDrawerPro
         {/* Header */}
         <div className="sticky top-0 bg-cv-surface dark:bg-cv-surface border-b border-cv-line dark:border-cv-line p-5 md:p-6 flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-3 mb-2">
+              <IntegrationLogo name={integration.name} logo={integration.logo} size={28} />
               <h2 className="text-lg md:text-xl font-semibold text-cv-ink dark:text-cv-ink">
                 {integration.name}
               </h2>
