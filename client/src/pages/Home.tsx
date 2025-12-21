@@ -64,32 +64,20 @@ export default function Home() {
           <p className="text-center text-[15px] leading-[24px] text-cv-muted mb-6">
             Used by FinOps teams at leading enterprises.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 grayscale opacity-70 dark:opacity-100 dark:invert">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
             <img 
               src="/assets/cloudverse-import/images/partners/drreddy.svg" 
               alt="Dr. Reddy's" 
-              className="h-6 w-auto"
+              className="h-6 w-auto grayscale opacity-70 dark:opacity-100 dark:invert"
             />
             <img 
               src="/assets/cloudverse-import/images/partners/infogain.svg" 
               alt="Infogain" 
-              className="h-6 w-auto"
+              className="h-6 w-auto grayscale opacity-70 dark:opacity-100 dark:invert"
             />
-            <img 
-              src="/assets/cloudverse-import/images/partners/maxlife.svg" 
-              alt="MaxLife Insurance" 
-              className="h-6 w-auto"
-            />
-            <img 
-              src="/assets/cloudverse-import/images/partners/shaw.svg" 
-              alt="Shaw Industries" 
-              className="h-6 w-auto"
-            />
-            <img 
-              src="/assets/cloudverse-import/images/partners/sisl.svg" 
-              alt="SISL Infotech" 
-              className="h-6 w-auto"
-            />
+            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">MaxLife Insurance</span>
+            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">Shaw Industries</span>
+            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">SISL Infotech</span>
           </div>
         </div>
       </section>
