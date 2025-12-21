@@ -63,23 +63,26 @@ export function FeatureTabs() {
   const activeTabContent = featureTabs.find((tab) => tab.id === activeTab);
 
   return (
-    <div className="border border-cv-line rounded-cv overflow-hidden">
+    <div className="border border-white/10 dark:border-white/10 rounded-2xl bg-white/5 dark:bg-white/5 overflow-hidden">
       {/* Tab buttons */}
       <div
-        className="flex flex-wrap border-b border-cv-line bg-cv-surface dark:bg-cv-surface2"
+        className="flex flex-wrap border-b border-white/10 dark:border-white/10 p-6"
         role="tablist"
       >
-        {featureTabs.map((tab) => (
+        {featureTabs.map((tab, idx) => (
           <button
             key={tab.id}
+            id={`tab-${tab.id}`}
             role="tab"
             aria-selected={activeTab === tab.id}
+            aria-controls={`panel-${tab.id}`}
+            tabIndex={activeTab === tab.id ? 0 : -1}
             onClick={() => setActiveTab(tab.id)}
-            className={`flex-1 px-4 sm:px-6 py-4 text-center text-sm sm:text-base font-medium border-b-2 transition-colors ${
+            className={`px-3 sm:px-4 py-2 text-sm font-medium transition-colors ${
               activeTab === tab.id
-                ? "border-primary text-cv-ink dark:text-cv-ink"
-                : "border-transparent text-cv-muted hover:text-cv-ink dark:hover:text-cv-ink"
-            }`}
+                ? "bg-cv-ink/10 dark:bg-white/10 text-cv-ink dark:text-cv-ink rounded"
+                : "text-cv-muted hover:text-cv-ink dark:hover:text-cv-ink"
+            } ${idx < featureTabs.length - 1 ? "mr-2 sm:mr-3" : ""}`}
           >
             {tab.label}
           </button>
@@ -88,36 +91,41 @@ export function FeatureTabs() {
 
       {/* Tab content */}
       {activeTabContent && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 sm:p-8 lg:p-10">
+        <div
+          id={`panel-${activeTab}`}
+          role="tabpanel"
+          aria-labelledby={`tab-${activeTab}`}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 md:p-10"
+        >
           <div className="space-y-4">
-            <h3 className="text-[20px] sm:text-[24px] font-semibold text-cv-ink dark:text-cv-ink">
+            <h3 className="text-xl font-semibold text-cv-ink dark:text-cv-ink">
               {activeTabContent.title}
             </h3>
-            <p className="text-[15px] leading-[24px] text-cv-muted max-w-prose">
+            <p className="text-sm text-cv-muted max-w-[56ch]">
               {activeTabContent.body}
             </p>
             <ul className="space-y-2 pt-4">
               {activeTabContent.bullets.map((bullet, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-3 text-[15px] text-cv-muted"
+                  className="flex items-start gap-3 text-sm text-cv-muted"
                 >
-                  <span className="text-primary font-semibold mt-1">•</span>
+                  <span className="text-primary font-semibold mt-0.5 flex-shrink-0">•</span>
                   <span>{bullet}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="hidden lg:flex items-center">
-            <div className="aspect-[4/3] w-full rounded-lg bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line overflow-hidden p-6">
+          <div className="hidden lg:flex items-center justify-center">
+            <div className="w-full aspect-[4/3] rounded-2xl bg-[#F5F5F7] dark:bg-white/5 border border-white/10 dark:border-white/10 overflow-hidden p-6">
               <div className="h-full w-full flex flex-col gap-4">
-                <div className="h-6 w-1/3 bg-cv-line/60 rounded-md"></div>
+                <div className="h-5 w-2/5 bg-cv-line/40 dark:bg-white/20 rounded-md"></div>
                 <div className="flex gap-4 flex-1">
-                  <div className="w-1/4 h-full bg-cv-line/40 rounded-lg"></div>
-                  <div className="w-3/4 flex flex-col gap-4">
-                    <div className="h-1/3 w-full bg-cv-line/40 rounded-lg"></div>
-                    <div className="h-2/3 w-full bg-cv-line/40 rounded-lg"></div>
+                  <div className="w-1/5 h-full bg-cv-line/30 dark:bg-white/15 rounded-lg"></div>
+                  <div className="w-4/5 flex flex-col gap-4">
+                    <div className="h-1/3 w-full bg-cv-line/30 dark:bg-white/15 rounded-lg"></div>
+                    <div className="h-2/3 w-full bg-cv-line/30 dark:bg-white/15 rounded-lg"></div>
                   </div>
                 </div>
               </div>

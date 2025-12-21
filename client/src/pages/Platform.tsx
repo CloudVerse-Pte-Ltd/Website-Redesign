@@ -104,8 +104,8 @@ export default function Platform() {
         </div>
       </section>
 
-      {/* Feature Tabs */}
-      <section className="py-cv-sec-lg bg-cv-surface2 dark:bg-cv-surface">
+      {/* Feature Tabs Island */}
+      <section className="py-cv-sec-lg">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
           <FeatureTabs />
         </div>

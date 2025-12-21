@@ -1,0 +1,148 @@
+Implement the FeatureTabs “interactive island” on the PLATFORM page ONLY.
+Do NOT change Home, Pricing, Integrations, nav/footer, or other Platform sections.
+Only touch /platform and the FeatureTabs component used exclusively by Platform.
+
+============================================================
+GOAL
+- AIX/Apple-style minimal “island” section
+- 5 tabs with lightweight interactivity (local state only)
+- Clean typography, tight spacing, accessible tabs
+- Right side shows a neutral product frame (skeleton), no placeholder text
+
+============================================================
+BRANDING
+- Do NOT add CloudVerse™ anywhere new inside FeatureTabs content.
+- ™ usage stays only in page title and hero eyebrow.
+
+============================================================
+SECTION PLACEMENT
+- FeatureTabs sits after the “What you get with CloudVerse” grid and before the workflow strip.
+- Keep it as one self-contained section.
+
+============================================================
+LAYOUT & WIDTH
+- Outer container should feel wide (not boxed), like Home:
+  max-w-[1600px] mx-auto px-6 lg:px-12
+- The “island” container:
+  - subtle border (border-white/10 on dark or border-black/10 on light)
+  - rounded-2xl
+  - background: slightly distinct surface (e.g. bg-white/5 on dark OR bg-neutral-50 on light)
+  - no shadows, no gradients
+- Inside: 2-column layout on desktop:
+  - Left: tab buttons + content
+  - Right: product frame skeleton
+- On mobile: stack.
+
+Spacing:
+- Section padding: py-cv-sec-lg
+- Island padding: p-6 md:p-10
+- Internal grid gap: gap-10 max (not 24)
+
+============================================================
+ACCESSIBLE TAB SYSTEM (REQUIRED)
+- Use buttons (not links) for tabs.
+- Include:
+  - role="tablist"
+  - each tab button role="tab"
+  - aria-selected on active tab
+  - aria-controls linking to panel id
+  - tabIndex for keyboard navigation
+- Use local React state only:
+  const [active, setActive] = useState("visibility")
+
+No global stores, no heavy animation libraries.
+
+============================================================
+TABS (LOCKED ORDER + COPY)
+Tabs (order):
+1) Visibility
+2) Developer FinOps
+3) Tag Engine
+4) Anomalies
+5) Automation
+
+Default: Visibility
+
+Each tab panel has:
+- Title (text-xl font-semibold)
+- Body (text-sm muted, max-w-[56ch])
+- Bullets (3, tight spacing)
+
+TAB 1 — Visibility
+Title:
+See spend clearly—across clouds and orgs.
+Body:
+Understand cost drivers from organization down to resource.
+Bullets:
+- Multi-cloud and multi-account views
+- Drill-down without rebuilding dashboards
+- Export-ready views for reporting
+
+TAB 2 — Developer FinOps
+Title:
+Shift cost awareness left.
+Body:
+Bring cost signals into engineering decisions—early.
+Bullets:
+- Cost context aligned to services and environments
+- Recommendations engineers can act on
+- Fewer surprises, less rework
+
+TAB 3 — Tag Engine
+Title:
+Clean dimensions power clean allocation.
+Body:
+Normalize and enrich tags, then map ownership automatically.
+Bullets:
+- Tag normalization and drift detection
+- Ownership mapping using rules + ML
+- Allocation that holds up under scrutiny
+
+TAB 4 — Anomalies
+Title:
+Detect spikes. Predict risk.
+Body:
+Respond to abnormal spend and forecast overruns.
+Bullets:
+- Detected anomalies near real time
+- Predicted anomalies using ML models
+- Clear paths to investigate and fix
+
+TAB 5 — Automation
+Title:
+Move from insight to action—automatically.
+Body:
+CloudVerse applies recommendations safely, not just reports them.
+Bullets:
+- 40+ ML models powering recommendations
+- Guardrails, approvals, and safe automation
+- Track savings as realized—not estimated
+
+============================================================
+TAB BUTTON STYLING (MINIMAL)
+- Tab buttons in a row on desktop, wrap on smaller screens.
+- Active tab: subtle filled background, strong text
+- Inactive: muted text, hover background
+- No icons
+- No underline animation
+- Keep type small: text-sm
+
+============================================================
+RIGHT SIDE — PRODUCT FRAME SKELETON (NO TEXT)
+- Use a neutral skeleton panel:
+  - rounded-2xl
+  - border subtle
+  - bg surface slightly different than island background
+- Inside skeleton: 2–3 blocks indicating UI cards/charts
+- IMPORTANT: no “placeholder” text labels
+
+============================================================
+FAILSAFE
+- If there is already a FeatureTabs component, update it rather than creating duplicates.
+- Ensure the Platform page imports and uses this FeatureTabs once.
+
+DELIVERABLE
+- FeatureTabs island exists on /platform
+- Looks premium and minimal
+- Tabs are accessible and keyboard-friendly
+- Right-side skeleton looks like product UI
