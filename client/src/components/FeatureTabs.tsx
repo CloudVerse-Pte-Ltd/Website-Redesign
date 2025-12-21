@@ -1,126 +1,130 @@
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Check } from "lucide-react";
 
-const tabs = [
+const featureTabs = [
   {
     id: "visibility",
     label: "Visibility",
-    title: "See every dollar, everywhere.",
-    description: "Get a unified view of your cloud spend across AWS, Azure, GCP, and Kubernetes without switching portals.",
-    image: "/assets/cloudverse-import/images/platform/visdash.svg",
+    title: "See spend clearly—across clouds and orgs.",
+    body: "Understand cost drivers from organization down to resource.",
     bullets: [
-      "Real-time cost ingestion and normalization",
-      "Multi-cloud dashboards out of the box",
-      "Drill down to resource-level details"
-    ]
+      "Multi-cloud and multi-account views",
+      "Drill-down without rebuilding dashboards",
+      "Export-ready views for reporting",
+    ],
   },
   {
-    id: "allocation",
-    label: "Allocation",
-    title: "Attribute 100% of costs.",
-    description: "Map cloud spend to the business units, teams, and products that actually drive consumption.",
-    image: "/assets/cloudverse-import/images/platform/optidash.svg", // Using optidash as proxy for allocation
+    id: "developer-finops",
+    label: "Developer FinOps",
+    title: "Shift cost awareness left.",
+    body: "Bring cost signals into engineering decisions—early.",
     bullets: [
-      "AI-driven tag correction and mapping",
-      "Shared cost splitting rules",
-      "Audit-ready showback reports"
-    ]
+      "Cost context aligned to services and environments",
+      "Recommendations engineers can act on",
+      "Fewer surprises, less rework",
+    ],
   },
   {
-    id: "optimization",
-    label: "Optimization",
-    title: "Cut waste, not velocity.",
-    description: "Find and fix inefficiencies with safe, automated recommendations engineers will actually trust.",
-    image: "/assets/cloudverse-import/images/platform/optidash.svg",
+    id: "tag-engine",
+    label: "Tag Engine",
+    title: "Clean dimensions power clean allocation.",
+    body: "Normalize and enrich tags, then map ownership automatically.",
     bullets: [
-      "Rightsizing for EC2, RDS, and Kubernetes",
-      "Automated spot instance management",
-      "Unused resource cleanup workflows"
-    ]
+      "Tag normalization and drift detection",
+      "Ownership mapping using rules + ML",
+      "Allocation that holds up under scrutiny",
+    ],
   },
   {
-    id: "governance",
-    label: "Governance",
-    title: "Stay compliant automatically.",
-    description: "Enforce budget guardrails and security policies without becoming a bottleneck for deployment.",
-    image: "/assets/cloudverse-import/images/platform/visdash.svg",
+    id: "anomalies",
+    label: "Anomalies",
+    title: "Detect spikes. Predict risk.",
+    body: "Respond to abnormal spend and forecast overruns.",
     bullets: [
-      "Budget anomaly detection and alerting",
-      "Policy-as-code enforcement",
-      "Continuous compliance auditing"
-    ]
+      "Detected anomalies near real time",
+      "Predicted anomalies using ML models",
+      "Clear paths to investigate and fix",
+    ],
   },
   {
-    id: "finops-ai",
-    label: "FinOps for AI",
-    title: "Manage AI/ML unit economics.",
-    description: "Track the specific cost of training models and inference endpoints to understand ROI.",
-    image: "/assets/cloudverse-import/images/platform/Dashboard.svg",
+    id: "automation",
+    label: "Automation",
+    title: "Move from insight to action—automatically.",
+    body: "CloudVerse applies recommendations safely, not just reports them.",
     bullets: [
-      "GPU utilization tracking",
-      "Model training cost attribution",
-      "Inference unit cost analysis"
-    ]
-  }
+      "40+ ML models powering recommendations",
+      "Guardrails, approvals, and safe automation",
+      "Track savings as realized—not estimated",
+    ],
+  },
 ];
 
 export function FeatureTabs() {
   const [activeTab, setActiveTab] = useState("visibility");
-  const activeContent = tabs.find(t => t.id === activeTab)!;
+  const activeTabContent = featureTabs.find((tab) => tab.id === activeTab);
 
   return (
-    <div className="flex flex-col gap-12">
-      {/* Tab Navigation */}
-      <div className="flex overflow-x-auto pb-4 no-scrollbar border-b border-cv-line">
-        <div className="flex gap-8 mx-auto min-w-max px-6">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={cn(
-                "pb-4 text-[15px] font-medium transition-colors relative whitespace-nowrap",
-                activeTab === tab.id 
-                  ? "text-cv-ink" 
-                  : "text-cv-muted hover:text-cv-ink"
-              )}
-            >
-              {tab.label}
-              {activeTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-cv-ink" />
-              )}
-            </button>
-          ))}
-        </div>
+    <div className="border border-cv-line rounded-cv overflow-hidden">
+      {/* Tab buttons */}
+      <div
+        className="flex flex-wrap border-b border-cv-line bg-cv-surface dark:bg-cv-surface2"
+        role="tablist"
+      >
+        {featureTabs.map((tab) => (
+          <button
+            key={tab.id}
+            role="tab"
+            aria-selected={activeTab === tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`flex-1 px-4 sm:px-6 py-4 text-center text-sm sm:text-base font-medium border-b-2 transition-colors ${
+              activeTab === tab.id
+                ? "border-primary text-cv-ink dark:text-cv-ink"
+                : "border-transparent text-cv-muted hover:text-cv-ink dark:hover:text-cv-ink"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
 
-      {/* Tab Content */}
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center animate-in fade-in slide-in-from-bottom-4 duration-500 key={activeTab}">
-        <div className="space-y-6">
-          <h2 className="cv-h2">{activeContent.title}</h2>
-          <p className="cv-body text-cv-muted">
-            {activeContent.description}
-          </p>
-          <ul className="space-y-4 pt-4">
-            {activeContent.bullets.map((bullet, i) => (
-              <li key={i} className="flex items-start gap-3 text-[15px] text-cv-ink">
-                <div className="mt-1 bg-primary/10 rounded-full p-0.5">
-                   <Check className="w-3.5 h-3.5 text-primary" strokeWidth={3} />
+      {/* Tab content */}
+      {activeTabContent && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 sm:p-8 lg:p-10">
+          <div className="space-y-4">
+            <h3 className="text-[20px] sm:text-[24px] font-semibold text-cv-ink dark:text-cv-ink">
+              {activeTabContent.title}
+            </h3>
+            <p className="text-[15px] leading-[24px] text-cv-muted max-w-prose">
+              {activeTabContent.body}
+            </p>
+            <ul className="space-y-2 pt-4">
+              {activeTabContent.bullets.map((bullet, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-3 text-[15px] text-cv-muted"
+                >
+                  <span className="text-primary font-semibold mt-1">•</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="hidden lg:flex items-center">
+            <div className="aspect-[4/3] w-full rounded-lg bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line overflow-hidden p-6">
+              <div className="h-full w-full flex flex-col gap-4">
+                <div className="h-6 w-1/3 bg-cv-line/60 rounded-md"></div>
+                <div className="flex gap-4 flex-1">
+                  <div className="w-1/4 h-full bg-cv-line/40 rounded-lg"></div>
+                  <div className="w-3/4 flex flex-col gap-4">
+                    <div className="h-1/3 w-full bg-cv-line/40 rounded-lg"></div>
+                    <div className="h-2/3 w-full bg-cv-line/40 rounded-lg"></div>
+                  </div>
                 </div>
-                {bullet}
-              </li>
-            ))}
-          </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div className="w-full aspect-[4/3] relative rounded-cv overflow-hidden border border-cv-line shadow-cv-card bg-cv-surface">
-           <img 
-              src={activeContent.image} 
-              alt={activeContent.title}
-              className="w-full h-full object-cover"
-           />
-        </div>
-      </div>
+      )}
     </div>
   );
 }
