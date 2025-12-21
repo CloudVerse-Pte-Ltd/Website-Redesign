@@ -112,20 +112,26 @@
     -webkit-font-smoothing: antialiased;
   }
   
-  /* Typography Classes */
+  /* Typography Classes - Responsive */
   .cv-h1 {
-    @apply text-[56px] leading-[60px] font-semibold tracking-tight;
+    @apply text-[36px] sm:text-[48px] lg:text-[56px] leading-[42px] sm:leading-[52px] lg:leading-[60px] font-semibold tracking-tight;
   }
   .cv-h2 {
-    @apply text-[40px] leading-[46px] font-semibold tracking-tight;
+    @apply text-[28px] sm:text-[32px] lg:text-[40px] leading-[34px] sm:leading-[38px] lg:leading-[46px] font-semibold tracking-tight;
   }
   .cv-h3 {
-    @apply text-[28px] leading-[34px] font-semibold tracking-tight;
+    @apply text-[22px] sm:text-[24px] lg:text-[28px] leading-[28px] sm:leading-[30px] lg:leading-[34px] font-semibold tracking-tight;
   }
   .cv-body {
-    @apply text-[17px] leading-[28px];
+    @apply text-[15px] sm:text-[16px] lg:text-[17px] leading-[24px] sm:leading-[26px] lg:leading-[28px];
   }
   .cv-cap {
-    @apply text-[13px] leading-[18px];
+    @apply text-[12px] sm:text-[13px] leading-[16px] sm:leading-[18px];
+  }
+}
+
+@layer components {
+  .cv-container {
+    @apply max-w-[1200px] mx-auto px-4 sm:px-6;
   }
 }

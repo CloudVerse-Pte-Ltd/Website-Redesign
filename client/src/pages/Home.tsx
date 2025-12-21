@@ -11,26 +11,26 @@ export default function Home() {
     <BaseLayout>
       {/* Hero */}
       <Section padding="hero">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16">
           {/* Left: Copy */}
-          <div className="flex-1 text-left space-y-6">
+          <div className="flex-1 text-left space-y-4 sm:space-y-6">
             <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase">
               CloudVerse™
             </span>
             <h1 className="cv-h1">
               Cloud financial management for modern enterprises.
             </h1>
-            <p className="text-[21px] leading-[32px] text-cv-muted max-w-xl">
+            <p className="text-[15px] sm:text-[16px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[30px] text-cv-muted max-w-xl">
               Real-time visibility, allocation, anomaly detection, and automated optimization across AWS, Azure, and GCP—built for Finance, Engineering, and platform teams in the AI era.
             </p>
-            <div className="flex flex-col sm:flex-row items-start gap-4 pt-4">
+            <div className="flex flex-col xs:flex-row items-start gap-3 sm:gap-4 pt-4">
               <Link href="/demo" data-track="cta_demo" onClick={() => track("cta_demo", { location: "hero" })}>
-                <Button size="lg">
+                <Button size="lg" className="w-full xs:w-auto">
                   Book a demo
                 </Button>
               </Link>
               <Link href="/tour" data-track="cta_watch_tour" onClick={() => track("cta_watch_tour", { location: "hero" })}>
-                <Button variant="tertiary" size="lg" className="text-[17px]">
+                <Button variant="tertiary" size="lg" className="text-[14px] sm:text-[16px] lg:text-[17px] w-full xs:w-auto">
                   Watch 90-second tour
                 </Button>
               </Link>
@@ -38,13 +38,13 @@ export default function Home() {
           </div>
           
           {/* Right: Product Frame Skeleton */}
-          <div className="flex-1 w-full">
-            <div className="aspect-[4/3] w-full rounded-cv bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line overflow-hidden p-6">
+          <div className="flex-1 w-full hidden md:block">
+            <div className="aspect-[4/3] w-full rounded-cv bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line overflow-hidden p-4 sm:p-6">
               <div className="h-full w-full flex flex-col gap-4">
-                <div className="h-6 w-1/3 bg-cv-line/60 rounded-md"></div>
-                <div className="flex gap-4 flex-1">
+                <div className="h-5 sm:h-6 w-1/3 bg-cv-line/60 rounded-md"></div>
+                <div className="flex gap-3 sm:gap-4 flex-1">
                   <div className="w-1/4 h-full bg-cv-line/40 rounded-lg"></div>
-                  <div className="w-3/4 flex flex-col gap-4">
+                  <div className="w-3/4 flex flex-col gap-3 sm:gap-4">
                     <div className="h-1/3 w-full bg-cv-line/40 rounded-lg"></div>
                     <div className="h-2/3 w-full bg-cv-line/40 rounded-lg"></div>
                   </div>
@@ -81,11 +81,11 @@ export default function Home() {
 
       {/* Pillars */}
       <Section padding="primary">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
           <h2 className="cv-h2">A single platform for visibility, accountability, and action.</h2>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           <Card>
             <h3 className="text-[21px] font-semibold mb-3">Visibility</h3>
             <p className="cv-body text-cv-muted">
@@ -109,14 +109,14 @@ export default function Home() {
 
       {/* How It Works */}
       <Section background="gray" padding="primary">
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <h2 className="cv-h2 mb-4">How CloudVerse works</h2>
-          <p className="text-[19px] leading-[30px] text-cv-muted">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
+          <h2 className="cv-h2 mb-3 sm:mb-4">How CloudVerse works</h2>
+          <p className="text-[15px] sm:text-[16px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[30px] text-cv-muted">
             Connect your clouds, normalize billing data, and automate what you can—without slowing down delivery.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-10 text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 text-left">
           <div className="relative pl-6 border-l-2 border-cv-ink/20 dark:border-cv-line">
             <div className="text-[48px] font-bold text-cv-ink/20 dark:text-cv-muted/30 leading-none mb-2">01</div>
             <h3 className="text-[22px] font-semibold mb-2">Connect</h3>
@@ -137,8 +137,8 @@ export default function Home() {
 
       {/* Feature Band 1: Developer FinOps */}
       <Section padding="primary">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="flex-1 space-y-4 text-left">
+        <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-12">
+          <div className="flex-1 space-y-3 sm:space-y-4 text-left">
             <span className="cv-cap font-semibold tracking-widest uppercase text-cv-muted">
               Developer FinOps (Shift-Left)
             </span>
@@ -148,13 +148,13 @@ export default function Home() {
             </p>
             <div className="pt-2">
               <Link href="/platform">
-                <Button variant="tertiary" className="text-[17px]">
+                <Button variant="tertiary" className="text-[14px] sm:text-[16px] lg:text-[17px]">
                   Explore Developer FinOps
                 </Button>
               </Link>
             </div>
           </div>
-          <div className="flex-1 w-full">
+          <div className="flex-1 w-full hidden md:block">
             <div className="aspect-[4/3] w-full rounded-cv bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line"></div>
           </div>
         </div>
@@ -162,8 +162,8 @@ export default function Home() {
 
       {/* Feature Band 2: Tag Engine */}
       <Section padding="primary">
-        <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-          <div className="flex-1 space-y-4 text-left">
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-10 lg:gap-12">
+          <div className="flex-1 space-y-3 sm:space-y-4 text-left">
             <span className="cv-cap font-semibold tracking-widest uppercase text-cv-muted">
               Autonomous Tag Engine
             </span>
@@ -173,13 +173,13 @@ export default function Home() {
             </p>
             <div className="pt-2">
               <Link href="/platform">
-                <Button variant="tertiary" className="text-[17px]">
+                <Button variant="tertiary" className="text-[14px] sm:text-[16px] lg:text-[17px]">
                   Explore Tag Engine
                 </Button>
               </Link>
             </div>
           </div>
-          <div className="flex-1 w-full">
+          <div className="flex-1 w-full hidden md:block">
             <div className="aspect-[4/3] w-full rounded-cv bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line"></div>
           </div>
         </div>
@@ -187,8 +187,8 @@ export default function Home() {
 
       {/* Feature Band 3: Anomalies + Recommendations */}
       <Section padding="primary">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="flex-1 space-y-4 text-left">
+        <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-12">
+          <div className="flex-1 space-y-3 sm:space-y-4 text-left">
             <span className="cv-cap font-semibold tracking-widest uppercase text-cv-muted">
               Anomalies + Recommendations
             </span>
@@ -198,13 +198,13 @@ export default function Home() {
             </p>
             <div className="pt-2">
               <Link href="/platform">
-                <Button variant="tertiary" className="text-[17px]">
+                <Button variant="tertiary" className="text-[14px] sm:text-[16px] lg:text-[17px]">
                   Explore Automation
                 </Button>
               </Link>
             </div>
           </div>
-          <div className="flex-1 w-full">
+          <div className="flex-1 w-full hidden md:block">
             <div className="aspect-[4/3] w-full rounded-cv bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line"></div>
           </div>
         </div>
@@ -232,17 +232,17 @@ export default function Home() {
 
       {/* Final CTA */}
       <Section padding="primary" className="text-center">
-        <div className="max-w-2xl mx-auto space-y-6">
+        <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6">
           <h2 className="cv-h2">See CloudVerse™ on your data.</h2>
           <p className="cv-body text-cv-muted">
             We'll map your spend structure, allocation model, and the fastest path to measurable savings.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <div className="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4 pt-2">
             <Link href="/demo" data-track="cta_demo" onClick={() => track("cta_demo", { location: "bottom_cta" })}>
-              <Button size="lg">Book a demo</Button>
+              <Button size="lg" className="w-full xs:w-auto">Book a demo</Button>
             </Link>
             <Link href="/contact" data-track="cta_contact" onClick={() => track("cta_contact", { location: "bottom_cta" })}>
-              <Button variant="secondary" size="lg">Contact sales</Button>
+              <Button variant="secondary" size="lg" className="w-full xs:w-auto">Contact sales</Button>
             </Link>
           </div>
         </div>
