@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 interface IntegrationLogoProps {
   name: string;
   logo?: {
@@ -17,31 +19,30 @@ function getInitials(name: string): string {
 }
 
 export function IntegrationLogo({ name, logo, size = 22 }: IntegrationLogoProps) {
-  if (logo?.src) {
+  const [imgFailed, setImgFailed] = useState(false);
+  const initials = getInitials(name);
+
+  // If no logo or image failed to load, show monogram
+  if (!logo?.src || imgFailed) {
     return (
-      <img
-        src={logo.src}
-        alt={logo.alt}
-        className={`object-contain opacity-90 ${logo.invert ? 'dark:invert' : ''}`}
+      <div
+        className="rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-xs font-semibold text-cv-muted"
         style={{ height: size, width: size }}
-        onError={(e) => {
-          e.currentTarget.style.display = 'none';
-          e.currentTarget.nextElementSibling?.classList.remove('hidden');
-        }}
         aria-label={`${name} logo`}
-      />
+      >
+        {initials}
+      </div>
     );
   }
 
-  const initials = getInitials(name);
-
   return (
-    <div
-      className="rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-xs font-semibold text-cv-muted"
+    <img
+      src={logo.src}
+      alt={logo.alt}
+      className={`rounded-full object-contain opacity-90 ${logo.invert ? 'dark:invert' : ''}`}
       style={{ height: size, width: size }}
+      onError={() => setImgFailed(true)}
       aria-label={`${name} logo`}
-    >
-      {initials}
-    </div>
+    />
   );
 }
