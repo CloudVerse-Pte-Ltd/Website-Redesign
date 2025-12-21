@@ -5,6 +5,14 @@ import { track } from "@/lib/track";
 import { Link } from "wouter";
 import { useEffect } from "react";
 
+const customerLogos = [
+  { name: "Dr. Reddy's", src: "/logos/dr-reddys.svg", className: "brightness-110" },
+  { name: "Infogain", src: "/logos/infogain.svg", className: "brightness-125" },
+  { name: "Max Life Insurance", src: "/logos/axis-max-life-insurance-logo.svg", className: "brightness-150" },
+  { name: "Shaw Industries", src: "/logos/logo-white-Shaw.svg", className: "" },
+  { name: "SISL Infotech", src: "/logos/logo-1-1-sisl.svg", className: "brightness-200" },
+];
+
 export default function Home() {
   useEffect(() => {
     document.title = "CloudVerse™ — Cloud Financial Management";
@@ -59,25 +67,22 @@ export default function Home() {
       </section>
 
       {/* Customer Logos */}
-      <section className="py-cv-sec-md">
-        <div className="cv-container">
-          <p className="text-center text-[15px] leading-[24px] text-cv-muted mb-6">
+      <section className="py-8 lg:py-10">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
+          <p className="text-center text-[15px] leading-[24px] text-cv-muted mb-8">
             Used by FinOps teams at leading enterprises.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            <img 
-              src="/assets/cloudverse-import/images/partners/drreddy.svg" 
-              alt="Dr. Reddy's" 
-              className="h-6 w-auto grayscale opacity-70 dark:opacity-100 dark:invert"
-            />
-            <img 
-              src="/assets/cloudverse-import/images/partners/infogain.svg" 
-              alt="Infogain" 
-              className="h-6 w-auto grayscale opacity-70 dark:opacity-100 dark:invert"
-            />
-            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">MaxLife Insurance</span>
-            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">Shaw Industries</span>
-            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">SISL Infotech</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+            {customerLogos.map((logo) => (
+              <img
+                key={logo.name}
+                src={logo.src}
+                alt={logo.name}
+                loading="lazy"
+                decoding="async"
+                className={`h-7 md:h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity ${logo.className || ""}`}
+              />
+            ))}
           </div>
         </div>
       </section>

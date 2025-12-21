@@ -1,0 +1,111 @@
+Fix the customer logo strip on the HOME page to use real image files (not text placeholders) and make it look correct on a dark background.
+
+DO NOT change Home hero headline/H1.
+ONLY modify the logo strip component + assets paths + styling needed for this.
+
+------------------------------------------------------------
+TASK 1 — MOVE/CONFIRM ASSETS IN PUBLIC
+Ensure these files exist under the public folder so Vite/React can serve them:
+- client/public/logos/axis-max-life-insurance-logo.svg
+- client/public/logos/logo-1-1-sisl.png
+- client/public/logos/logo-white-Shaw.png
+
+Also add:
+- a Dr. Reddy’s logo file (svg or png) under client/public/logos/
+- an Infogain logo file (svg or png) under client/public/logos/
+If a logo file is missing, create a TODO comment and keep the slot hidden (do not render text in place of the logo).
+
+------------------------------------------------------------
+TASK 2 — DEFINE A SINGLE SOURCE OF TRUTH ARRAY
+Create a logos array used by the Home logo strip only, like:
+
+const customerLogos = [
+ { name: "Dr. Reddy’s", src: "/logos/dr-reddys.svg", href: null },
+ { name: "Infogain", src: "/logos/infogain.svg", href: null },
+ { name: "Max Life Insurance", src: "/logos/axis-max-life-insurance-logo.svg", href: null },
+ { name: "Shaw Industries", src: "/logos/logo-white-Shaw.png", href: null },
+ { name: "SISL Infotech", src: "/logos/logo-1-1-sisl.png", href: null },
+];
+
+Rules:
+- src MUST be a real file path in /public
+- Do not render entries whose image fails to load; hide them (no text fallback)
+
+------------------------------------------------------------
+TASK 3 — RENDER AS <img> (NOT TEXT)
+Update the logo strip component to render:
+<img src={logo.src} alt={logo.name} loading="lazy" decoding="async" />
+
+No SVG inline conversion. No icon fonts. No text placeholders.
+
+If href exists, wrap in <a> with target=_blank and rel=noopener. If href is null, do not link.
+
+------------------------------------------------------------
+TASK 4 — FIX CONTRAST + SIZING (DARK BACKGROUND)
+The current strip is too faint. Make it premium and readable:
+
+Container:
+- centered, max 1600px width
+- compact padding (py-8 or py-10)
+- keep the context line:
+  “Used by FinOps teams at leading enterprises.”
+
+Row layout:
+- horizontal row on desktop, wraps on smaller screens
+- use gap-x-10 gap-y-6 (or similar)
+- align items center
+
+Logo sizing:
+- enforce a consistent height across all logos:
+  className="h-7 md:h-8 w-auto object-contain"
+- for wide logos (Shaw), allow h-6 on mobile if needed
+
+Visibility:
+- DO NOT set opacity as low as 0.4–0.6; it becomes unreadable.
+- Use one of these approaches:
+  A) opacity-80 on the images + slightly brighter text
+  OR
+  B) keep logos at opacity-100 and reduce their visual dominance by smaller size
+
+Pick AIX-style:
+- logos: opacity-80 hover:opacity-100 transition
+- no blur, no drop shadow, no borders
+
+Important:
+- Do not use invert unless needed.
+- Since Shaw logo is already white, do NOT invert it.
+- If any logo is dark-on-transparent and disappears on dark background,
+  apply a per-logo class to brighten it:
+  e.g. className includes "brightness-200" ONLY for that specific logo.
+
+Implement per-logo overrides:
+customerLogos entries can include optional className:
+{ name, src, className?: string }
+Example:
+- Infogain may need "brightness-150"
+- Dr Reddy’s may need "brightness-125"
+Do not globally brighten all logos.
+
+------------------------------------------------------------
+TASK 5 — HANDLE SVGs CORRECTLY
+SVG files must display without being dimmed by parent styles.
+Make sure no parent container applies:
+- opacity
+- mix-blend-mode
+- filter
+that affects children unexpectedly.
+
+If the row container uses opacity, remove it and apply opacity to each <img> instead.
+
+------------------------------------------------------------
+TASK 6 — QA CHECK
+After changes:
+- Logos must be clearly visible on the dark background.
+- Heights should look visually consistent.
+- No text placeholders should appear.
+- If a logo asset is missing, its slot should not render (no broken icons).
+
+DELIVERABLE
+- Home logo strip uses real image assets from /public/logos/
+- Correct sizing, alignment, and contrast on dark background
+- AIX-style minimal look: calm, clean, premium
