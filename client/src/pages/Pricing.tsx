@@ -12,30 +12,30 @@ export default function Pricing() {
   const plans = [
     {
       name: "Starter",
-      description: "Get started with visibility across AWS.",
-      price: "$0",
-      billingUnit: "per month",
-      cta: "Start free",
-      ctaVariant: "secondary" as const,
-      limits: ["Up to $10k cloud spend", "1 user", "AWS only"]
+      description: "Get started with comprehensive cloud cost management.",
+      price: "$500",
+      billingUnit: "per month (billed annually)",
+      cta: "Purchase now",
+      ctaVariant: "primary" as const,
+      limits: ["Maximum $100,000 annual spend", "Access to all features", "Unlimited users", "1 year data retention"]
     },
     {
       name: "Professional",
-      description: "Multi-cloud visibility, allocation, and automation.",
-      price: "$499",
-      billingUnit: "per month, billed annually",
-      cta: "Book a demo",
+      description: "Multi-cloud visibility, allocation, and automation at scale.",
+      price: "$2000",
+      billingUnit: "per month (billed annually)",
+      cta: "Purchase now",
       ctaVariant: "primary" as const,
-      limits: ["Up to $500k cloud spend", "5 users", "AWS, Azure, GCP", "Cost allocation"]
+      limits: ["Maximum $1M annual spend", "Access to all features", "Unlimited users", "1 year data retention"]
     },
     {
       name: "Enterprise",
-      description: "Custom pricing for complex environments.",
-      price: "Contact sales",
+      description: "Custom pricing and deployment for complex environments.",
+      price: "Custom",
       billingUnit: "",
-      cta: "Contact sales",
+      cta: "Contact Us",
       ctaVariant: "secondary" as const,
-      limits: ["Unlimited cloud spend", "Unlimited users", "All platforms", "Custom features"]
+      limits: ["Unlimited cloud spend", "Access to all features", "Unlimited users", "5 years data retention", "SOC2 Report", "Dedicated account manager"]
     }
   ];
 
