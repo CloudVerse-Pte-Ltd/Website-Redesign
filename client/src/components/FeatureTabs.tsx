@@ -54,6 +54,7 @@ const featureTabs = [
       "40+ ML models powering recommendations",
       "Guardrails, approvals, and safe automation",
       "Track savings as realized—not estimated",
+      "GPU and model inference optimization paths",
     ],
   },
 ];

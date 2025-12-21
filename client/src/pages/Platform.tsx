@@ -27,8 +27,8 @@ const capabilities = [
     body: "Cost context in engineering workflows—before changes ship.",
   },
   {
-    title: "Autonomous Tag Engine",
-    body: "Normalize tags, fix drift, and map ownership for accurate allocation.",
+    title: "AI & GPU Cost Optimization",
+    body: "Optimize GPU infrastructure and model inference spend with anomaly detection and automated actions.",
   },
 ];
 
