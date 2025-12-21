@@ -1,0 +1,285 @@
+We are FINALIZING THE PLATFORM PAGE ONLY (/platform).
+Do NOT modify Home (locked), Pricing, Integrations, Solutions, or global layout.
+Only touch the Platform page file(s) and components used exclusively by Platform.
+
+============================================================
+BRANDING & TRADEMARK RULES (STRICT)
+- Use “CloudVerse™” ONLY in branding contexts:
+  - Platform hero eyebrow (first mention on the page)
+  - document.title
+- Elsewhere use “CloudVerse” (no ™).
+
+Set:
+document.title = "Platform — CloudVerse™"
+
+============================================================
+PLATFORM PAGE GOAL
+- Same aesthetic quality as Home (AIX-style): minimal, confident, product-led
+- Fewer sections, less copy, stronger hierarchy
+- Clear differentiation:
+  1) Automation-first FinOps (we apply recommendations automatically)
+  2) 40+ ML models powering recommendations
+  3) Developer FinOps (shift-left)
+  4) Autonomous Tag Engine
+  5) Detected + predicted anomalies
+- Tight vertical spacing (no giant gaps)
+
+============================================================
+SECTION STRUCTURE (KEEP IT TO ~6 SECTIONS)
+1) Hero (copy + product frame)
+2) Capabilities grid (6 items, crisp)
+3) FeatureTabs (5 tabs, interactive but lightweight)
+4) Workflow strip (Connect → Normalize → Detect → Automate → Report)
+5) Security strip (quiet)
+6) Final CTA
+
+No additional sections.
+
+============================================================
+TASK 1 — HERO (MINIMAL, LOCKED COPY)
+
+Eyebrow:
+CloudVerse™
+
+H1:
+Control cloud spend at every layer.
+
+Subhead:
+Visibility, allocation, anomalies, and automation—built for enterprise scale across cloud, data, and AI.
+
+CTAs:
+Primary: Book a demo
+Secondary: Explore integrations
+
+Hero layout:
+- Use a wide container like Home (max-w-[1600px] mx-auto px-6 lg:px-12)
+- Desktop: 2 columns, gap-16 max
+- Left text column constrained: max-w-[620px]
+- Right: product frame (neutral skeleton UI, no placeholder text, no captions)
+- Keep hero height natural (do NOT use min-h-screen)
+
+Spacing:
+- Use py-cv-sec-lg (not bigger)
+- Keep eyebrow tight (mb-3)
+- H1 bottom margin ~mb-6
+- Subhead bottom margin ~mb-8
+- Buttons gap ~gap-3
+
+============================================================
+TASK 2 — CAPABILITIES GRID (6 ITEMS, CRISP)
+Section title:
+What you get with CloudVerse
+
+Section subtitle (one line only):
+A platform built to report, detect, and act—automatically.
+
+Grid:
+- Desktop: 3 columns
+- Tablet: 2 columns
+- Mobile: 1 column
+- Gap max: gap-10 / gap-12
+- Prefer typography-first cards: light border, no shadows, no heavy chrome
+
+Cards (EXACT COPY):
+
+1) Visibility & Reporting
+Real-time views across providers, accounts, regions, services, and resources.
+
+2) Allocation & Chargeback
+Audit-ready showback and chargeback with shared pools and rules.
+
+3) Anomalies (Detected + Predicted)
+Catch spend spikes and forecast risk before month-end.
+
+4) Automation-first Optimization
+Apply safe actions automatically with guardrails and approvals.
+
+5) Developer FinOps (Shift-left)
+Cost context in engineering workflows—before changes ship.
+
+6) Autonomous Tag Engine
+Normalize tags, fix drift, and map ownership for accurate allocation.
+
+Card formatting:
+- Title: text-base font-semibold
+- Body: text-sm text-muted, max-w ~42ch
+- No icons unless subtle and consistent
+
+Spacing:
+- Section: py-cv-sec-lg
+- Title mb-3, subtitle mb-10
+
+============================================================
+TASK 3 — FEATURE TABS (KEY DIFFERENTIATOR ISLAND)
+Build/update a FeatureTabs component used ONLY on Platform page.
+Keep it lightweight:
+- local component state only
+- no global store
+- no heavy animation
+- accessibility: buttons with aria-selected, role="tablist"
+
+Tabs (ORDER, LOCKED):
+1) Visibility
+2) Developer FinOps
+3) Tag Engine
+4) Anomalies
+5) Automation
+
+Default tab: Visibility
+
+Layout:
+- Outer: border + subtle radius (like AIX)
+- Inside: 2-column layout on desktop:
+  Left: tab content
+  Right: product frame (same neutral skeleton)
+- On mobile: stack vertically
+
+TAB CONTENT (LOCKED COPY)
+
+TAB 1 — Visibility
+Title:
+See spend clearly—across clouds and orgs.
+
+Body:
+Understand cost drivers from organization down to resource.
+
+Bullets:
+- Multi-cloud and multi-account views
+- Drill-down without rebuilding dashboards
+- Export-ready views for reporting
+
+TAB 2 — Developer FinOps
+Title:
+Shift cost awareness left.
+
+Body:
+Bring cost signals into engineering decisions—early.
+
+Bullets:
+- Cost context aligned to services and environments
+- Recommendations engineers can act on
+- Fewer surprises, less rework
+
+TAB 3 — Tag Engine
+Title:
+Clean dimensions power clean allocation.
+
+Body:
+Normalize and enrich tags, then map ownership automatically.
+
+Bullets:
+- Tag normalization and drift detection
+- Ownership mapping using rules + ML
+- Allocation that holds up under scrutiny
+
+TAB 4 — Anomalies
+Title:
+Detect spikes. Predict risk.
+
+Body:
+Respond to abnormal spend and forecast overruns.
+
+Bullets:
+- Detected anomalies near real time
+- Predicted anomalies using ML models
+- Clear paths to investigate and fix
+
+TAB 5 — Automation
+Title:
+Move from insight to action—automatically.
+
+Body:
+CloudVerse applies recommendations safely, not just reports them.
+
+Bullets:
+- 40+ ML models powering recommendations
+- Guardrails, approvals, and safe automation
+- Track savings as realized—not estimated
+
+Style:
+- Bullet list tight: space-y-2
+- Typography minimal
+- No long paragraphs
+
+Spacing:
+- Section py-cv-sec-lg
+- Tabs header margin bottom mb-6
+- Content gap-10 max
+
+============================================================
+TASK 4 — WORKFLOW STRIP (COMPACT, SINGLE LINE)
+Section title:
+How it fits into your workflow
+
+One-line flow:
+Connect → Normalize → Analyze → Detect → Automate → Report
+
+Rules:
+- Single row on desktop, wraps on small screens
+- Typography only, subtle dividers
+- No icons
+- py-cv-sec-md
+- Light background or subtle border
+
+============================================================
+TASK 5 — SECURITY STRIP (REUSE HOME STYLE)
+Use the same quiet pattern as Home:
+
+Title:
+Security and compliance, built in.
+
+Body:
+Designed for enterprise environments—from access control to auditability.
+
+Badges:
+ISO 27001 • SOC 2 Type II
+
+Link:
+Visit Security →
+
+Rules:
+- No gradients
+- No dark dramatic block
+- Keep it compact: py-cv-sec-md
+
+============================================================
+TASK 6 — FINAL CTA (MINIMAL)
+Title:
+Get a platform view of your cloud economics.
+
+Body:
+We’ll map your structure and automation opportunities.
+
+Buttons:
+Primary: Book a demo
+Secondary: Contact sales
+
+Rules:
+- No extra copy
+- Keep it centered and calm
+- py-cv-sec-lg
+
+============================================================
+TASK 7 — WIDTH & SPACING CONSISTENCY
+The Platform page must not feel boxed.
+Follow Home’s pattern:
+- Outer container max-w-[1600px] for hero + FeatureTabs
+- Text columns constrained for readability
+- Replace any py-24/py-32 with py-cv-sec-lg
+- Replace gap-24 with gap-12
+- Remove stacked mb-16/mb-20 -> use mb-10/mb-8
+
+============================================================
+GUARDRAILS
+- Do not change nav, footer, routes, or other pages.
+- Do not add platform vendor lists.
+- Do not add heavy animations.
+- Do not introduce new design systems.
+- Keep copy exactly as specified.
+
+============================================================
+DELIVERABLE
+- /platform matches the Home page’s premium minimal aesthetic
+- Clear differentiation: automation-first, 40+ ML models, shift-left, tag engine, anomalies
+- Tight vertical spacing and wide layout where appropriate
+- FeatureTabs island works and is accessible

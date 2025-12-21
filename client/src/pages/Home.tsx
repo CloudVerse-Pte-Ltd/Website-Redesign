@@ -6,11 +6,11 @@ import { Link } from "wouter";
 import { useEffect } from "react";
 
 const customerLogos = [
-  { name: "Dr. Reddy's", src: "/logos/dr-reddys.svg", className: "brightness-110" },
-  { name: "Infogain", src: "/logos/infogain.svg", className: "brightness-125" },
-  { name: "Max Life Insurance", src: "/logos/axis-max-life-insurance-logo.svg", className: "brightness-150" },
-  { name: "Shaw Industries", src: "/logos/logo-white-Shaw.svg", className: "" },
-  { name: "SISL Infotech", src: "/logos/logo-1-1-sisl.svg", className: "brightness-200" },
+  { name: "Dr. Reddy's", src: "/logos/dr-reddys.svg", srcDark: "/logos/dr-reddys.svg", className: "brightness-110" },
+  { name: "Infogain", src: "/logos/infogain.svg", srcDark: "/logos/infogain.svg", className: "brightness-125" },
+  { name: "Max Life Insurance", src: "/logos/axis-max-life-insurance-logo.svg", srcDark: "/logos/axis-max-life-insurance-logo.svg", className: "brightness-150" },
+  { name: "Shaw Industries", srcLight: "/logos/logo-dark-Shaw.svg", srcDark: "/logos/logo-white-Shaw.svg", className: "" },
+  { name: "SISL Infotech", srcLight: "/logos/logo-1-1-sisl.svg", srcDark: "/logos/logo-light-sisl.svg", className: "" },
 ];
 
 export default function Home() {
@@ -76,11 +76,22 @@ export default function Home() {
             {customerLogos.map((logo) => (
               <img
                 key={logo.name}
-                src={logo.src}
+                src={logo.srcLight || logo.src || logo.srcDark}
+                srcSet={logo.srcDark ? `${logo.srcLight || logo.src} 1x, ${logo.srcDark} 1x` : undefined}
                 alt={logo.name}
                 loading="lazy"
                 decoding="async"
-                className={`h-7 md:h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity ${logo.className || ""}`}
+                className={`h-7 md:h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity dark:hidden ${logo.className || ""}`}
+              />
+            ))}
+            {customerLogos.filter(l => l.srcDark).map((logo) => (
+              <img
+                key={`${logo.name}-dark`}
+                src={logo.srcDark}
+                alt={logo.name}
+                loading="lazy"
+                decoding="async"
+                className={`hidden dark:inline h-7 md:h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity ${logo.className || ""}`}
               />
             ))}
           </div>
