@@ -12,49 +12,51 @@ export default function Home() {
 
   return (
     <BaseLayout>
-      {/* Hero */}
-      <Section padding="primary">
-        <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16">
-          <div className="flex-1 text-left space-y-4 sm:space-y-6">
-            <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase">
-              CloudVerse™
-            </span>
-            <h1 className="cv-h1">
-              Cloud financial management for modern enterprises.
-            </h1>
-            <p className="text-[15px] sm:text-[16px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[30px] text-cv-muted max-w-xl">
-              Visibility, allocation, anomalies, and automated optimization across cloud, data, and AI platforms—built for enterprise scale in the AI era.
-            </p>
-            <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 pt-4">
-              <Link href="/demo" data-track="cta_demo" onClick={() => track("cta_demo", { location: "hero" })}>
-                <Button size="lg" className="w-full sm:w-auto">
-                  Book a demo
-                </Button>
-              </Link>
-              <Link href="/tour" data-track="cta_watch_tour" onClick={() => track("cta_watch_tour", { location: "hero" })}>
-                <Button variant="tertiary" size="lg" className="text-[14px] sm:text-[16px] lg:text-[17px] w-full sm:w-auto">
-                  Watch 90-second tour
-                </Button>
-              </Link>
+      {/* Hero - Wide Layout */}
+      <section className="py-cv-sec-lg lg:py-cv-sec-xl">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16">
+            <div className="flex-1 text-left space-y-4 sm:space-y-6 max-w-[620px]">
+              <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase">
+                CloudVerse™
+              </span>
+              <h1 className="cv-h1">
+                Cloud financial management for modern enterprises.
+              </h1>
+              <p className="text-[15px] sm:text-[16px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[30px] text-cv-muted">
+                Visibility, allocation, anomalies, and automated optimization across cloud, data, and AI platforms.
+              </p>
+              <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 pt-4">
+                <Link href="/demo" data-track="cta_demo" onClick={() => track("cta_demo", { location: "hero" })}>
+                  <Button size="lg" className="w-full sm:w-auto">
+                    Book a demo
+                  </Button>
+                </Link>
+                <Link href="/tour" data-track="cta_watch_tour" onClick={() => track("cta_watch_tour", { location: "hero" })}>
+                  <Button variant="tertiary" size="lg" className="text-[14px] sm:text-[16px] lg:text-[17px] w-full sm:w-auto">
+                    Watch 90-second tour
+                  </Button>
+                </Link>
+              </div>
             </div>
-          </div>
-          
-          <div className="flex-1 w-full hidden md:block">
-            <div className="aspect-[4/3] w-full rounded-cv bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line overflow-hidden p-4 sm:p-6">
-              <div className="h-full w-full flex flex-col gap-4">
-                <div className="h-5 sm:h-6 w-1/3 bg-cv-line/60 rounded-md"></div>
-                <div className="flex gap-3 sm:gap-4 flex-1">
-                  <div className="w-1/4 h-full bg-cv-line/40 rounded-lg"></div>
-                  <div className="w-3/4 flex flex-col gap-3 sm:gap-4">
-                    <div className="h-1/3 w-full bg-cv-line/40 rounded-lg"></div>
-                    <div className="h-2/3 w-full bg-cv-line/40 rounded-lg"></div>
+            
+            <div className="flex-1 w-full hidden md:block">
+              <div className="aspect-[4/3] w-full rounded-cv bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line overflow-hidden p-4 sm:p-6">
+                <div className="h-full w-full flex flex-col gap-4">
+                  <div className="h-5 sm:h-6 w-1/3 bg-cv-line/60 rounded-md"></div>
+                  <div className="flex gap-3 sm:gap-4 flex-1">
+                    <div className="w-1/4 h-full bg-cv-line/40 rounded-lg"></div>
+                    <div className="w-3/4 flex flex-col gap-3 sm:gap-4">
+                      <div className="h-1/3 w-full bg-cv-line/40 rounded-lg"></div>
+                      <div className="h-2/3 w-full bg-cv-line/40 rounded-lg"></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Customer Logos */}
       <section className="py-cv-sec-md">
