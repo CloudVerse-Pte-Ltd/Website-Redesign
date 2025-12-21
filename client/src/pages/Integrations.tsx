@@ -8,7 +8,7 @@ import { Link } from "wouter";
 import { useState, useMemo } from "react";
 import { useEffect } from "react";
 
-const CATEGORIES = ["All", "Cloud", "Data", "AI", "Kubernetes", "SaaS", "Observability", "FinOps", "Identity", "Ticketing"];
+const CATEGORIES = ["All", "Cloud", "Data", "AI", "Kubernetes", "Infrastructure", "Identity", "Ticketing", "Collaboration", "Observability", "SaaS"];
 const STATUSES = ["All", "Available", "Beta", "Coming soon"];
 
 export default function Integrations() {
@@ -23,8 +23,10 @@ export default function Integrations() {
 
   const filtered = useMemo(() => {
     return integrationsData.filter((integration) => {
-      const matchesSearch = integration.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           integration.short.toLowerCase().includes(searchQuery.toLowerCase());
+      const searchLower = searchQuery.toLowerCase();
+      const matchesSearch = integration.name.toLowerCase().includes(searchLower) ||
+                           integration.short.toLowerCase().includes(searchLower) ||
+                           (integration.aliases && integration.aliases.some(alias => alias.toLowerCase().includes(searchLower)));
       const matchesCategory = selectedCategory === "All" || integration.category === selectedCategory;
       const matchesStatus = selectedStatus === "All" || integration.status === selectedStatus;
       return matchesSearch && matchesCategory && matchesStatus;

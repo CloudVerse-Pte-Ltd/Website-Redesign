@@ -1,7 +1,8 @@
 export type Integration = {
   id: string;
   name: string;
-  category: "Cloud" | "Data" | "AI" | "Kubernetes" | "SaaS" | "Observability" | "FinOps" | "Identity" | "Ticketing";
+  aliases?: string[];
+  category: "Cloud" | "Data" | "AI" | "Kubernetes" | "Infrastructure" | "Identity" | "Ticketing" | "Collaboration" | "Observability" | "SaaS";
   status: "Available" | "Beta" | "Coming soon";
   short: string;
   whatWeIngest: string[];
@@ -14,23 +15,24 @@ export type Integration = {
 };
 
 export const integrationsData: Integration[] = [
+  // Cloud Providers - Available
   {
     id: "aws",
     name: "AWS",
     category: "Cloud",
     status: "Available",
-    short: "Cost allocation across EC2, RDS, S3, and 200+ services.",
+    short: "Billing and usage ingestion with allocation dimensions.",
     whatWeIngest: [
-      "Usage and cost data from Cost and Usage Reports",
-      "Resource tags and metadata",
-      "Cost anomalies and savings opportunities",
-      "Multi-account and cross-region data"
+      "Cost and Usage Report data with resource tags",
+      "Multi-account and cross-region billing",
+      "Reserved instance and savings plans",
+      "Cost anomalies and optimization opportunities"
     ],
     outputs: [
-      "Reporting and drilldowns by service, tag, environment",
+      "Cost reporting by service, account, and tag",
       "Allocation dimensions for chargeback",
       "Detected and predicted anomalies",
-      "Automation paths for rightsizing and termination"
+      "Automation paths for cost optimization"
     ],
     setup: {
       method: "Read-only API + CUR export",
@@ -41,23 +43,24 @@ export const integrationsData: Integration[] = [
   {
     id: "azure",
     name: "Microsoft Azure",
+    aliases: ["Azure"],
     category: "Cloud",
     status: "Available",
-    short: "Usage, cost, and governance across subscriptions.",
+    short: "Billing, subscriptions, and cost dimensions across tenants.",
     whatWeIngest: [
-      "Cost Management API data",
-      "Resource groups and subscription metadata",
-      "Reserved instance and savings plan details",
+      "Cost Management API and billing exports",
+      "Subscriptions and resource groups",
+      "Reserved instances and savings plans",
       "Tags and cost allocation rules"
     ],
     outputs: [
-      "Reporting across subscriptions and resource groups",
+      "Cost reporting by subscription and resource group",
       "Allocation by business unit and environment",
       "Anomaly detection on spend trends",
       "Automation for resource governance"
     ],
     setup: {
-      method: "Service Principal with read-only access",
+      method: "Read-only API + billing export support",
       timeToValue: "20–40 minutes",
       permissions: "Read-only, scoped to Cost Management and Resource Graph"
     }
@@ -65,23 +68,24 @@ export const integrationsData: Integration[] = [
   {
     id: "gcp",
     name: "Google Cloud",
+    aliases: ["GCP"],
     category: "Cloud",
     status: "Available",
-    short: "BigQuery billing data and resource inventory.",
+    short: "Billing and usage via BigQuery-backed exports and APIs.",
     whatWeIngest: [
       "BigQuery billing export data",
-      "Committed use discount details",
+      "Committed use discounts and pricing",
       "Resource labels and project metadata",
-      "Usage metrics across compute, storage, and networking"
+      "Usage across compute, storage, and networking"
     ],
     outputs: [
-      "Detailed cost reporting by project and service",
+      "Cost reporting by project and service",
       "Allocation by label and cost center",
       "Anomaly detection on usage patterns",
       "Automation for commitment-based optimization"
     ],
     setup: {
-      method: "Service account with BigQuery access",
+      method: "Read-only API + BigQuery billing export",
       timeToValue: "15–30 minutes",
       permissions: "Read-only, scoped to billing project and BigQuery"
     }
@@ -89,60 +93,138 @@ export const integrationsData: Integration[] = [
   {
     id: "oracle-oci",
     name: "Oracle Cloud Infrastructure",
+    aliases: ["OCI"],
     category: "Cloud",
-    status: "Beta",
-    short: "Cost tracking across compute, database, and applications.",
+    status: "Available",
+    short: "Billing and usage across tenancy compartments.",
     whatWeIngest: [
-      "Usage and cost data from OCI APIs",
-      "Compartment and tagging structure",
-      "Resource metadata and inventory",
-      "Billing summary and itemized costs"
+      "OCI billing and metering APIs",
+      "Compartment and resource tagging",
+      "Billing summary and itemized costs",
+      "Service usage and subscriptions"
     ],
     outputs: [
-      "Reporting by compartment and service",
-      "Cost allocation by tag and business unit",
+      "Cost reporting by compartment and service",
+      "Allocation by tag and business unit",
       "Anomaly detection on spend",
       "Optimization recommendations"
     ],
     setup: {
-      method: "API user with read-only permissions",
-      timeToValue: "30–45 minutes",
+      method: "Read-only API",
+      timeToValue: "20–35 minutes",
       permissions: "Read-only, scoped to billing and compartment inspection"
     }
   },
   {
+    id: "alibaba-cloud",
+    name: "Alibaba Cloud",
+    aliases: ["AliCloud", "Alibaba"],
+    category: "Cloud",
+    status: "Available",
+    short: "Billing and usage ingestion for multi-cloud visibility.",
+    whatWeIngest: [
+      "Billing and metering APIs",
+      "Resource tagging and metadata",
+      "Multi-account and multi-region data",
+      "Cost allocation rules"
+    ],
+    outputs: [
+      "Cost reporting by account and service",
+      "Allocation by business dimension",
+      "Anomaly detection",
+      "Optimization paths"
+    ],
+    setup: {
+      method: "Read-only API",
+      timeToValue: "15–30 minutes",
+      permissions: "Read-only, scoped to billing and resources"
+    }
+  },
+  {
+    id: "huawei-cloud",
+    name: "Huawei Cloud",
+    category: "Cloud",
+    status: "Available",
+    short: "Billing and usage ingestion for enterprise reporting.",
+    whatWeIngest: [
+      "Cloud billing and cost APIs",
+      "Resource inventory and tagging",
+      "Usage metrics and subscriptions",
+      "Multi-account support"
+    ],
+    outputs: [
+      "Cost reporting by service and account",
+      "Allocation and chargeback",
+      "Anomaly detection",
+      "Optimization recommendations"
+    ],
+    setup: {
+      method: "Read-only API",
+      timeToValue: "15–30 minutes",
+      permissions: "Read-only, scoped to billing and usage"
+    }
+  },
+  {
+    id: "tencent-cloud",
+    name: "Tencent Cloud",
+    category: "Cloud",
+    status: "Available",
+    short: "Billing and usage ingestion across accounts and regions.",
+    whatWeIngest: [
+      "Billing and metering APIs",
+      "Cost allocation data",
+      "Multi-account and regional usage",
+      "Service consumption and tags"
+    ],
+    outputs: [
+      "Cost reporting by account and service",
+      "Allocation by business unit",
+      "Anomaly detection",
+      "Optimization insights"
+    ],
+    setup: {
+      method: "Read-only API",
+      timeToValue: "15–30 minutes",
+      permissions: "Read-only, scoped to billing and resources"
+    }
+  },
+
+  // Data - Available
+  {
     id: "databricks",
     name: "Databricks",
     category: "Data",
-    status: "Beta",
-    short: "Workspace usage, compute costs, and SQL warehouse spend.",
+    status: "Available",
+    short: "Workspace usage and compute costs for analytics spend.",
     whatWeIngest: [
       "Workspace and cluster metrics",
       "Compute hours and SKU data",
       "Job execution logs and costs",
-      "SQL warehouse usage and pricing"
+      "SQL warehouse usage"
     ],
     outputs: [
       "Cost reporting by workspace and cluster",
-      "Team-level allocation and chargeback",
+      "Team-level allocation",
       "Usage anomalies and waste detection",
-      "Automation for cluster and job optimization"
+      "Optimization recommendations"
     ],
     setup: {
-      method: "OAuth2 + read-only token",
+      method: "Read-only API",
       timeToValue: "15–20 minutes",
       permissions: "Read-only access to workspace and billing APIs"
     }
   },
+
+  // Data - Coming Soon
   {
     id: "snowflake",
     name: "Snowflake",
     category: "Data",
     status: "Coming soon",
-    short: "Warehouse consumption, compute credits, and storage.",
+    short: "Warehouse consumption and credits for data spend.",
     whatWeIngest: [
       "Account usage views and query costs",
-      "Storage metrics and capacity planning",
+      "Storage metrics and capacity",
       "Compute credit consumption",
       "User and role metadata"
     ],
@@ -158,12 +240,14 @@ export const integrationsData: Integration[] = [
       permissions: "Read-only, scoped to account usage and information schemas"
     }
   },
+
+  // AI - Available
   {
     id: "openai",
     name: "OpenAI",
     category: "AI",
-    status: "Beta",
-    short: "API usage, model consumption, and token costs.",
+    status: "Available",
+    short: "API usage, token consumption, and cost signals.",
     whatWeIngest: [
       "API usage and request counts",
       "Token consumption by model",
@@ -177,41 +261,19 @@ export const integrationsData: Integration[] = [
       "Optimization for prompt efficiency"
     ],
     setup: {
-      method: "API key with usage read access",
+      method: "Read-only API",
       timeToValue: "10–15 minutes",
       permissions: "Read-only, scoped to usage and billing APIs"
     }
   },
-  {
-    id: "azure-openai",
-    name: "Azure OpenAI",
-    category: "AI",
-    status: "Coming soon",
-    short: "Deployment usage and token consumption across regions.",
-    whatWeIngest: [
-      "Deployment usage metrics",
-      "Token counts by model and endpoint",
-      "Regional and quota data",
-      "Cost allocation by deployment"
-    ],
-    outputs: [
-      "Cost reporting by deployment",
-      "Team and project allocation",
-      "Usage anomalies",
-      "Optimization paths"
-    ],
-    setup: {
-      method: "Azure Service Principal",
-      timeToValue: "20–30 minutes",
-      permissions: "Read-only, scoped to Cognitive Services"
-    }
-  },
+
+  // Kubernetes - Available
   {
     id: "kubernetes",
     name: "Kubernetes",
     category: "Kubernetes",
-    status: "Beta",
-    short: "Pod and node resource usage with workload attribution.",
+    status: "Available",
+    short: "Cluster usage and workload attribution via agent.",
     whatWeIngest: [
       "Node and pod metrics from Prometheus",
       "Container resource requests and limits",
@@ -225,89 +287,251 @@ export const integrationsData: Integration[] = [
       "Automation for resource management"
     ],
     setup: {
-      method: "Agent deployment + Prometheus scrape",
+      method: "Agent",
       timeToValue: "30–45 minutes",
-      permissions: "Read-only access to cluster metrics and labels"
+      permissions: "Agent with minimal telemetry, read-only access to cluster metrics"
     }
   },
+
   {
-    id: "microsoft-365",
-    name: "Microsoft 365",
-    category: "SaaS",
-    status: "Coming soon",
-    short: "License usage and seat allocation across the organization.",
+    id: "openshift",
+    name: "OpenShift",
+    category: "Kubernetes",
+    status: "Available",
+    short: "Cluster and namespace attribution for enterprise platforms.",
     whatWeIngest: [
-      "License and subscription data",
-      "User and seat metrics",
-      "Feature usage analytics",
-      "Tenant and domain information"
+      "Cluster and node metrics",
+      "Namespace and project data",
+      "Pod and container resource usage",
+      "User and team assignments"
     ],
     outputs: [
-      "License cost reporting",
-      "Department-level allocation",
-      "Unused license detection",
-      "Optimization recommendations"
+      "Cost reporting by namespace and team",
+      "Project-level allocation",
+      "Workload optimization recommendations",
+      "Automation for governance"
     ],
     setup: {
-      method: "Graph API with application permissions",
-      timeToValue: "15–25 minutes",
-      permissions: "Read-only, scoped to organization and license data"
+      method: "Agent",
+      timeToValue: "30–45 minutes",
+      permissions: "Agent with read-only access to cluster and project data"
     }
   },
+
+  // Infrastructure - Available
   {
-    id: "salesforce",
-    name: "Salesforce",
-    category: "SaaS",
-    status: "Coming soon",
-    short: "Org usage, feature consumption, and licensing.",
+    id: "vcenter",
+    name: "vCenter",
+    aliases: ["VMware"],
+    category: "Infrastructure",
+    status: "Available",
+    short: "Virtual infrastructure inventory and usage attribution.",
     whatWeIngest: [
-      "Org metrics and feature flags",
-      "License and edition data",
-      "Storage and API usage",
-      "User and role information"
+      "VM and host inventory",
+      "Resource utilization metrics",
+      "Tags and custom attributes",
+      "Cluster and datacenter data"
     ],
     outputs: [
-      "Cost reporting by department and use case",
-      "License utilization analysis",
-      "Unused feature detection",
-      "Optimization paths"
+      "Cost reporting by VM and business unit",
+      "Right-sizing and optimization paths",
+      "Resource utilization analysis",
+      "Chargeback and allocation"
     ],
     setup: {
-      method: "OAuth2 + service account",
+      method: "Read-only API",
       timeToValue: "20–30 minutes",
-      permissions: "Read-only, scoped to org data and system logs"
+      permissions: "Read-only, scoped to inventory and metrics"
     }
   },
+
+  // Identity - Available
   {
-    id: "datadog",
-    name: "Datadog",
-    category: "Observability",
-    status: "Coming soon",
-    short: "Platform usage, ingestion, and feature consumption.",
+    id: "oauth-microsoft",
+    name: "OAuth: Microsoft",
+    category: "Identity",
+    status: "Available",
+    short: "SSO via Microsoft OAuth for secure login.",
     whatWeIngest: [
-      "Organization and account metrics",
-      "Ingestion rates by product",
-      "Feature usage and SKU data",
-      "Retention and quota information"
+      "User identity and attributes",
+      "Organization and tenant data",
+      "Group and role assignments",
+      "Session and authentication logs"
     ],
     outputs: [
-      "Cost reporting by product and team",
-      "Allocation by resource and use case",
-      "Waste detection and optimization",
-      "Automation for sampling and retention"
+      "User-based cost allocation",
+      "Team and department attribution",
+      "Access control and governance",
+      "Compliance and audit trails"
     ],
     setup: {
-      method: "API key with organization access",
-      timeToValue: "15–20 minutes",
-      permissions: "Read-only, scoped to organization and usage APIs"
+      method: "OAuth2 integration",
+      timeToValue: "10–15 minutes",
+      permissions: "Read-only, scoped to user identity and attributes"
     }
   },
+
+  {
+    id: "oauth-google",
+    name: "OAuth: Google",
+    category: "Identity",
+    status: "Available",
+    short: "SSO via Google OAuth for secure login.",
+    whatWeIngest: [
+      "User identity and profile data",
+      "Organization and workspace data",
+      "Group and role assignments",
+      "Session and sign-in logs"
+    ],
+    outputs: [
+      "User-based cost allocation",
+      "Team attribution",
+      "Access control and governance",
+      "Audit trails"
+    ],
+    setup: {
+      method: "OAuth2 integration",
+      timeToValue: "10–15 minutes",
+      permissions: "Read-only, scoped to user identity"
+    }
+  },
+
+  {
+    id: "entra-id",
+    name: "Microsoft Entra ID",
+    aliases: ["Azure AD"],
+    category: "Identity",
+    status: "Available",
+    short: "Directory sync for identity-based allocation and governance.",
+    whatWeIngest: [
+      "User and group metadata",
+      "Role assignments and permissions",
+      "Tenant and domain configuration",
+      "Directory sync data"
+    ],
+    outputs: [
+      "Team-based cost allocation",
+      "Department and cost center mapping",
+      "Access control and audit trails",
+      "Compliance reporting"
+    ],
+    setup: {
+      method: "Read-only API",
+      timeToValue: "15–25 minutes",
+      permissions: "Read-only, scoped to directory and user data"
+    }
+  },
+
+  // Ticketing - Available
+  {
+    id: "jira",
+    name: "Jira",
+    category: "Ticketing",
+    status: "Available",
+    short: "Tickets and ownership context for allocation and ops.",
+    whatWeIngest: [
+      "Project and issue metadata",
+      "Epic and story tracking",
+      "Sprint and team assignment",
+      "Custom field and status data"
+    ],
+    outputs: [
+      "Cost allocation by project and epic",
+      "Team-level attribution",
+      "ROI and delivery cost analysis",
+      "Automation for issue-based governance"
+    ],
+    setup: {
+      method: "Read-only API",
+      timeToValue: "15–20 minutes",
+      permissions: "Read-only, scoped to projects and issues"
+    }
+  },
+
+  {
+    id: "servicenow",
+    name: "ServiceNow",
+    category: "Ticketing",
+    status: "Available",
+    short: "ITSM + ownership context for governance and accountability.",
+    whatWeIngest: [
+      "Configuration items and CMDB data",
+      "Incident and change tracking",
+      "Service and SLA metrics",
+      "Custom records and workflows"
+    ],
+    outputs: [
+      "Service-level cost allocation",
+      "IT cost attribution and chargeback",
+      "Compliance and audit reporting",
+      "Automation for provisioning and deprovisioning"
+    ],
+    setup: {
+      method: "Read-only API",
+      timeToValue: "20–30 minutes",
+      permissions: "Read-only, scoped to CMDB and service data"
+    }
+  },
+
+  // Collaboration - Available
+  {
+    id: "slack",
+    name: "Slack",
+    category: "Collaboration",
+    status: "Available",
+    short: "Alerts and notifications delivery for anomalies and automation.",
+    whatWeIngest: [
+      "Workspace and channel metadata",
+      "Team and user information",
+      "Notification and event logs",
+      "Integration activity data"
+    ],
+    outputs: [
+      "Real-time cost anomaly alerts",
+      "Automation approval workflows",
+      "Team-based notifications",
+      "Governance and compliance alerts"
+    ],
+    setup: {
+      method: "Webhook",
+      timeToValue: "10–15 minutes",
+      permissions: "Webhook integration, no data ingestion"
+    }
+  },
+
+  {
+    id: "microsoft-teams",
+    name: "Microsoft Teams",
+    category: "Collaboration",
+    status: "Available",
+    short: "Notifications and approvals for automation workflows.",
+    whatWeIngest: [
+      "Organization and team data",
+      "Channel and user information",
+      "Message and notification logs",
+      "Integration activity"
+    ],
+    outputs: [
+      "Real-time cost alerts and anomalies",
+      "Automation approval workflows",
+      "Team notifications and updates",
+      "Governance alerts"
+    ],
+    setup: {
+      method: "Webhook",
+      timeToValue: "10–15 minutes",
+      permissions: "Webhook integration, no data ingestion"
+    }
+  },
+
+  // Observability - Available
   {
     id: "cloud-monitoring",
     name: "Cloud Monitoring",
+    aliases: ["CloudWatch", "Azure Monitor", "Google Monitoring"],
     category: "Observability",
-    status: "Coming soon",
-    short: "Logs, metrics, and infrastructure data from major clouds.",
+    status: "Available",
+    short: "Signals from CloudWatch, Azure Monitor, and Google monitoring.",
     whatWeIngest: [
       "CloudWatch / Azure Monitor / GCP Monitoring data",
       "Log ingestion and retention metrics",
@@ -321,129 +545,35 @@ export const integrationsData: Integration[] = [
       "Automation for retention and sampling"
     ],
     setup: {
-      method: "Cloud-native integration or API",
+      method: "Read-only API",
       timeToValue: "20–35 minutes",
       permissions: "Read-only, scoped to logs and metrics"
     }
   },
+
+  // SaaS - Coming Soon
   {
-    id: "billing-exports",
-    name: "Billing Exports",
-    category: "FinOps",
-    status: "Available",
-    short: "S3, Azure Blob, or GCS exports for custom pipelines.",
-    whatWeIngest: [
-      "CSV or Parquet billing exports",
-      "Multi-account or multi-tenant data",
-      "Custom dimension and tagging",
-      "Real-time and scheduled delivery"
-    ],
-    outputs: [
-      "Direct integration with data warehouses",
-      "Custom reporting and ML pipelines",
-      "Advanced anomaly detection",
-      "Full automation and governance"
-    ],
-    setup: {
-      method: "S3 / Blob / GCS object storage",
-      timeToValue: "15–30 minutes",
-      permissions: "Read-only, scoped to billing bucket"
-    }
-  },
-  {
-    id: "okta",
-    name: "Okta",
-    category: "Identity",
+    id: "top-saas",
+    name: "Top SaaS (Top 10)",
+    category: "SaaS",
     status: "Coming soon",
-    short: "Identity and access context for cost allocation.",
+    short: "Key SaaS spend and usage normalization.",
     whatWeIngest: [
-      "User and group data",
-      "Application assignments",
-      "Directory and domain information",
-      "Session and event logs"
+      "Billing and subscription data",
+      "Usage and feature consumption",
+      "License and seat allocation",
+      "Cost and pricing metadata"
     ],
     outputs: [
-      "User and team cost allocation",
-      "Department and project attribution",
-      "Access control and auditability",
-      "Compliance and governance reporting"
+      "SaaS cost reporting and allocation",
+      "License utilization analysis",
+      "Spend anomalies and optimization",
+      "Governance and compliance"
     ],
     setup: {
-      method: "OAuth2 + API token",
-      timeToValue: "15–20 minutes",
-      permissions: "Read-only, scoped to users, groups, and apps"
-    }
-  },
-  {
-    id: "entra-id",
-    name: "Microsoft Entra ID",
-    category: "Identity",
-    status: "Coming soon",
-    short: "Azure AD user and group data for allocation.",
-    whatWeIngest: [
-      "User and group metadata",
-      "Role assignments and permissions",
-      "Tenant and domain configuration",
-      "Directory sync and federated identity"
-    ],
-    outputs: [
-      "Team-based cost allocation",
-      "Department and cost center mapping",
-      "Access control and audit trails",
-      "Compliance reporting"
-    ],
-    setup: {
-      method: "Service Principal with directory read",
-      timeToValue: "15–25 minutes",
-      permissions: "Read-only, scoped to directory and user data"
-    }
-  },
-  {
-    id: "jira",
-    name: "Jira",
-    category: "Ticketing",
-    status: "Coming soon",
-    short: "Project and issue tracking for cost attribution.",
-    whatWeIngest: [
-      "Project and issue metadata",
-      "Epic and story tracking",
-      "Sprint and team assignment",
-      "Custom field and status data"
-    ],
-    outputs: [
-      "Cost allocation by project and epic",
-      "Team-level attribution",
-      "ROI and delivery cost analysis",
-      "Optimization recommendations"
-    ],
-    setup: {
-      method: "API token with project read access",
-      timeToValue: "15–20 minutes",
-      permissions: "Read-only, scoped to projects and issues"
-    }
-  },
-  {
-    id: "servicenow",
-    name: "ServiceNow",
-    category: "Ticketing",
-    status: "Coming soon",
-    short: "IT Service Management data for cost and compliance.",
-    whatWeIngest: [
-      "Configuration items and CMDB data",
-      "Incident and change tracking",
-      "Service and SLA metrics",
-      "Custom record and workflow data"
-    ],
-    outputs: [
-      "Service-level cost allocation",
-      "IT cost attribution and chargeback",
-      "Compliance and audit reporting",
-      "Automation for provisioning and deprovisioning"
-    ],
-    setup: {
-      method: "REST API with service account",
-      timeToValue: "20–30 minutes",
-      permissions: "Read-only, scoped to CMDB and service data"
+      method: "APIs vary by vendor",
+      timeToValue: "20–40 minutes",
+      permissions: "Read-only, scoped to billing and usage"
     }
   }
 ];
