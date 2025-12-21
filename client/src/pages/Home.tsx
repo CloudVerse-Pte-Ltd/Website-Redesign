@@ -73,7 +73,11 @@ export default function Home() {
               alt="Infogain" 
               className="h-6 w-auto"
             />
-            <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">MaxLife Insurance</span>
+            <img 
+              src="/assets/cloudverse-import/images/partners/maxlife.svg" 
+              alt="MaxLife Insurance" 
+              className="h-6 w-auto"
+            />
             <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">Shaw Industries</span>
             <span className="text-[13px] font-medium text-cv-muted uppercase tracking-widest">SISL Infotech</span>
           </div>
