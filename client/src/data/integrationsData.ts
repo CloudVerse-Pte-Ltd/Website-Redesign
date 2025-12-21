@@ -528,26 +528,24 @@ export const integrationsData: Integration[] = [
   {
     id: "cloud-monitoring",
     name: "Cloud Monitoring",
-    aliases: ["CloudWatch", "Azure Monitor", "Google Monitoring"],
+    aliases: ["CloudWatch", "Azure Monitor", "Google Monitoring", "GCP Monitoring", "Ops Suite"],
     category: "Observability",
     status: "Available",
-    short: "Signals from CloudWatch, Azure Monitor, and Google monitoring.",
+    short: "Signals from major cloud monitoring suites.",
     whatWeIngest: [
-      "CloudWatch / Azure Monitor / GCP Monitoring data",
-      "Log ingestion and retention metrics",
-      "Infrastructure metrics and alarms",
-      "Custom metric and dashboard usage"
+      "CloudWatch metrics and usage signals",
+      "Azure Monitor signals for resources and services",
+      "Google Cloud Monitoring / Ops Suite signals"
     ],
     outputs: [
-      "Observability cost allocation",
-      "Log volume analysis and optimization",
-      "Anomaly detection on ingestion",
-      "Automation for retention and sampling"
+      "Faster anomaly investigation",
+      "Enriched recommendations and automation guardrails",
+      "Ops-level alerts alongside FinOps context"
     ],
     setup: {
       method: "Read-only API",
-      timeToValue: "20–35 minutes",
-      permissions: "Read-only, scoped to logs and metrics"
+      timeToValue: "15–30 minutes",
+      permissions: "Read-only, scoped to monitoring signals"
     }
   },
 
