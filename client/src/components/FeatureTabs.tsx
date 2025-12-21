@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Skeleton } from "./Skeleton";
 import { Check } from "lucide-react";
 
 const tabs = [
@@ -9,6 +8,7 @@ const tabs = [
     label: "Visibility",
     title: "See every dollar, everywhere.",
     description: "Get a unified view of your cloud spend across AWS, Azure, GCP, and Kubernetes without switching portals.",
+    image: "/assets/cloudverse-import/images/platform/visdash.svg",
     bullets: [
       "Real-time cost ingestion and normalization",
       "Multi-cloud dashboards out of the box",
@@ -20,6 +20,7 @@ const tabs = [
     label: "Allocation",
     title: "Attribute 100% of costs.",
     description: "Map cloud spend to the business units, teams, and products that actually drive consumption.",
+    image: "/assets/cloudverse-import/images/platform/optidash.svg", // Using optidash as proxy for allocation
     bullets: [
       "AI-driven tag correction and mapping",
       "Shared cost splitting rules",
@@ -31,6 +32,7 @@ const tabs = [
     label: "Optimization",
     title: "Cut waste, not velocity.",
     description: "Find and fix inefficiencies with safe, automated recommendations engineers will actually trust.",
+    image: "/assets/cloudverse-import/images/platform/optidash.svg",
     bullets: [
       "Rightsizing for EC2, RDS, and Kubernetes",
       "Automated spot instance management",
@@ -42,6 +44,7 @@ const tabs = [
     label: "Governance",
     title: "Stay compliant automatically.",
     description: "Enforce budget guardrails and security policies without becoming a bottleneck for deployment.",
+    image: "/assets/cloudverse-import/images/platform/visdash.svg",
     bullets: [
       "Budget anomaly detection and alerting",
       "Policy-as-code enforcement",
@@ -53,6 +56,7 @@ const tabs = [
     label: "FinOps for AI",
     title: "Manage AI/ML unit economics.",
     description: "Track the specific cost of training models and inference endpoints to understand ROI.",
+    image: "/assets/cloudverse-import/images/platform/Dashboard.svg",
     bullets: [
       "GPU utilization tracking",
       "Model training cost attribution",
@@ -109,12 +113,12 @@ export function FeatureTabs() {
           </ul>
         </div>
         
-        <div className="w-full aspect-[4/3] relative">
-           <Skeleton className="w-full h-full shadow-cv-card bg-cv-surface" />
-           {/* Decorator to show it changes */}
-           <div className="absolute top-6 left-6 bg-white/50 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium border border-cv-line">
-             {activeContent.label} View
-           </div>
+        <div className="w-full aspect-[4/3] relative rounded-cv overflow-hidden border border-cv-line shadow-cv-card bg-cv-surface">
+           <img 
+              src={activeContent.image} 
+              alt={activeContent.title}
+              className="w-full h-full object-cover"
+           />
         </div>
       </div>
     </div>

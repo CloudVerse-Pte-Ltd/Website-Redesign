@@ -38,8 +38,12 @@ export default function Platform() {
               </Link>
             </div>
           </div>
-          <div className="flex-1 w-full aspect-[4/3]">
-             <Skeleton className="shadow-2xl border-cv-line bg-cv-surface" />
+          <div className="flex-1 w-full aspect-[4/3] rounded-cv overflow-hidden border border-cv-line shadow-2xl">
+             <img 
+               src="/assets/cloudverse-import/images/platform/Dashboard.svg" 
+               alt="Platform Dashboard"
+               className="w-full h-full object-cover bg-cv-surface"
+             />
           </div>
         </div>
       </Section>

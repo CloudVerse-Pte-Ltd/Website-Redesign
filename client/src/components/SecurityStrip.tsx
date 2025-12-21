@@ -16,13 +16,9 @@ export function SecurityStrip() {
             CloudVerse™ is designed for enterprise security—from access controls to auditability.
           </p>
           
-          <div className="flex flex-wrap justify-center gap-4">
-             <div className="flex items-center gap-2 text-[13px] font-medium bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
-                <Shield className="w-4 h-4" /> ISO 27001
-             </div>
-             <div className="flex items-center gap-2 text-[13px] font-medium bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
-                <Shield className="w-4 h-4" /> SOC 2 Type II
-             </div>
+          <div className="flex flex-wrap justify-center gap-8 items-center pt-2 grayscale opacity-90">
+             <img src="/assets/cloudverse-import/images/aboutUs/iso.png" alt="ISO 27001" className="h-16 w-auto" />
+             <img src="/assets/cloudverse-import/images/aboutUs/aicpa.png" alt="SOC 2 Type II" className="h-16 w-auto" />
           </div>
           
           <div className="pt-4">

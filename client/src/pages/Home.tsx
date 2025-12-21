@@ -38,9 +38,13 @@ export default function Home() {
           ISO 27001 and SOC 2 Type II certified.
         </p>
         
-        {/* Skeleton UI Hero */}
-        <div className="mx-auto max-w-[1000px] aspect-[16/9]">
-           <Skeleton className="shadow-2xl border-cv-line" />
+        {/* Hero Image */}
+        <div className="relative mx-auto max-w-[1000px] aspect-[16/9] bg-gradient-to-b from-secondary/50 to-secondary rounded-cv border border-cv-line shadow-2xl overflow-hidden flex items-center justify-center group">
+          <img 
+             src="/assets/cloudverse-import/_next/static/media/dashboard1.2389ae47.png" 
+             alt="CloudVerse Dashboard" 
+             className="w-full h-full object-cover"
+          />
         </div>
       </Section>
 
