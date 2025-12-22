@@ -63,7 +63,7 @@ export default function ResourcesGuides() {
                 placeholder="Search guides..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-2.5 text-sm rounded-lg border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-cv-ink placeholder:text-cv-muted/50 focus:outline-none focus:ring-1 focus:ring-primary"
+                className="w-full px-4 py-2.5 text-sm rounded-lg border border-cv-line bg-cv-surface2 text-cv-ink placeholder:text-cv-muted/50 focus:outline-none focus:ring-1 focus:ring-primary"
                 data-testid="input-search-guides"
               />
             </div>
@@ -74,7 +74,7 @@ export default function ResourcesGuides() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as "Newest" | "Featured")}
-                className="px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-cv-ink focus:outline-none focus:ring-1 focus:ring-primary"
+                className="px-3 py-2 text-sm rounded-lg border border-cv-line bg-cv-surface2 text-cv-ink focus:outline-none focus:ring-1 focus:ring-primary"
                 data-testid="select-sort"
               >
                 <option value="Newest">Newest</option>
@@ -90,7 +90,7 @@ export default function ResourcesGuides() {
               className={`text-sm font-medium px-4 py-2 rounded-full border transition-colors ${
                 selectedCategory === "All"
                   ? "border-primary bg-primary/10 text-primary"
-                  : "border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-cv-muted hover:bg-gray-100 dark:hover:bg-white/10"
+                  : "border-cv-line bg-cv-surface2 text-cv-muted hover:bg-cv-line/30"
               }`}
               data-testid="filter-category-all"
             >
@@ -103,7 +103,7 @@ export default function ResourcesGuides() {
                 className={`text-sm font-medium px-4 py-2 rounded-full border transition-colors ${
                   selectedCategory === category
                     ? "border-primary bg-primary/10 text-primary"
-                    : "border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-cv-muted hover:bg-gray-100 dark:hover:bg-white/10"
+                    : "border-cv-line bg-cv-surface2 text-cv-muted hover:bg-cv-line/30"
                 }`}
                 data-testid={`filter-category-${category.toLowerCase().replace(/\s+/g, '-')}`}
               >
@@ -127,12 +127,12 @@ export default function ResourcesGuides() {
                 <Link
                   key={guide.slug}
                   href={`/resources/guides/${guide.slug}`}
-                  className="block rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-6 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                  className="block rounded-xl border border-cv-line bg-cv-surface2 p-6 hover:bg-cv-line/30 transition-colors"
                   data-track="resources_guide_open"
                   data-testid={`card-guide-${guide.slug}`}
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-medium px-2 py-1 rounded border border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-white/5 text-cv-muted">
+                    <span className="text-xs font-medium px-2 py-1 rounded border border-cv-line bg-cv-surface text-cv-muted">
                       {guide.category}
                     </span>
                     {guide.featured && (

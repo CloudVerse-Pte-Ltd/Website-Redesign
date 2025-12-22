@@ -41,7 +41,7 @@ export default function Resources() {
         <div className="cv-container max-w-[1000px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Guides Card */}
-            <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-6 md:p-8">
+            <div className="rounded-2xl border border-cv-line bg-cv-surface2 p-6 md:p-8">
               <h3 className="text-lg font-semibold text-cv-ink mb-3">Guides</h3>
               <p className="text-sm text-cv-muted mb-6">
                 Playbooks and best practices for Finance, Engineering, and platform teams.
@@ -52,7 +52,7 @@ export default function Resources() {
             </div>
 
             {/* Documentation Card */}
-            <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-6 md:p-8">
+            <div className="rounded-2xl border border-cv-line bg-cv-surface2 p-6 md:p-8">
               <h3 className="text-lg font-semibold text-cv-ink mb-3">Documentation</h3>
               <p className="text-sm text-cv-muted mb-6">
                 Setup, integrations, security, RBAC, and platform reference.
@@ -74,9 +74,9 @@ export default function Resources() {
               <Link 
                 key={guide.slug} 
                 href={`/resources/guides/${guide.slug}`}
-                className="block rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-5 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                className="block rounded-xl border border-cv-line bg-cv-surface2 p-5 hover:bg-cv-line/30 transition-colors"
               >
-                <span className="text-xs font-medium px-2 py-1 rounded border border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-white/5 text-cv-muted inline-block mb-3">
+                <span className="text-xs font-medium px-2 py-1 rounded border border-cv-line bg-cv-surface text-cv-muted inline-block mb-3">
                   {guide.category}
                 </span>
                 <h4 className="text-sm font-semibold text-cv-ink mb-2 line-clamp-2">
@@ -103,7 +103,7 @@ export default function Resources() {
               <Link
                 key={category}
                 href={`/resources/guides?category=${encodeURIComponent(category)}`}
-                className="text-sm font-medium px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-cv-muted hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                className="text-sm font-medium px-4 py-2 rounded-full border border-cv-line bg-cv-surface2 text-cv-muted hover:bg-cv-line/30 transition-colors"
               >
                 {category}
               </Link>

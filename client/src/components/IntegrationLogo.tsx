@@ -26,7 +26,7 @@ export function IntegrationLogo({ name, logo, size = 22 }: IntegrationLogoProps)
   if (!logo?.src || imgFailed) {
     return (
       <div
-        className="rounded-full bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 flex items-center justify-center text-xs font-semibold text-cv-muted"
+        className="rounded-full bg-cv-surface2 border border-cv-line flex items-center justify-center text-xs font-semibold text-cv-muted"
         style={{ height: size, width: size }}
         aria-label={`${name} logo`}
       >

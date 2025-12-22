@@ -105,7 +105,7 @@ export default function Security() {
             {deploymentOptions.map((option, idx) => (
               <div 
                 key={idx} 
-                className="border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 bg-gray-50 dark:bg-white/[0.02] flex flex-col h-full"
+                className="border border-cv-line rounded-2xl p-6 sm:p-8 bg-cv-surface2 flex flex-col h-full"
               >
                 <h3 className="text-xl font-semibold text-cv-ink mb-1">{option.title}</h3>
                 <p className="text-xs text-blue-400 font-medium mb-3">Best for: {option.bestFor}</p>
@@ -128,7 +128,7 @@ export default function Security() {
         <div className="cv-container max-w-[1000px]">
           <h2 className="cv-h2 mb-8 text-center">Designed for enterprise trust.</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <div className="border border-gray-200 dark:border-white/10 rounded-lg p-6 bg-gray-50 dark:bg-white/[0.02]">
+            <div className="border border-cv-line rounded-lg p-6 bg-cv-surface2">
               <h3 className="text-sm font-semibold text-cv-ink mb-3">
                 Least-privilege by default
               </h3>
@@ -137,7 +137,7 @@ export default function Security() {
               </p>
             </div>
 
-            <div className="border border-gray-200 dark:border-white/10 rounded-lg p-6 bg-gray-50 dark:bg-white/[0.02]">
+            <div className="border border-cv-line rounded-lg p-6 bg-cv-surface2">
               <h3 className="text-sm font-semibold text-cv-ink mb-3">
                 Auditable actions
               </h3>
@@ -146,7 +146,7 @@ export default function Security() {
               </p>
             </div>
 
-            <div className="border border-gray-200 dark:border-white/10 rounded-lg p-6 bg-gray-50 dark:bg-white/[0.02]">
+            <div className="border border-cv-line rounded-lg p-6 bg-cv-surface2">
               <h3 className="text-sm font-semibold text-cv-ink mb-3">
                 Data minimization
               </h3>
@@ -168,7 +168,7 @@ export default function Security() {
             {["ISO 27001", "SOC 2 Type II", "GDPR Ready", "HIPAA Compatible"].map((cert) => (
               <span
                 key={cert}
-                className="text-xs font-semibold tracking-wide uppercase px-4 py-2 border border-gray-200 dark:border-white/10 rounded-full text-cv-muted"
+                className="text-xs font-semibold tracking-wide uppercase px-4 py-2 border border-cv-line rounded-full text-cv-muted"
               >
                 {cert}
               </span>

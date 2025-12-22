@@ -99,7 +99,7 @@ export default function Integrations() {
               placeholder="Search integrations…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-cv-ink placeholder-cv-muted focus:outline-none focus:border-gray-300 dark:focus:border-white/20 transition-colors"
+              className="w-full px-4 py-3 rounded-lg border border-cv-line bg-cv-surface2 text-cv-ink placeholder-cv-muted focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
             />
           </div>
 
@@ -118,7 +118,7 @@ export default function Integrations() {
                     className={`px-3 py-1.5 text-sm rounded-lg transition-colors border ${
                       selectedCategory === cat
                         ? "bg-cv-ink text-cv-surface border-cv-ink"
-                        : "bg-transparent border-gray-200 dark:border-white/10 text-cv-muted hover:border-gray-300 dark:hover:border-white/20"
+                        : "bg-transparent border-cv-line text-cv-muted hover:bg-cv-surface2"
                     }`}
                   >
                     {cat}
@@ -135,7 +135,7 @@ export default function Integrations() {
               <select
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
-                className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-cv-ink focus:outline-none focus:border-gray-300 dark:focus:border-white/20 transition-colors"
+                className="px-3 py-1.5 text-sm rounded-lg border border-cv-line bg-cv-surface2 text-cv-ink focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
               >
                 {STATUSES.map((status) => (
                   <option key={status} value={status}>
@@ -184,7 +184,7 @@ export default function Integrations() {
                 body: "API, exports, and agents—depending on the platform."
               }
             ].map((card, idx) => (
-              <div key={idx} className="p-6 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/[0.025]">
+              <div key={idx} className="p-6 rounded-xl border border-cv-line bg-cv-surface2">
                 <h3 className="text-base font-semibold text-cv-ink mb-2">
                   {card.title}
                 </h3>

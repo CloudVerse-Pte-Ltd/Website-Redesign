@@ -70,7 +70,7 @@ export default function Pricing() {
         <div className="cv-container-full">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, idx) => (
-              <div key={idx} className="p-8 rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/[0.025] flex flex-col">
+              <div key={idx} className="p-8 rounded-2xl border border-cv-line bg-cv-surface2 flex flex-col">
                 <h3 className="text-xl font-semibold text-cv-ink mb-2">
                   {plan.name}
                 </h3>

@@ -16,7 +16,7 @@ export function IntegrationCard({ integration, onClick }: IntegrationCardProps) 
   return (
     <button
       onClick={() => onClick(integration)}
-      className="text-left p-5 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/[0.025] hover:border-gray-300 dark:hover:border-white/20 transition-colors"
+      className="text-left p-5 rounded-xl border border-cv-line bg-cv-surface2 hover:bg-cv-line/30 transition-colors"
       data-testid={`card-integration-${integration.id}`}
     >
       <div className="space-y-3">

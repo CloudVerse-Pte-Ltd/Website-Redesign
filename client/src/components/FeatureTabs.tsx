@@ -64,10 +64,10 @@ export function FeatureTabs() {
   const activeTabContent = featureTabs.find((tab) => tab.id === activeTab);
 
   return (
-    <div className="border border-gray-200 dark:border-white/10 rounded-2xl bg-gray-50 dark:bg-white/5 overflow-hidden">
+    <div className="border border-cv-line rounded-2xl bg-cv-surface2 overflow-hidden">
       {/* Tab buttons */}
       <div
-        className="flex flex-wrap border-b border-gray-200 dark:border-white/10 p-6"
+        className="flex flex-wrap border-b border-cv-line p-6"
         role="tablist"
       >
         {featureTabs.map((tab, idx) => (
@@ -119,7 +119,7 @@ export function FeatureTabs() {
           </div>
 
           <div className="hidden lg:flex items-center justify-center">
-            <div className="w-full aspect-[4/3] rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 overflow-hidden p-6">
+            <div className="w-full aspect-[4/3] rounded-2xl bg-cv-surface border border-cv-line overflow-hidden p-6">
               <div className="h-full w-full flex flex-col gap-4">
                 <div className="h-5 w-2/5 bg-cv-line/40 dark:bg-white/20 rounded-md"></div>
                 <div className="flex gap-4 flex-1">

@@ -56,7 +56,7 @@ export function IntegrationDrawer({ integration, onClose }: IntegrationDrawerPro
         </div>
 
         {/* Content */}
-        <div className="divide-y divide-gray-200 dark:divide-white/10">
+        <div className="divide-y divide-cv-line">
           {/* What we ingest */}
           <div className="px-5 md:px-6 py-5">
             <h3 className="text-xs uppercase tracking-widest text-cv-muted mb-3">
@@ -92,7 +92,7 @@ export function IntegrationDrawer({ integration, onClose }: IntegrationDrawerPro
             <h3 className="text-xs uppercase tracking-widest text-cv-muted mb-3">
               Setup requirements
             </h3>
-            <div className="rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-4 md:p-5">
+            <div className="rounded-xl border border-cv-line bg-cv-surface2 p-4 md:p-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <div className="text-xs uppercase tracking-widest text-cv-muted mb-1">
@@ -123,7 +123,7 @@ export function IntegrationDrawer({ integration, onClose }: IntegrationDrawerPro
           </div>
 
           {/* Actions */}
-          <div className="px-5 md:px-6 py-5 border-t border-gray-200 dark:border-white/10">
+          <div className="px-5 md:px-6 py-5 border-t border-cv-line">
             <div className="flex gap-3">
               <Button variant="secondary" size="lg" className="flex-1">
                 Request access
