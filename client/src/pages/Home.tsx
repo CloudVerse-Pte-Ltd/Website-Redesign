@@ -1,6 +1,7 @@
 import { BaseLayout } from "@/layouts/BaseLayout";
 import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
+import { HeroLogos } from "@/components/HeroLogos";
 import { track } from "@/lib/track";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
@@ -63,9 +64,9 @@ export default function Home() {
       <section className="pt-28 sm:pt-28 lg:pt-36 pb-24 sm:pb-24 lg:pb-32 relative overflow-hidden">
         <div className="hero-motion-bg absolute inset-0 -z-10" aria-hidden="true" />
         <div className="cv-container-full relative z-10">
-          <div className="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-16">
-            {/* Left: Copy Block */}
-            <div className="flex-1 text-left space-y-6 flex flex-col justify-center max-w-[44rem]">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-stretch">
+            {/* Left: Copy Block (spans 1 col) */}
+            <div className="lg:col-span-1 text-left space-y-6 flex flex-col justify-center max-w-[44rem]">
               <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase">
                 CloudVerse™
               </span>
@@ -96,8 +97,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Window Card with Outcomes */}
-            <div className="w-full lg:flex-1 lg:max-w-[640px] flex items-center">
+            {/* Middle: Window Card with Outcomes */}
+            <div className="lg:col-span-1 w-full flex items-center">
               <div className="w-full rounded-[28px] border border-white/10 bg-white/4 backdrop-blur-sm overflow-hidden">
                 {/* Window Header */}
                 <div className="bg-white/5 px-5 sm:px-6 py-3 sm:py-4 border-b border-white/10 flex items-center gap-2.5">
@@ -188,6 +189,11 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Right: Provider Logos */}
+            <div className="lg:col-span-1 w-full flex items-center justify-center">
+              <HeroLogos />
             </div>
           </div>
         </div>
