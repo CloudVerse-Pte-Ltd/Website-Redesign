@@ -31,7 +31,6 @@ export function SiteNav() {
     { href: ROUTES.security, label: "Security", track: "nav_security" },
     { href: ROUTES.resources, label: "Resources", track: "nav_resources" },
     { href: ROUTES.pricing, label: "Pricing", track: "nav_pricing" },
-    { href: ROUTES.company, label: "Company", track: "nav_company" },
   ];
 
   return (
