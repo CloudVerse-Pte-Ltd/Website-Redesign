@@ -14,7 +14,7 @@ const customerLogos = [
   { name: "Max Life Insurance", src: "/logos/axis-max-life-insurance-logo.svg", srcDark: "/logos/axis-max-life-insurance-logo.svg", className: "brightness-150" },
   { name: "Shaw Industries", srcLight: "/logos/logo-dark-Shaw.svg", srcDark: "/logos/logo-white-Shaw.svg", className: "" },
   { name: "SISL Infotech", srcLight: "/logos/logo-1-1-sisl.svg", srcDark: "/logos/logo-light-sisl.svg", className: "" },
-  { name: "Ogineys", srcLight: "/logos/ogineys-dark.svg", srcDark: "/logos/ogineys-light.svg", className: "" },
+  { name: "Ginesys", srcLight: "/logos/ginesys-dark.svg", srcDark: "/logos/ginesys-light.svg", className: "" },
 ];
 
 const heroOutcomesSet1 = [
