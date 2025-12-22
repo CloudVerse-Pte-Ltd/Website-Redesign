@@ -21,6 +21,15 @@ const heroOutcomes = [
   { title: "Multi-cloud Native", desc: "Support for AWS, Azure, GCP, and emerging platforms" },
 ];
 
+const supportedPlatforms = [
+  { name: "AWS", src: "/logos/aws.svg" },
+  { name: "Azure", src: "/logos/azure.svg" },
+  { name: "GCP", src: "/logos/gcp.svg" },
+  { name: "Alibaba Cloud", src: "/logos/alibaba.svg" },
+  { name: "Huawei Cloud", src: "/logos/huawei.svg" },
+  { name: "Tencent Cloud", src: "/logos/tencent.svg" },
+];
+
 export default function Home() {
   useEffect(() => {
     document.title = "CloudVerse™ — Cloud Financial Management";
@@ -82,19 +91,45 @@ export default function Home() {
                 </div>
 
                 {/* Window Content */}
-                <div className="p-5 sm:p-6 space-y-4 sm:space-y-5">
-                  {heroOutcomes.map((outcome, idx) => (
-                    <div key={idx} className="flex gap-3">
-                      <div className="flex-1">
-                        <h4 className="text-[13px] sm:text-[14px] font-semibold text-blue-400 mb-1">
-                          {outcome.title}
-                        </h4>
-                        <p className="text-[12px] sm:text-[13px] text-gray-400">
-                          {outcome.desc}
-                        </p>
-                      </div>
+                <div className="p-5 sm:p-6">
+                  <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+                    {/* Left: Outcomes List */}
+                    <div className="flex-1 space-y-4 sm:space-y-5">
+                      {heroOutcomes.map((outcome, idx) => (
+                        <div key={idx} className="flex gap-3">
+                          <div className="flex-1">
+                            <h4 className="text-[13px] sm:text-[14px] font-semibold text-blue-400 mb-1">
+                              {outcome.title}
+                            </h4>
+                            <p className="text-[12px] sm:text-[13px] text-gray-400">
+                              {outcome.desc}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+
+                    {/* Right: Supported Platforms */}
+                    <div className="flex-1 flex flex-col">
+                      <h5 className="text-[11px] sm:text-[12px] font-semibold tracking-widest text-white/50 uppercase mb-4">
+                        Supported Platforms
+                      </h5>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 sm:gap-4 mb-4">
+                        {supportedPlatforms.map((platform) => (
+                          <div key={platform.name} className="flex items-center justify-center">
+                            <img
+                              src={platform.src}
+                              alt={platform.name}
+                              className="h-6 w-auto grayscale opacity-80"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      <p className="text-[11px] sm:text-[12px] text-gray-500">
+                        Plus data, Kubernetes, and AI platforms
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
