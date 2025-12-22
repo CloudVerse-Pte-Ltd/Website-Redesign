@@ -1,0 +1,70 @@
+Implement a slow crossfade inside the “OUTCOMES window” between 2 outcome sets (Visibility ↔ Automation), and add GPU/AI provider logos (OpenAI, Databricks) in the right column on the AIX page.
+
+IMPORTANT:
+- Premium/Apple feel only (no flashy animations).
+- Use crossfade (opacity), not slide.
+- Respect prefers-reduced-motion.
+- Keep typography and spacing consistent with the existing AIX-style window.
+
+========================================================
+PART A — OUTCOMES CROSSFADE (HOME + PLATFORM where used)
+
+1) Create two outcome sets:
+
+SET A (Visibility):
+- Unified Cost Visibility — Real-time view across clouds and services
+- Clean Allocation — Normalized dimensions for showback and chargeback
+- Real-time Anomalies — Detect and predict spikes before impact
+- Compliance Ready — Audit trails, access controls, deployment options
+- Multi-cloud Native — Built for heterogeneous enterprise environments
+
+SET B (Automation):
+- Automated Optimization — Apply savings actions with guardrails
+- 40+ ML Models — Recommendations powered by predictive models
+- Realized Savings — Track outcomes, not just estimates
+- Policy-driven Control — Approvals, RBAC, and safe defaults
+- AI-era Spend Ops — Optimize cloud, data, and AI workloads
+
+2) In the OutcomesWindow component:
+- Render BOTH sets stacked in the same area
+- Crossfade between them using CSS animation (opacity only)
+- Duration: 8s per set, with 1s fade transition
+- Total loop: 16s (alternate)
+- Keep layout height stable so the window does not jump
+
+Implementation approach:
+- Wrap each set in an absolutely-positioned panel:
+  position:absolute; inset:0;
+- Use keyframes to alternate opacity:
+  panelA visible first half, panelB visible second half
+- Use pointer-events:none for hidden panel
+- Keep content readable (no blur)
+
+3) Add prefers-reduced-motion:
+- If reduced motion, disable animation and show Set A only.
+
+========================================================
+PART B — RIGHT COLUMN: PROVIDER LOGOS (AIX PAGE)
+
+1) On the AIX page, in the right column “Supported platforms”/logo grid:
+- Add OpenAI and Databricks logos
+- Keep style consistent:
+  - grayscale
+  - opacity ~0.8
+  - height h-6
+  - no hover effects
+  - responsive wrap
+
+2) Keep the list minimal: don’t add more providers beyond OpenAI + Databricks right now.
+
+========================================================
+PART C — QA
+Verify:
+- Crossfade feels calm (not distracting)
+- No layout jump when swapping sets
+- Looks great on 375px / 768px / 1440px
+- Reduced-motion shows static Set A
+- AIX right-column shows OpenAI + Databricks correctly in both light/dark themes (if applicable)
+
+DELIVERABLE:
+Premium crossfading outcomes window + AIX right-column updated with OpenAI + Databricks.

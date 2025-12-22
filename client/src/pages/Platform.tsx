@@ -1,9 +1,19 @@
 import { BaseLayout } from "@/layouts/BaseLayout";
 import { Button } from "@/components/Button";
+import { MotionHero } from "@/components/MotionHero";
+import { OutcomesWindow } from "@/components/OutcomesWindow";
 import { FeatureTabs } from "@/components/FeatureTabs";
 import { track } from "@/lib/track";
 import { Link } from "wouter";
 import { useEffect } from "react";
+
+const platformPillars = [
+  { title: "Visibility across clouds and orgs", desc: "Real-time unified views across all providers and accounts" },
+  { title: "Developer FinOps (Shift-left)", desc: "Cost context in engineering workflows before changes ship" },
+  { title: "Autonomous Tag Engine", desc: "Normalized dimensions with drift detection and healing" },
+  { title: "Detected + predicted anomalies", desc: "Catch spend spikes and forecast risk before month-end" },
+  { title: "Automation with guardrails", desc: "Safe actions with approvals and realized savings tracking" },
+];
 
 const capabilities = [
   {
@@ -39,51 +49,41 @@ export default function Platform() {
 
   return (
     <BaseLayout>
-      {/* Hero */}
-      <section className="pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-16 lg:pb-20">
-        <div className="cv-container-full">
-          <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16">
-            <div className="flex-1 text-left space-y-4 sm:space-y-6 max-w-[620px]">
-              <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase">
-                CloudVerse™
-              </span>
-              <h1 className="cv-h1">Control cloud spend at every layer.</h1>
-              <p className="text-[15px] sm:text-[16px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[30px] text-cv-muted">
-                Visibility, allocation, anomalies, and automation—built for enterprise scale across cloud, data, and AI.
-              </p>
-              <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 pt-4">
-                <Link href="/demo" onClick={() => track("cta_demo", { location: "platform_hero" })}>
-                  <Button size="lg" className="w-full sm:w-auto">
-                    Book a demo
-                  </Button>
-                </Link>
-                <Link href="/integrations" onClick={() => track("cta_explore_integrations", { location: "platform_hero" })}>
-                  <Button variant="tertiary" size="lg" className="text-[14px] sm:text-[16px] lg:text-[17px] w-full sm:w-auto">
-                    Explore integrations
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex-1 w-full hidden md:block">
-              <div className="aspect-[4/3] w-full rounded-cv bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line overflow-hidden p-4 sm:p-6">
-                <div className="h-full w-full flex flex-col gap-4">
-                  <div className="h-5 sm:h-6 w-1/3 bg-cv-line/60 rounded-md"></div>
-                  <div className="flex gap-3 sm:gap-4 flex-1">
-                    <div className="w-1/4 h-full bg-cv-line/40 rounded-lg"></div>
-                    <div className="w-3/4 flex flex-col gap-3 sm:gap-4">
-                      <div className="h-1/3 w-full bg-cv-line/40 rounded-lg"></div>
-                      <div className="h-2/3 w-full bg-cv-line/40 rounded-lg"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <MotionHero>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="text-left space-y-4 sm:space-y-6 max-w-[44rem]">
+            <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase">
+              CloudVerse™ Platform
+            </span>
+            <h1 className="cv-h1">
+              A unified platform for visibility, allocation, and automation.
+            </h1>
+            <p className="text-[15px] sm:text-[16px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[30px] text-cv-muted max-w-[40rem]">
+              Manage cloud, data, and AI spend with clean dimensions, anomalies, and automated actions.
+            </p>
+            <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 pt-4">
+              <Link href="/demo" onClick={() => track("cta_demo", { location: "platform_hero" })}>
+                <Button size="lg" className="w-full sm:w-auto">
+                  Book a demo
+                </Button>
+              </Link>
+              <Link href="/integrations" onClick={() => track("cta_explore_integrations", { location: "platform_hero" })}>
+                <Button variant="tertiary" size="lg" className="w-full sm:w-auto">
+                  View integrations
+                </Button>
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Capabilities Grid */}
+          <div className="w-full max-w-[640px] mx-auto lg:mx-0">
+            <OutcomesWindow 
+              label="CloudVerse™ Pillars"
+              outcomes={platformPillars}
+            />
+          </div>
+        </div>
+      </MotionHero>
+
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="cv-container-full">
           <div className="text-center max-w-3xl mx-auto mb-10">
@@ -104,14 +104,12 @@ export default function Platform() {
         </div>
       </section>
 
-      {/* Feature Tabs Island */}
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="cv-container-full">
           <FeatureTabs />
         </div>
       </section>
 
-      {/* Workflow Strip */}
       <section className="py-10 sm:py-12 lg:py-14 border-y border-cv-line">
         <div className="cv-container-full">
           <div className="text-center mb-8">
@@ -134,7 +132,6 @@ export default function Platform() {
         </div>
       </section>
 
-      {/* Security Strip */}
       <section className="py-10 sm:py-12 lg:py-14">
         <div className="cv-container text-center">
           <div className="max-w-2xl mx-auto space-y-3">
@@ -149,7 +146,6 @@ export default function Platform() {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="cv-container text-center">
           <div className="max-w-2xl mx-auto space-y-4 sm:space-y-5">
