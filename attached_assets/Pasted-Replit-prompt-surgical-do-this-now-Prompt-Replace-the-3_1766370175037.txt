@@ -1,0 +1,95 @@
+Replit prompt (surgical, do this now)
+
+Prompt: Replace the 3 empty micro-visual grids in “How CloudVerse™ works” with real-looking micro-preview cards (not skeleton placeholders).
+
+In the Home “How CloudVerse™ works” section:
+
+Find the three bottom boxes under Connect / Normalize / Automate.
+
+Remove the current 3x3 empty square grids entirely.
+
+Replace them with a new reusable component:
+
+components/home/MicroPreview.tsx
+
+Props: variant: "connect" | "normalize" | "automate"
+
+Visual style (AIX premium):
+
+Container: rounded-2xl border border-white/10 bg-white/[0.04]
+
+Inner shadow: subtle, not heavy
+
+Height: h-[170px] sm:h-[180px]
+
+Padding: p-4 sm:p-5
+
+Add a small top label inside each card: text-[11px] tracking-[0.18em] text-white/50 uppercase
+
+Micro-preview content per variant:
+
+Variant: connect
+
+Top label: Typical setup
+
+Row of provider chips (pill badges): AWS, Azure, GCP, OCI + “+ more”
+
+A 3-line status list with tiny dots:
+
+“Read-only access”
+
+“Scoped roles”
+
+“Usage + billing signals”
+
+Bottom-right tiny tag: “Connections”
+
+Variant: normalize
+
+Top label: Normalized dimensions
+
+A 2-column mini mapping table (no real data):
+
+cost_center → Team
+
+env → Environment
+
+app → Product
+
+Row of dimension chips: Team, Product, Env, Owner
+
+Bottom-right tiny tag: “Cost model”
+
+Variant: automate
+
+Top label: Automation queue
+
+A list of 3 items with small “impact” pills:
+
+“Idle compute cleanup” (High)
+
+“Commitment right-size” (Medium)
+
+“Storage tiering” (Low)
+
+A small “Anomaly detected” badge with a tiny sparkline line beneath it (CSS-only or simple div bars)
+
+Bottom-right tiny tag: “Automation”
+
+Layout improvements:
+
+Reduce spacing so the cards feel integrated with the step content:
+
+Use mt-6 on desktop, mt-5 on mobile.
+
+Ensure cards align evenly and never overflow at smaller widths.
+
+Remove any skeleton loading styles from these cards. They should look “finished” even with mock data.
+
+Acceptance check
+
+The bottom area no longer looks empty or like placeholders.
+
+At a glance, each card communicates the step (connect/normalize/automate).
+
+Looks good on mobile: cards stack cleanly and keep height under control.

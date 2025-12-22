@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
+import { MicroPreview } from "./MicroPreview";
 
 const steps = [
   {
@@ -154,17 +155,8 @@ export function HowItWorks() {
                 </div>
 
                 {/* Micro Visual Tile */}
-                <div className="pt-4 lg:pt-6">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 backdrop-blur-sm">
-                    <div className="grid grid-cols-3 gap-2 mb-3">
-                      {[...Array(9)].map((_, i) => (
-                        <div key={i} className="w-full aspect-square rounded bg-white/10" />
-                      ))}
-                    </div>
-                    <p className="text-xs font-semibold text-white/50 uppercase tracking-widest">
-                      {step.visualLabel}
-                    </p>
-                  </div>
+                <div className="mt-5 lg:mt-6">
+                  <MicroPreview variant={idx === 0 ? "connect" : idx === 1 ? "normalize" : "automate"} />
                 </div>
               </div>
             ))}
