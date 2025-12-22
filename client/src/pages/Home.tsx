@@ -192,10 +192,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Provider Logos */}
-            <div className="lg:col-span-3 w-full flex items-center justify-center">
-              <HeroLogos />
-            </div>
           </div>
         </div>
       </section>

@@ -1,0 +1,159 @@
+Task 0 — Guardrails
+
+Do not change the locked Home hero headline/subhead/CTAs.
+
+Keep dark mode aesthetic and existing navbar.
+
+Only refactor the How CloudVerse works section + supporting layout tokens needed so it looks good at all breakpoints.
+
+Task 1 — Layout tokens (global consistency)
+
+Create shared layout constants:
+
+container: mx-auto w-full max-w-7xl px-6 sm:px-8
+
+Section vertical padding standard:
+
+default sections: py-16 sm:py-20
+
+hero: keep as-is
+
+Ensure every major section uses the same container width. Remove any hardcoded widths that cause “center drift” on resize.
+
+Task 2 — Replace “How CloudVerse works” with premium timeline
+
+Replace the existing plain block with a new component:
+
+components/home/HowItWorks.tsx
+
+Visual style:
+
+Background: subtle elevated panel: rounded-3xl border border-white/10 bg-white/[0.03]
+
+Add soft inner glow: shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_30px_80px_rgba(0,0,0,0.55)]
+
+Title + subhead centered
+
+Structure:
+
+Desktop (lg+): 3 cards in a row (grid-cols-3)
+
+Tablet/mobile: stacked (grid-cols-1) with a left timeline rail
+
+Add a timeline cue:
+
+Desktop: thin line behind cards (horizontal)
+
+Mobile: left vertical rail with numbered dots
+
+Use simple IntersectionObserver to animate “active step” (no heavy animation libs required)
+
+Each step is a “card” with:
+
+Number pill: 01 / 02 / 03
+
+Title
+
+One sentence
+
+Exactly 2 bullets
+
+A “micro visual tile” on the right (desktop) or below (mobile): a small frosted rectangle with tiny blocks, labeled.
+
+Copy (final for this section):
+
+Section title: How CloudVerse™ works
+
+Subtitle: Connect once. Normalize everything. Automate what you can.
+
+Step 01 — Connect
+
+Body: Read-only connections across clouds, data, and AI platforms.
+
+Bullets:
+
+Scoped access and tenant isolation
+
+Imports billing + usage signals
+
+Micro visual label: “Connections”
+
+Step 02 — Normalize
+
+Body: A unified cost model for accounts, tags, owners, services, and products.
+
+Bullets:
+
+Tag normalization + governance
+
+Allocation-ready dimensions
+
+Micro visual label: “Cost model”
+
+Step 03 — Automate
+
+Body: Recommendations and actions driven by 40+ ML models, with guardrails.
+
+Bullets:
+
+Detect + predict anomalies
+
+Track realized savings
+
+Micro visual label: “Automation”
+
+Task 3 — Make the section “feel premium” (subtle motion)
+
+Add a very subtle animated gradient wash behind the section panel (not the whole page):
+
+Use a pseudo-element div positioned absolute, blurred, opacity 20–30%.
+
+Animate slowly with CSS keyframes (8–12s) for slight movement.
+
+Keep motion minimal (Apple-like). No flashy parallax.
+
+Task 4 — Responsiveness + resize hardening (must fix)
+
+Ensure text never gets cramped:
+
+Heading clamp:
+
+text-3xl sm:text-4xl lg:text-5xl
+
+Body:
+
+text-base sm:text-lg text-white/70 leading-relaxed
+
+Ensure cards maintain spacing on mid widths:
+
+Use: gap-6 lg:gap-8
+
+Card padding: p-6 sm:p-7
+
+Ensure hero + navbar alignment stays consistent with the same container width.
+
+Task 5 — Wire behavior (don’t invent routes)
+
+Keep all existing links intact.
+
+For “Platform / Solutions / Integrations / Security / Resources / Pricing / Company”:
+
+Use the current project route map and existing hrefs in code.
+
+Do not create placeholder routes.
+
+If any link currently points nowhere, route it to the matching existing page in the repo (scan app/ routes).
+
+Run through Home → Platform → Integrations → Pricing to verify no broken navigation.
+
+Deliverables checklist
+
+ New HowItWorks section looks premium and not plain
+
+ Looks correct on mobile, tablet, desktop
+
+ No weird left/right empty space on resize
+
+ Timeline active step animates subtly on scroll
+
+ No broken nav links
