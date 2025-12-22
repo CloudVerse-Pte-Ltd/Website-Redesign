@@ -71,10 +71,10 @@ export function OutcomesWindow({
               <div className="space-y-5">
                 {currentOutcomes.slice(0, 4).map((outcome, idx) => (
                   <div key={idx} className="flex flex-col gap-1">
-                    <h4 className="text-[15px] font-semibold text-[#6aa3ff]">
+                    <h4 className="text-[15px] font-semibold text-[#5b9dff]">
                       {outcome.title}
                     </h4>
-                    <p className="text-sm text-white/65 leading-6">
+                    <p className="text-sm text-white/70 leading-6">
                       {outcome.desc}
                     </p>
                   </div>
@@ -92,10 +92,10 @@ export function OutcomesWindow({
                 <div className="space-y-5">
                   {(showSet2 ? outcomeSet2 : outcomes).slice(0, 4).map((outcome, idx) => (
                     <div key={idx} className="flex flex-col gap-1">
-                      <h4 className="text-[15px] font-semibold text-[#6aa3ff]">
+                      <h4 className="text-[15px] font-semibold text-[#5b9dff]">
                         {outcome.title}
                       </h4>
-                      <p className="text-sm text-white/65 leading-6">
+                      <p className="text-sm text-white/70 leading-6">
                         {outcome.desc}
                       </p>
                     </div>
@@ -116,19 +116,19 @@ export function OutcomesWindow({
               {/* Cloud Providers Section */}
               {cloudProviders.length > 0 && (
                 <div className="mb-6">
-                  <h6 className="text-[11px] uppercase tracking-widest text-white/35 font-semibold mb-3">
+                  <h6 className="text-[11px] uppercase tracking-widest text-white/60 font-semibold mb-3">
                     Cloud
                   </h6>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                     {cloudProviders.map((provider) => (
                       <div
                         key={provider.name}
-                        className="rounded-xl border border-white/10 bg-white/[0.03] h-11 flex items-center justify-center px-3 transition-all hover:opacity-100 hover:grayscale-0"
+                        className="rounded-xl border border-white/30 bg-white/[0.12] dark:bg-white/[0.08] h-11 flex items-center justify-center px-3 transition-all hover:bg-white/16 dark:hover:bg-white/12"
                       >
                         <img
                           src={provider.src}
                           alt={provider.name}
-                          className="h-5 w-auto grayscale opacity-80"
+                          className="h-5 w-auto brightness-0 dark:brightness-100 dark:invert-0 invert"
                         />
                       </div>
                     ))}
@@ -139,19 +139,19 @@ export function OutcomesWindow({
               {/* AI & Data Providers Section */}
               {aiProviders.length > 0 && (
                 <div>
-                  <h6 className="text-[11px] uppercase tracking-widest text-white/35 font-semibold mb-3">
+                  <h6 className="text-[11px] uppercase tracking-widest text-white/60 font-semibold mb-3">
                     AI & Data
                   </h6>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
                     {aiProviders.map((provider) => (
                       <div
                         key={provider.name}
-                        className="rounded-xl border border-white/10 bg-white/[0.03] h-11 flex items-center justify-center px-3 transition-all hover:opacity-100 hover:grayscale-0"
+                        className="rounded-xl border border-white/30 bg-white/[0.12] dark:bg-white/[0.08] h-11 flex items-center justify-center px-3 transition-all hover:bg-white/16 dark:hover:bg-white/12"
                       >
                         <img
                           src={provider.src}
                           alt={provider.name}
-                          className="h-5 w-auto grayscale opacity-80"
+                          className="h-5 w-auto brightness-0 dark:brightness-100 dark:invert-0 invert"
                         />
                       </div>
                     ))}
