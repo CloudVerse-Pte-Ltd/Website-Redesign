@@ -100,7 +100,7 @@ export default function Home() {
             </div>
 
             {/* Middle: Window Card with Outcomes */}
-            <div className="lg:col-span-3 w-full flex items-center">
+            <div className="lg:col-span-6 w-full flex items-center">
               <div className="w-full rounded-[28px] border border-white/10 bg-white/4 backdrop-blur-sm overflow-hidden">
                 {/* Window Header */}
                 <div className="bg-white/5 px-5 sm:px-6 py-3 sm:py-4 border-b border-white/10 flex items-center gap-2.5">
