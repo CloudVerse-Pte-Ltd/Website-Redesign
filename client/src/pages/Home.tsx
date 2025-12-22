@@ -161,7 +161,7 @@ export default function Home() {
                             <img
                               src={platform.src}
                               alt={platform.name}
-                              className="h-6 w-auto grayscale opacity-80"
+                              className="h-6 w-auto grayscale opacity-80 dark:brightness-0 dark:invert"
                             />
                           </div>
                         ))}
@@ -181,7 +181,7 @@ export default function Home() {
                               <img
                                 src={provider.src}
                                 alt={provider.name}
-                                className="h-5 w-auto grayscale opacity-80"
+                                className="h-5 w-auto grayscale opacity-80 dark:brightness-0 dark:invert"
                               />
                             </div>
                           ))}
