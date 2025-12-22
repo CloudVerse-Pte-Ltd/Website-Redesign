@@ -37,7 +37,7 @@ const supportedPlatforms = [
   { name: "Azure", srcLight: "/logos/azure.svg", srcDark: "/logos/azure-colored.svg" },
   { name: "GCP", srcLight: "/logos/gcp.svg", srcDark: "/logos/gcp-colored.svg" },
   { name: "Alibaba Cloud", srcLight: "/logos/alibaba.svg", srcDark: "/logos/alibaba-colored.svg" },
-  { name: "Huawei Cloud", srcLight: "/logos/huawei.svg", srcDark: "/logos/huawei-colored.svg" },
+  { name: "Huawei Cloud", srcLight: "/logos/huawei.svg", srcDark: "/logos/huawei.svg" },
   { name: "Tencent Cloud", srcLight: "/logos/tencent.svg", srcDark: "/logos/tencent-colored.svg" },
 ];
 
