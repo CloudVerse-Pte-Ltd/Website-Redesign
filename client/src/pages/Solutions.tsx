@@ -94,7 +94,7 @@ export default function Solutions() {
             {solutionCards.map((card, idx) => (
               <div 
                 key={idx} 
-                className="border border-white/10 rounded-2xl p-6 sm:p-8 bg-white/[0.02] flex flex-col h-full"
+                className="border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 bg-gray-50 dark:bg-white/[0.02] flex flex-col h-full"
               >
                 <h3 className="text-xl font-semibold text-cv-ink mb-2">{card.title}</h3>
                 <p className="text-sm text-cv-muted mb-6">{card.description}</p>

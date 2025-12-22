@@ -54,7 +54,7 @@ export default function ResourcesGuideDetail() {
             {guide.title}
           </h1>
           <div className="flex flex-wrap items-center gap-3 text-sm text-cv-muted">
-            <span className="text-xs font-medium px-2 py-1 rounded border border-white/10 bg-white/5">
+            <span className="text-xs font-medium px-2 py-1 rounded border border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-white/5">
               {guide.category}
             </span>
             {guide.readingTime && (
@@ -99,7 +99,7 @@ export default function ResourcesGuideDetail() {
                 <Link
                   key={related.slug}
                   href={`/resources/guides/${related.slug}`}
-                  className="block rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition-colors"
+                  className="block rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-4 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                 >
                   <h4 className="text-sm font-semibold text-cv-ink mb-2 line-clamp-2">
                     {related.title}

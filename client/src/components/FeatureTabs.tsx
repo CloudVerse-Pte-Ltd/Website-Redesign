@@ -64,10 +64,10 @@ export function FeatureTabs() {
   const activeTabContent = featureTabs.find((tab) => tab.id === activeTab);
 
   return (
-    <div className="border border-white/10 dark:border-white/10 rounded-2xl bg-white/5 dark:bg-white/5 overflow-hidden">
+    <div className="border border-gray-200 dark:border-white/10 rounded-2xl bg-gray-50 dark:bg-white/5 overflow-hidden">
       {/* Tab buttons */}
       <div
-        className="flex flex-wrap border-b border-white/10 dark:border-white/10 p-6"
+        className="flex flex-wrap border-b border-gray-200 dark:border-white/10 p-6"
         role="tablist"
       >
         {featureTabs.map((tab, idx) => (
@@ -81,8 +81,8 @@ export function FeatureTabs() {
             onClick={() => setActiveTab(tab.id)}
             className={`px-3 sm:px-4 py-2 text-sm font-medium transition-colors ${
               activeTab === tab.id
-                ? "bg-cv-ink/10 dark:bg-white/10 text-cv-ink dark:text-cv-ink rounded"
-                : "text-cv-muted hover:text-cv-ink dark:hover:text-cv-ink"
+                ? "bg-cv-ink/10 dark:bg-white/10 text-cv-ink rounded"
+                : "text-cv-muted hover:text-cv-ink"
             } ${idx < featureTabs.length - 1 ? "mr-2 sm:mr-3" : ""}`}
           >
             {tab.label}
@@ -99,7 +99,7 @@ export function FeatureTabs() {
           className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 md:p-10"
         >
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-cv-ink dark:text-cv-ink">
+            <h3 className="text-xl font-semibold text-cv-ink">
               {activeTabContent.title}
             </h3>
             <p className="text-sm text-cv-muted max-w-[56ch]">
@@ -119,7 +119,7 @@ export function FeatureTabs() {
           </div>
 
           <div className="hidden lg:flex items-center justify-center">
-            <div className="w-full aspect-[4/3] rounded-2xl bg-[#F5F5F7] dark:bg-white/5 border border-white/10 dark:border-white/10 overflow-hidden p-6">
+            <div className="w-full aspect-[4/3] rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 overflow-hidden p-6">
               <div className="h-full w-full flex flex-col gap-4">
                 <div className="h-5 w-2/5 bg-cv-line/40 dark:bg-white/20 rounded-md"></div>
                 <div className="flex gap-4 flex-1">

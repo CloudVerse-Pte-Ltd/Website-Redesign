@@ -6,14 +6,14 @@ interface SolutionPreviewPanelProps {
 
 export function SolutionPreviewPanel({ eyebrow, title, lines }: SolutionPreviewPanelProps) {
   return (
-    <div className="rounded-2xl border border-white/10 dark:border-white/10 bg-white/5 dark:bg-white/5 p-6 md:p-8 flex flex-col h-full">
+    <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-6 md:p-8 flex flex-col h-full">
       {/* Eyebrow */}
       <span className="text-xs uppercase tracking-widest text-cv-muted font-medium mb-4">
         {eyebrow}
       </span>
 
       {/* Title */}
-      <h3 className="text-lg font-semibold text-cv-ink dark:text-cv-ink mb-6">
+      <h3 className="text-lg font-semibold text-cv-ink mb-6">
         {title}
       </h3>
 
@@ -27,7 +27,7 @@ export function SolutionPreviewPanel({ eyebrow, title, lines }: SolutionPreviewP
       </div>
 
       {/* Subtle preview structure */}
-      <div className="space-y-2 pt-4 border-t border-white/10 dark:border-white/10">
+      <div className="space-y-2 pt-4 border-t border-gray-200 dark:border-white/10">
         {[1, 2, 3, 4].map((row) => (
           <div key={row} className="flex gap-3 items-center">
             <div className="h-3 w-3 rounded-sm bg-cv-line/30"></div>

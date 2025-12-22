@@ -76,11 +76,11 @@ export default function ResourcesDocs() {
                 <h2 className="text-sm font-semibold text-cv-ink mb-4 uppercase tracking-wide">
                   {section.title}
                 </h2>
-                <div className="space-y-0 divide-y divide-white/10">
+                <div className="space-y-0 divide-y divide-gray-200 dark:divide-white/10">
                   {section.items.map((item) => (
                     <div
                       key={item.slug}
-                      className={`py-4 ${item.external ? 'opacity-60' : 'hover:bg-white/5 -mx-3 px-3 rounded transition-colors'}`}
+                      className={`py-4 ${item.external ? 'opacity-60' : 'hover:bg-gray-50 dark:hover:bg-white/5 -mx-3 px-3 rounded transition-colors'}`}
                     >
                       {item.external ? (
                         <div>

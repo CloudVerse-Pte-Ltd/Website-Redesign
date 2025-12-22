@@ -30,13 +30,13 @@ export function IntegrationDrawer({ integration, onClose }: IntegrationDrawerPro
       />
       
       {/* Drawer */}
-      <div className="fixed right-0 top-0 bottom-0 w-full sm:w-[480px] bg-cv-surface dark:bg-cv-surface border-l border-cv-line dark:border-cv-line z-50 overflow-y-auto">
+      <div className="fixed right-0 top-0 bottom-0 w-full sm:w-[480px] bg-cv-surface border-l border-cv-line z-50 overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-cv-surface dark:bg-cv-surface border-b border-cv-line dark:border-cv-line p-5 md:p-6 flex items-start justify-between gap-4">
+        <div className="sticky top-0 bg-cv-surface border-b border-cv-line p-5 md:p-6 flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-3 mb-2">
               <IntegrationLogo name={integration.name} logo={integration.logo} size={28} />
-              <h2 className="text-lg md:text-xl font-semibold text-cv-ink dark:text-cv-ink">
+              <h2 className="text-lg md:text-xl font-semibold text-cv-ink">
                 {integration.name}
               </h2>
               <span className={`text-xs font-medium px-2 py-1 rounded border flex-shrink-0 whitespace-nowrap ${statusColor[integration.status]}`}>
@@ -49,14 +49,14 @@ export function IntegrationDrawer({ integration, onClose }: IntegrationDrawerPro
           </div>
           <button
             onClick={onClose}
-            className="text-cv-muted hover:text-cv-ink dark:text-cv-muted dark:hover:text-cv-ink transition-colors flex-shrink-0 mt-1"
+            className="text-cv-muted hover:text-cv-ink transition-colors flex-shrink-0 mt-1"
           >
             <X size={20} />
           </button>
         </div>
 
         {/* Content */}
-        <div className="divide-y divide-white/10">
+        <div className="divide-y divide-gray-200 dark:divide-white/10">
           {/* What we ingest */}
           <div className="px-5 md:px-6 py-5">
             <h3 className="text-xs uppercase tracking-widest text-cv-muted mb-3">
@@ -92,13 +92,13 @@ export function IntegrationDrawer({ integration, onClose }: IntegrationDrawerPro
             <h3 className="text-xs uppercase tracking-widest text-cv-muted mb-3">
               Setup requirements
             </h3>
-            <div className="rounded-xl border border-white/10 bg-white/5 p-4 md:p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-4 md:p-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <div className="text-xs uppercase tracking-widest text-cv-muted mb-1">
                     Method
                   </div>
-                  <p className="text-sm font-medium text-cv-ink dark:text-cv-ink">
+                  <p className="text-sm font-medium text-cv-ink">
                     {integration.setup.method}
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export function IntegrationDrawer({ integration, onClose }: IntegrationDrawerPro
                   <div className="text-xs uppercase tracking-widest text-cv-muted mb-1">
                     Time to value
                   </div>
-                  <p className="text-sm font-medium text-cv-ink dark:text-cv-ink">
+                  <p className="text-sm font-medium text-cv-ink">
                     {integration.setup.timeToValue}
                   </p>
                 </div>
@@ -114,7 +114,7 @@ export function IntegrationDrawer({ integration, onClose }: IntegrationDrawerPro
                   <div className="text-xs uppercase tracking-widest text-cv-muted mb-1">
                     Permissions
                   </div>
-                  <p className="text-sm font-medium text-cv-ink dark:text-cv-ink">
+                  <p className="text-sm font-medium text-cv-ink">
                     {integration.setup.permissions}
                   </p>
                 </div>
@@ -123,7 +123,7 @@ export function IntegrationDrawer({ integration, onClose }: IntegrationDrawerPro
           </div>
 
           {/* Actions */}
-          <div className="px-5 md:px-6 py-5 border-t border-white/10">
+          <div className="px-5 md:px-6 py-5 border-t border-gray-200 dark:border-white/10">
             <div className="flex gap-3">
               <Button variant="secondary" size="lg" className="flex-1">
                 Request access

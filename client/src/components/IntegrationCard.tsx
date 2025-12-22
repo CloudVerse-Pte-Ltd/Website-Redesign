@@ -16,14 +16,14 @@ export function IntegrationCard({ integration, onClick }: IntegrationCardProps) 
   return (
     <button
       onClick={() => onClick(integration)}
-      className="text-left p-5 rounded-xl border border-white/10 dark:border-white/10 bg-white/2.5 dark:bg-white/2.5 hover:border-white/20 dark:hover:border-white/20 transition-colors"
+      className="text-left p-5 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/[0.025] hover:border-gray-300 dark:hover:border-white/20 transition-colors"
       data-testid={`card-integration-${integration.id}`}
     >
       <div className="space-y-3">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
             <IntegrationLogo name={integration.name} logo={integration.logo} size={22} />
-            <h3 className="text-[15px] font-semibold text-cv-ink dark:text-cv-ink">
+            <h3 className="text-[15px] font-semibold text-cv-ink">
               {integration.name}
             </h3>
           </div>

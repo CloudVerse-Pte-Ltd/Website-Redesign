@@ -70,15 +70,15 @@ export default function Pricing() {
         <div className="cv-container-full">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, idx) => (
-              <div key={idx} className="p-8 rounded-2xl border border-white/10 dark:border-white/10 bg-white/2.5 dark:bg-white/2.5 flex flex-col">
-                <h3 className="text-xl font-semibold text-cv-ink dark:text-cv-ink mb-2">
+              <div key={idx} className="p-8 rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/[0.025] flex flex-col">
+                <h3 className="text-xl font-semibold text-cv-ink mb-2">
                   {plan.name}
                 </h3>
                 <p className="text-sm text-cv-muted mb-6">
                   {plan.description}
                 </p>
                 <div className="mb-8">
-                  <div className="text-3xl font-semibold text-cv-ink dark:text-cv-ink">
+                  <div className="text-3xl font-semibold text-cv-ink">
                     {plan.price}
                   </div>
                   {plan.billingUnit && (
@@ -211,8 +211,8 @@ export default function Pricing() {
                 a: "Standard support is included. Advanced support options are available."
               }
             ].map((faq, idx) => (
-              <div key={idx} className="pb-6 border-b border-cv-line dark:border-cv-line last:border-b-0">
-                <h3 className="text-sm font-semibold text-cv-ink dark:text-cv-ink mb-2">
+              <div key={idx} className="pb-6 border-b border-cv-line last:border-b-0">
+                <h3 className="text-sm font-semibold text-cv-ink mb-2">
                   {faq.q}
                 </h3>
                 <p className="text-sm text-cv-muted">

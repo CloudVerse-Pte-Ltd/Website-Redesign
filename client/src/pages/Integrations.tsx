@@ -68,19 +68,19 @@ export default function Integrations() {
           <h2 className="cv-h2 mb-10 text-center">A normalization layer, not a connector list.</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-lg font-semibold text-cv-ink dark:text-cv-ink mb-2">Standardize</h3>
+              <h3 className="text-lg font-semibold text-cv-ink mb-2">Standardize</h3>
               <p className="text-sm text-cv-muted">
                 Unify accounts, services, tags, and cost dimensions across sources.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-cv-ink dark:text-cv-ink mb-2">Govern</h3>
+              <h3 className="text-lg font-semibold text-cv-ink mb-2">Govern</h3>
               <p className="text-sm text-cv-muted">
                 Scoped permissions, audit logs, and safe automation guardrails.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-cv-ink dark:text-cv-ink mb-2">Automate</h3>
+              <h3 className="text-lg font-semibold text-cv-ink mb-2">Automate</h3>
               <p className="text-sm text-cv-muted">
                 Recommendations and actions work consistently across platforms.
               </p>
@@ -99,7 +99,7 @@ export default function Integrations() {
               placeholder="Search integrations…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-white/10 dark:border-white/10 bg-white/5 dark:bg-white/5 text-cv-ink dark:text-cv-ink placeholder-cv-muted focus:outline-none focus:border-white/20 transition-colors"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-cv-ink placeholder-cv-muted focus:outline-none focus:border-gray-300 dark:focus:border-white/20 transition-colors"
             />
           </div>
 
@@ -118,7 +118,7 @@ export default function Integrations() {
                     className={`px-3 py-1.5 text-sm rounded-lg transition-colors border ${
                       selectedCategory === cat
                         ? "bg-cv-ink text-cv-surface border-cv-ink"
-                        : "bg-transparent border-white/10 text-cv-muted hover:border-white/20"
+                        : "bg-transparent border-gray-200 dark:border-white/10 text-cv-muted hover:border-gray-300 dark:hover:border-white/20"
                     }`}
                   >
                     {cat}
@@ -135,7 +135,7 @@ export default function Integrations() {
               <select
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
-                className="px-3 py-1.5 text-sm rounded-lg border border-white/10 dark:border-white/10 bg-white/5 dark:bg-white/5 text-cv-ink dark:text-cv-ink focus:outline-none focus:border-white/20 transition-colors"
+                className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-cv-ink focus:outline-none focus:border-gray-300 dark:focus:border-white/20 transition-colors"
               >
                 {STATUSES.map((status) => (
                   <option key={status} value={status}>
@@ -184,8 +184,8 @@ export default function Integrations() {
                 body: "API, exports, and agents—depending on the platform."
               }
             ].map((card, idx) => (
-              <div key={idx} className="p-6 rounded-xl border border-white/10 dark:border-white/10 bg-white/2.5 dark:bg-white/2.5">
-                <h3 className="text-base font-semibold text-cv-ink dark:text-cv-ink mb-2">
+              <div key={idx} className="p-6 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/[0.025]">
+                <h3 className="text-base font-semibold text-cv-ink mb-2">
                   {card.title}
                 </h3>
                 <p className="text-sm text-cv-muted">
@@ -239,8 +239,8 @@ export default function Integrations() {
                 a: "No—connections are designed to be low overhead and read-only."
               }
             ].map((faq, idx) => (
-              <div key={idx} className="pb-4 border-b border-cv-line dark:border-cv-line last:border-b-0">
-                <h3 className="text-sm font-semibold text-cv-ink dark:text-cv-ink mb-2">
+              <div key={idx} className="pb-4 border-b border-cv-line last:border-b-0">
+                <h3 className="text-sm font-semibold text-cv-ink mb-2">
                   {faq.q}
                 </h3>
                 <p className="text-sm text-cv-muted">
