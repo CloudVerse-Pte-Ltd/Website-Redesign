@@ -3,7 +3,7 @@ import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { track } from "@/lib/track";
 import { Link } from "wouter";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const customerLogos = [
   { name: "Dr. Reddy's", src: "/logos/dr-reddys.svg", srcDark: "/logos/dr-reddys.svg", className: "brightness-110" },
@@ -13,12 +13,20 @@ const customerLogos = [
   { name: "SISL Infotech", srcLight: "/logos/logo-1-1-sisl.svg", srcDark: "/logos/logo-light-sisl.svg", className: "" },
 ];
 
-const heroOutcomes = [
+const heroOutcomesSet1 = [
   { title: "Unified Cost Visibility", desc: "Real-time view across all clouds and services" },
-  { title: "Automated Optimization", desc: "AI-driven cost reduction and waste prevention" },
-  { title: "Compliance Ready", desc: "Audit trails, access controls, and deployment options" },
   { title: "Real-time Anomalies", desc: "Detect and predict cost spikes before impact" },
+  { title: "Compliance Ready", desc: "Audit trails, access controls, and deployment options" },
   { title: "Multi-cloud Native", desc: "Support for AWS, Azure, GCP, and emerging platforms" },
+  { title: "Audit-ready Reports", desc: "Automated compliance and chargeback documentation" },
+];
+
+const heroOutcomesSet2 = [
+  { title: "Automated Optimization", desc: "AI-driven cost reduction and waste prevention" },
+  { title: "ML-powered Recommendations", desc: "Smart sizing, reserved instances, and savings plans" },
+  { title: "One-click Actions", desc: "Apply fixes with audit trails and rollback options" },
+  { title: "Behavioral Learning", desc: "Adapt to workload patterns and seasonal changes" },
+  { title: "Safety-first Guardrails", desc: "Enforce policies and prevent unintended changes" },
 ];
 
 const supportedPlatforms = [
@@ -30,9 +38,23 @@ const supportedPlatforms = [
   { name: "Tencent Cloud", src: "/logos/tencent.svg" },
 ];
 
+const gpuAiProviders = [
+  { name: "OpenAI", src: "/logos/openai.svg" },
+  { name: "Databricks", src: "/logos/databricks.svg" },
+];
+
 export default function Home() {
+  const [showSet2, setShowSet2] = useState(false);
+
   useEffect(() => {
     document.title = "CloudVerse™ — Cloud Financial Management";
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowSet2(prev => !prev);
+    }, 6000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -93,28 +115,44 @@ export default function Home() {
                 {/* Window Content */}
                 <div className="p-5 sm:p-6">
                   <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-                    {/* Left: Outcomes List */}
-                    <div className="flex-1 space-y-4 sm:space-y-5">
-                      {heroOutcomes.map((outcome, idx) => (
-                        <div key={idx} className="flex gap-3">
-                          <div className="flex-1">
-                            <h4 className="text-[13px] sm:text-[14px] font-semibold text-blue-400 mb-1">
-                              {outcome.title}
-                            </h4>
-                            <p className="text-[12px] sm:text-[13px] text-gray-400">
-                              {outcome.desc}
-                            </p>
+                    {/* Left: Outcomes List - Crossfading */}
+                    <div className="flex-1 space-y-4 sm:space-y-5 min-h-[280px] sm:min-h-[320px] relative">
+                      <div className={`absolute inset-0 transition-opacity duration-1000 ${showSet2 ? 'opacity-0' : 'opacity-100'}`}>
+                        {heroOutcomesSet1.map((outcome, idx) => (
+                          <div key={idx} className="flex gap-3 mb-4 sm:mb-5">
+                            <div className="flex-1">
+                              <h4 className="text-[13px] sm:text-[14px] font-semibold text-blue-400 mb-1">
+                                {outcome.title}
+                              </h4>
+                              <p className="text-[12px] sm:text-[13px] text-gray-400">
+                                {outcome.desc}
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
+                      <div className={`absolute inset-0 transition-opacity duration-1000 ${showSet2 ? 'opacity-100' : 'opacity-0'}`}>
+                        {heroOutcomesSet2.map((outcome, idx) => (
+                          <div key={idx} className="flex gap-3 mb-4 sm:mb-5">
+                            <div className="flex-1">
+                              <h4 className="text-[13px] sm:text-[14px] font-semibold text-blue-400 mb-1">
+                                {outcome.title}
+                              </h4>
+                              <p className="text-[12px] sm:text-[13px] text-gray-400">
+                                {outcome.desc}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
-                    {/* Right: Supported Platforms */}
+                    {/* Right: Supported Platforms + AI Providers */}
                     <div className="flex-1 flex flex-col">
                       <h5 className="text-[11px] sm:text-[12px] font-semibold tracking-widest text-white/50 uppercase mb-4">
                         Supported Platforms
                       </h5>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 sm:gap-4 mb-4">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 sm:gap-4 mb-6">
                         {supportedPlatforms.map((platform) => (
                           <div key={platform.name} className="flex items-center justify-center">
                             <img
@@ -125,9 +163,27 @@ export default function Home() {
                           </div>
                         ))}
                       </div>
-                      <p className="text-[11px] sm:text-[12px] text-gray-500">
+                      <p className="text-[11px] sm:text-[12px] text-gray-500 mb-6">
                         Plus data, Kubernetes, and AI platforms
                       </p>
+
+                      {/* AI Providers */}
+                      <div className="border-t border-white/10 pt-4">
+                        <h5 className="text-[11px] sm:text-[12px] font-semibold tracking-widest text-white/50 uppercase mb-3">
+                          AI & GPU Providers
+                        </h5>
+                        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                          {gpuAiProviders.map((provider) => (
+                            <div key={provider.name} className="flex items-center justify-center">
+                              <img
+                                src={provider.src}
+                                alt={provider.name}
+                                className="h-5 w-auto grayscale opacity-80"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
