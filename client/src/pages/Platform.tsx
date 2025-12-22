@@ -7,12 +7,31 @@ import { track } from "@/lib/track";
 import { Link } from "wouter";
 import { useEffect } from "react";
 
-const platformPillars = [
-  { title: "Visibility across clouds and orgs", desc: "Real-time unified views across all providers and accounts" },
-  { title: "Developer FinOps (Shift-left)", desc: "Cost context in engineering workflows before changes ship" },
-  { title: "Autonomous Tag Engine", desc: "Normalized dimensions with drift detection and healing" },
-  { title: "Detected + predicted anomalies", desc: "Catch spend spikes and forecast risk before month-end" },
-  { title: "Automation with guardrails", desc: "Safe actions with approvals and realized savings tracking" },
+const platformOutcomesSet1 = [
+  { title: "Unified Cost Visibility", desc: "Real-time view across all clouds and services" },
+  { title: "Clean Allocation", desc: "Normalized dimensions for showback and chargeback" },
+  { title: "Real-time Anomalies", desc: "Detect and predict spikes before impact" },
+  { title: "Compliance Ready", desc: "Audit trails, access controls, deployment options" },
+  { title: "Multi-cloud Native", desc: "Built for heterogeneous enterprise environments" },
+];
+
+const platformOutcomesSet2 = [
+  { title: "Automated Optimization", desc: "Apply savings actions with guardrails" },
+  { title: "40+ ML Models", desc: "Recommendations powered by predictive models" },
+  { title: "Realized Savings", desc: "Track outcomes, not just estimates" },
+  { title: "Policy-driven Control", desc: "Approvals, RBAC, and safe defaults" },
+  { title: "AI-era Spend Ops", desc: "Optimize cloud, data, and AI workloads" },
+];
+
+const supportedPlatforms = [
+  { name: "AWS", src: "/logos/aws.svg" },
+  { name: "Azure", src: "/logos/azure.svg" },
+  { name: "GCP", src: "/logos/gcp.svg" },
+  { name: "Alibaba Cloud", src: "/logos/alibaba.svg" },
+  { name: "Huawei Cloud", src: "/logos/huawei.svg" },
+  { name: "Tencent Cloud", src: "/logos/tencent.svg" },
+  { name: "OpenAI", src: "/logos/openai.svg" },
+  { name: "Databricks", src: "/logos/databricks.svg" },
 ];
 
 const capabilities = [
@@ -78,7 +97,9 @@ export default function Platform() {
           <div className="w-full max-w-[640px] mx-auto lg:mx-0">
             <OutcomesWindow 
               label="CloudVerse™ Pillars"
-              outcomes={platformPillars}
+              outcomes={platformOutcomesSet1}
+              outcomeSet2={platformOutcomesSet2}
+              providers={supportedPlatforms}
             />
           </div>
         </div>
