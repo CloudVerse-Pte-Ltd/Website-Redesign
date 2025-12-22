@@ -33,17 +33,17 @@ const heroOutcomesSet2 = [
 ];
 
 const supportedPlatforms = [
-  { name: "AWS", src: "/logos/aws.svg" },
-  { name: "Azure", src: "/logos/azure.svg" },
-  { name: "GCP", src: "/logos/gcp.svg" },
-  { name: "Alibaba Cloud", src: "/logos/alibaba.svg" },
-  { name: "Huawei Cloud", src: "/logos/huawei.svg" },
-  { name: "Tencent Cloud", src: "/logos/tencent.svg" },
+  { name: "AWS", srcLight: "/logos/aws.svg", srcDark: "/logos/aws-colored.svg" },
+  { name: "Azure", srcLight: "/logos/azure.svg", srcDark: "/logos/azure-colored.svg" },
+  { name: "GCP", srcLight: "/logos/gcp.svg", srcDark: "/logos/gcp-colored.svg" },
+  { name: "Alibaba Cloud", srcLight: "/logos/alibaba.svg", srcDark: "/logos/alibaba-colored.svg" },
+  { name: "Huawei Cloud", srcLight: "/logos/huawei.svg", srcDark: "/logos/huawei-colored.svg" },
+  { name: "Tencent Cloud", srcLight: "/logos/tencent.svg", srcDark: "/logos/tencent-colored.svg" },
 ];
 
 const gpuAiProviders = [
-  { name: "OpenAI", src: "/logos/openai.svg" },
-  { name: "Databricks", src: "/logos/databricks.svg" },
+  { name: "OpenAI", srcLight: "/logos/openai.svg", srcDark: "/logos/openai-colored.svg" },
+  { name: "Databricks", srcLight: "/logos/databricks.svg", srcDark: "/logos/databricks-colored.svg" },
 ];
 
 export default function Home() {
@@ -159,9 +159,10 @@ export default function Home() {
                         {supportedPlatforms.map((platform) => (
                           <div key={platform.name} className="flex items-center justify-center">
                             <img
-                              src={platform.src}
+                              src={platform.srcLight || platform.srcDark}
+                              srcSet={platform.srcDark ? `${platform.srcLight || platform.srcDark} 1x, ${platform.srcDark} 1x` : undefined}
                               alt={platform.name}
-                              className="h-6 w-auto grayscale opacity-80 dark:brightness-0 dark:invert"
+                              className="h-6 w-auto grayscale opacity-80 dark:grayscale-0"
                             />
                           </div>
                         ))}
@@ -179,9 +180,10 @@ export default function Home() {
                           {gpuAiProviders.map((provider) => (
                             <div key={provider.name} className="flex items-center justify-center">
                               <img
-                                src={provider.src}
+                                src={provider.srcLight || provider.srcDark}
+                                srcSet={provider.srcDark ? `${provider.srcLight || provider.srcDark} 1x, ${provider.srcDark} 1x` : undefined}
                                 alt={provider.name}
-                                className="h-5 w-auto grayscale opacity-80 dark:brightness-0 dark:invert"
+                                className="h-5 w-auto grayscale opacity-80 dark:grayscale-0"
                               />
                             </div>
                           ))}
