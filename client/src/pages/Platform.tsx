@@ -24,17 +24,17 @@ const platformOutcomesSet2 = [
 ];
 
 const cloudProviders = [
-  { name: "AWS", src: "/logos/aws.svg" },
-  { name: "Azure", src: "/logos/azure.svg" },
-  { name: "GCP", src: "/logos/gcp.svg" },
-  { name: "Alibaba Cloud", src: "/logos/alibaba.svg" },
-  { name: "Huawei Cloud", src: "/logos/huawei.svg" },
-  { name: "Tencent Cloud", src: "/logos/tencent.svg" },
+  { name: "AWS", src: "/logos/aws-colored.svg" },
+  { name: "Azure", src: "/logos/azure-colored.svg" },
+  { name: "GCP", src: "/logos/gcp-colored.svg" },
+  { name: "Alibaba Cloud", src: "/logos/alibaba-colored.svg" },
+  { name: "Huawei Cloud", src: "/logos/huawei-colored.svg" },
+  { name: "Tencent Cloud", src: "/logos/tencent-colored.svg" },
 ];
 
 const aiProviders = [
-  { name: "OpenAI", src: "/logos/openai.svg" },
-  { name: "Databricks", src: "/logos/databricks.svg" },
+  { name: "OpenAI", src: "/logos/openai-colored.svg" },
+  { name: "Databricks", src: "/logos/databricks-colored.svg" },
 ];
 
 const capabilities = [
