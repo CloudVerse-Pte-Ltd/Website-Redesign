@@ -1,0 +1,127 @@
+We already implemented the premium AIX-style motion hero on Home (motion gradient + faint grid + right-side glass “outcomes window” card). Now apply the SAME visual system across Platform, Solutions, and Security so the whole site feels cohesive and premium at all screen sizes.
+
+DO NOT redesign the entire site. Keep the current brand (dark, minimal, Apple-like). Focus on:
+- consistent hero pattern
+- consistent spacing + typography
+- strong responsive behavior (mobile/tablet/desktop)
+
+============================================================
+GLOBAL (DO ONCE)
+1) Create shared components:
+- <MotionHero /> wrapper that includes:
+  - motion gradient layer
+  - grid overlay layer
+  - masked vignette overlay
+  - responsive container (max-w-[1400px] + px-5 sm:px-6 lg:px-10 xl:px-12)
+  - pt-24 pb-16 (mobile), lg:pt-32 lg:pb-24 (desktop)
+
+- <OutcomesWindow /> component:
+  - rounded-[28px], border-white/10, bg-white/[0.04]
+  - window dots
+  - uppercase eyebrow label
+  - list of Outcome items (blue title, gray body)
+  - subtle inner glow
+
+2) Typography tokens (use everywhere):
+- Eyebrow: text-xs tracking-[0.28em] uppercase text-white/55
+- H1: text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.03]
+- Subhead: text-base sm:text-lg text-white/70 leading-7 max-w-[40rem]
+- Section spacing: py-14 sm:py-16 lg:py-20 (avoid huge gaps)
+
+3) Responsiveness:
+- Hero layout stacks on mobile/tablet
+- 2-column only at lg:grid-cols-2
+- Copy block max-w ~44rem
+- Outcomes window max-w ~640px and centered on smaller screens
+
+============================================================
+PLATFORM PAGE (/platform)
+1) Replace current top hero area with MotionHero.
+Left copy:
+- Eyebrow: CLOUDVERSE™ PLATFORM
+- H1: A unified platform for visibility, allocation, and automation.
+- Subhead: Manage cloud, data, and AI spend with clean dimensions, anomalies, and automated actions.
+CTAs: Book a demo + View integrations
+
+Right OutcomesWindow label: CLOUDVERSE™ PILLARS
+Outcomes list (5 items):
+- Visibility across clouds and orgs
+- Developer FinOps (Shift-left)
+- Autonomous Tag Engine
+- Detected + predicted anomalies
+- Automation with guardrails + realized savings
+
+2) Keep existing feature tabs section below, BUT tighten spacing:
+- reduce excessive top padding
+- ensure tabs wrap cleanly on tablet/mobile
+- keep the section aligned to the same container width
+
+============================================================
+SOLUTIONS PAGE (/solutions)
+Current layout feels left-empty. Rebuild to a clean, centered, minimal structure.
+
+1) Add MotionHero at top.
+Left copy:
+- Eyebrow: CLOUDVERSE™ SOLUTIONS
+- H1: Built for Finance, Engineering, and IT.
+- Subhead: One platform to see, allocate, detect risk, and automate savings—without slowing teams down.
+CTAs: Book a demo + Explore platform
+
+Right OutcomesWindow label: WHAT TEAMS GET
+Outcomes list (4 items):
+- Audit-ready allocation
+- Detected + predicted anomalies
+- Automated optimization with guardrails
+- Realized savings tracking
+
+2) Below hero: a 3-card grid (equal height) for:
+- Finance
+- Engineering
+- IT & Platform
+Each card:
+- title + 1-line description
+- exactly 4 bullets (keep consistent)
+Grid breakpoints:
+- mobile 1 col
+- md 2 col
+- lg 3 col
+
+3) End with a compact CTA strip (not tall):
+- “See CloudVerse™ on your data.”
+- Book a demo button
+
+============================================================
+SECURITY PAGE (/security)
+1) Add MotionHero at top.
+Left copy:
+- Eyebrow: CLOUDVERSE™ SECURITY
+- H1: Security and compliance, built in.
+- Subhead: Designed for enterprise environments—from access control to auditability.
+Add line: Private deployment and air-gapped options available for regulated environments.
+CTA: Talk to security + Book a demo
+
+Right OutcomesWindow label: CONTROLS
+Outcomes list (5 items):
+- SSO + SCIM (Google/Microsoft)
+- RBAC + audit logs
+- Data isolation by org
+- Private deployment options
+- Air-gapped deployment support
+
+2) Below hero: “Deployment options” section with 3 cards:
+- SaaS (multi-tenant)
+- Private (VPC/VNet)
+- Air-gapped
+Each card includes: “Best for”, “What you get”, and 3 bullets.
+
+============================================================
+QA REQUIREMENTS
+Verify at 375px / 768px / 1024px / 1440px:
+- no cramped hero
+- nav doesn’t wrap/overlap
+- outcomes window scales cleanly
+- cards don’t look stretched
+- consistent spacing across pages
+
+DELIVERABLE:
+Platform, Solutions, Security all feel like the same premium system as Home.
