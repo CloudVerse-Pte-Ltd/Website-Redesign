@@ -20,9 +20,10 @@ export default function Home() {
 
   return (
     <BaseLayout>
-      {/* Hero - Wide Layout */}
-      <section className="pt-28 sm:pt-28 lg:pt-36 pb-24 sm:pb-24 lg:pb-32">
-        <div className="cv-container-full">
+      {/* Hero - Wide Layout with Motion Background */}
+      <section className="pt-28 sm:pt-28 lg:pt-36 pb-24 sm:pb-24 lg:pb-32 relative overflow-hidden">
+        <div className="hero-motion-bg absolute inset-0 -z-10" aria-hidden="true" />
+        <div className="cv-container-full relative z-10">
           <div className="flex flex-col items-center gap-12 lg:gap-16 lg:items-stretch lg:flex-row">
             {/* Copy Block */}
             <div className="flex-1 text-left space-y-6 max-w-[42rem] flex flex-col justify-center">
@@ -46,17 +47,6 @@ export default function Home() {
                     Watch 90-second tour
                   </Button>
                 </Link>
-              </div>
-            </div>
-            
-            {/* Visual Block */}
-            <div className="w-full lg:flex-1 lg:max-w-[600px]">
-              <div className="w-full aspect-[4/3] rounded-2xl bg-[#F5F5F7] dark:bg-cv-surface2 border border-cv-line overflow-hidden">
-                <img 
-                  src="/assets/cloudverse-import/images/hero-abstract.jpg" 
-                  alt="Cloud systems intelligence and control" 
-                  className="w-full h-full object-cover"
-                />
               </div>
             </div>
           </div>
