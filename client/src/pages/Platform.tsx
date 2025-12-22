@@ -23,13 +23,16 @@ const platformOutcomesSet2 = [
   { title: "AI-era Spend Ops", desc: "Optimize cloud, data, and AI workloads" },
 ];
 
-const supportedPlatforms = [
+const cloudProviders = [
   { name: "AWS", src: "/logos/aws.svg" },
   { name: "Azure", src: "/logos/azure.svg" },
   { name: "GCP", src: "/logos/gcp.svg" },
   { name: "Alibaba Cloud", src: "/logos/alibaba.svg" },
   { name: "Huawei Cloud", src: "/logos/huawei.svg" },
   { name: "Tencent Cloud", src: "/logos/tencent.svg" },
+];
+
+const aiProviders = [
   { name: "OpenAI", src: "/logos/openai.svg" },
   { name: "Databricks", src: "/logos/databricks.svg" },
 ];
@@ -99,7 +102,8 @@ export default function Platform() {
               label="CloudVerse™ Pillars"
               outcomes={platformOutcomesSet1}
               outcomeSet2={platformOutcomesSet2}
-              providers={supportedPlatforms}
+              cloudProviders={cloudProviders}
+              aiProviders={aiProviders}
             />
           </div>
         </div>

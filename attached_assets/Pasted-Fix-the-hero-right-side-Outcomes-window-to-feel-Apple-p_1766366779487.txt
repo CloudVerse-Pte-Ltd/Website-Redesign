@@ -1,0 +1,74 @@
+Fix the hero right-side “Outcomes window” to feel Apple-premium. Current window looks off: header too tall, right column icons float, and the content feels busy.
+
+DO NOT change the hero left copy.
+Only refine the OutcomesWindow UI/structure.
+
+========================================================
+1) WINDOW CHROME (HEADER)
+- Reduce header height:
+  - padding: px-6 py-4 (not large)
+- Put title on the LEFT, not top-right:
+  - “CLOUDVERSE™ OUTCOMES” (text-xs, tracking-[0.24em], uppercase, text-white/55)
+- Keep dots on far-left, smaller:
+  - size 10px (h-2.5 w-2.5), spacing gap-2
+- Add a subtle header background:
+  - bg-white/[0.03] with border-b border-white/10
+- Remove thick bar look.
+
+========================================================
+2) BODY LAYOUT
+Inside the window body:
+- Use a 2-column grid at lg+
+  - left: outcomes list
+  - right: supported logos
+- Gap should feel premium:
+  - gap-10, or gap-12 on xl
+
+LEFT column (Outcomes):
+- Show only 4 outcomes max (not 6+)
+- Each outcome:
+  - title: text-[15px] font-semibold text-[#6aa3ff]
+  - body: text-sm text-white/65 leading-6
+- Spacing:
+  - space-y-5
+- Add a small “View all outcomes →” link at bottom (text-xs text-white/45 hover:text-white/60)
+
+RIGHT column (Supported):
+- SINGLE right column section (do not create 2 separate blocks with heavy dividers)
+- Header: “SUPPORTED” (text-xs uppercase tracking-widest text-white/45)
+- Then two sublabels:
+  - “Cloud” and “AI & Data” (text-[11px] uppercase tracking-widest text-white/35)
+
+========================================================
+3) LOGO GRID (THIS IS THE MAIN FIX)
+For each sublabel, show a grid of logo tiles that align perfectly:
+
+- Use tile containers so logos don’t float:
+  - tile: rounded-xl border border-white/10 bg-white/[0.03]
+  - size: h-11 (fixed), px-3
+  - center logo vertically/horizontally
+
+- Cloud logos grid:
+  - AWS, Azure, GCP, OCI, Alibaba Cloud, Huawei Cloud, Tencent Cloud
+- AI & Data grid:
+  - OpenAI, Databricks
+
+Grid rules:
+- Use grid-cols-2 on mobile, grid-cols-3 on lg
+- gap-3 (or gap-4 on xl)
+- Logos:
+  - className="h-5 w-auto opacity-80 grayscale"
+  - optional hover: hover:opacity-100 hover:grayscale-0 (VERY subtle)
+
+Remove the old “Plus data, Kubernetes…” line and instead:
+- Add a single quiet hint at the bottom:
+  “Kubernetes, SaaS, and more available.” (text-xs text-white/35)
+
+========================================================
+4) RESPONSIVE QA
+- On mobile: window is full width; 2 columns become stacked with right column BELOW outcomes.
+- No content should be cut off.
+- Maintain consistent padding inside window: px-6 py-6
+
+DELIVERABLE:
+The Outcomes window should look balanced, structured, and premium — like an Apple settings sheet.
