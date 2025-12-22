@@ -17,7 +17,10 @@ import ResourcesGuides from "@/pages/ResourcesGuides";
 import ResourcesGuideDetail from "@/pages/ResourcesGuideDetail";
 import ResourcesDocs from "@/pages/ResourcesDocs";
 import Contact from "@/pages/Contact";
+import Partners from "@/pages/Partners";
+import Help from "@/pages/Help";
 import NotFound from "@/pages/not-found";
+import { SIGNIN_URL, DEMO_URL } from "@/lib/links";
 
 function Router() {
   return (
@@ -34,6 +37,8 @@ function Router() {
       <Route path="/resources/guides/:slug" component={ResourcesGuideDetail} />
       <Route path="/resources/docs" component={ResourcesDocs} />
       <Route path="/contact" component={Contact} />
+      <Route path="/partners" component={Partners} />
+      <Route path="/help" component={Help} />
       
       {/* Legal place holders */}
       <Route path="/legal/terms">
@@ -43,10 +48,13 @@ function Router() {
          {params => <Company />}
       </Route>
 
+      {/* External redirects */}
+      <Route path="/signin">{() => { window.location.href = SIGNIN_URL; return null; }}</Route>
+      <Route path="/demo">{() => { window.location.href = DEMO_URL; return null; }}</Route>
+
       {/* Redirects */}
       <Route path="/about-us"><Redirect to="/company" /></Route>
       <Route path="/blog"><Redirect to="/resources" /></Route>
-      <Route path="/partners"><Redirect to="/company" /></Route>
 
       <Route component={NotFound} />
     </Switch>

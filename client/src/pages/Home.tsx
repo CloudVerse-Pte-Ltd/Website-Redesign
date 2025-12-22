@@ -5,6 +5,7 @@ import { HeroLogos } from "@/components/HeroLogos";
 import { track } from "@/lib/track";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import { DEMO_URL } from "@/lib/links";
 
 const customerLogos = [
   { name: "Dr. Reddy's", src: "/logos/dr-reddys.svg", srcDark: "/logos/dr-reddys.svg", className: "brightness-110" },
@@ -61,12 +62,12 @@ export default function Home() {
   return (
     <BaseLayout>
       {/* Hero - Premium AIX-style Layout */}
-      <section className="pt-28 sm:pt-28 lg:pt-36 pb-24 sm:pb-24 lg:pb-32 relative overflow-hidden">
+      <section className="pt-16 sm:pt-20 lg:pt-24 pb-10 sm:pb-14 lg:pb-16 relative overflow-hidden">
         <div className="hero-motion-bg absolute inset-0 -z-10" aria-hidden="true" />
-        <div className="cv-container-full relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-stretch">
-            {/* Left: Copy Block (spans 1 col) */}
-            <div className="lg:col-span-1 text-left space-y-6 flex flex-col justify-center max-w-[44rem]">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left: Copy Block (spans 6 cols) */}
+            <div className="lg:col-span-6 text-left space-y-6 flex flex-col justify-center">
               <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase">
                 CloudVerse™
               </span>
@@ -84,12 +85,12 @@ export default function Home() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mt-6">
-                <Link href="/demo" data-track="cta_demo" onClick={() => track("cta_demo", { location: "hero" })}>
+                <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" data-track="cta_demo" onClick={() => track("cta_demo", { location: "hero" })}>
                   <Button size="lg" className="w-full sm:w-auto">
                     Book a demo
                   </Button>
-                </Link>
-                <Link href="/tour" data-track="cta_watch_tour" onClick={() => track("cta_watch_tour", { location: "hero" })}>
+                </a>
+                <Link href="#tour" data-track="cta_watch_tour" onClick={() => track("cta_watch_tour", { location: "hero" })}>
                   <Button variant="tertiary" size="lg" className="text-[14px] sm:text-[16px] lg:text-[17px] w-full sm:w-auto">
                     Watch 90-second tour
                   </Button>
@@ -98,7 +99,7 @@ export default function Home() {
             </div>
 
             {/* Middle: Window Card with Outcomes */}
-            <div className="lg:col-span-1 w-full flex items-center">
+            <div className="lg:col-span-3 w-full flex items-center">
               <div className="w-full rounded-[28px] border border-white/10 bg-white/4 backdrop-blur-sm overflow-hidden">
                 {/* Window Header */}
                 <div className="bg-white/5 px-5 sm:px-6 py-3 sm:py-4 border-b border-white/10 flex items-center gap-2.5">
@@ -192,7 +193,7 @@ export default function Home() {
             </div>
 
             {/* Right: Provider Logos */}
-            <div className="lg:col-span-1 w-full flex items-center justify-center">
+            <div className="lg:col-span-3 w-full flex items-center justify-center">
               <HeroLogos />
             </div>
           </div>
@@ -200,12 +201,12 @@ export default function Home() {
       </section>
 
       {/* Customer Logos */}
-      <section className="py-10 sm:py-12 lg:py-14">
-        <div className="cv-container">
+      <section className="py-12 md:py-16 lg:py-20 border-t border-white/10">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-8">
           <p className="text-center text-[15px] leading-[24px] text-cv-muted mb-8">
             Used by FinOps teams at leading enterprises.
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 place-items-center gap-x-12 gap-y-10">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
             {customerLogos.map((logo) => (
               <img
                 key={logo.name}
@@ -214,7 +215,7 @@ export default function Home() {
                 alt={logo.name}
                 loading="lazy"
                 decoding="async"
-                className={`h-8 w-auto object-contain opacity-80 grayscale dark:hidden ${logo.className || ""}`}
+                className={`h-7 md:h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale dark:hidden ${logo.className || ""}`}
               />
             ))}
             {customerLogos.filter(l => l.srcDark).map((logo) => (
