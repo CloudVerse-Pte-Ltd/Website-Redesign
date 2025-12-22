@@ -6,6 +6,7 @@ import { track } from "@/lib/track";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { DEMO_URL } from "@/lib/links";
+import { HowItWorks } from "@/components/home/HowItWorks";
 
 const customerLogos = [
   { name: "Dr. Reddy's", src: "/logos/dr-reddys.svg", srcDark: "/logos/dr-reddys.svg", className: "brightness-110" },
@@ -263,29 +264,7 @@ export default function Home() {
       </Section>
 
       {/* How It Works */}
-      <Section background="gray" padding="utility">
-        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-          <h2 className="cv-h2 mb-3 sm:mb-4">How CloudVerse works</h2>
-          <p className="text-[15px] sm:text-[16px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[30px] text-cv-muted">
-            Connect once. Normalize everything. Automate what you can.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 text-left">
-          <div className="relative pl-6 border-l-2 border-cv-ink/20 dark:border-cv-line">
-            <h3 className="text-[18px] sm:text-[20px] font-semibold mb-2">Connect</h3>
-            <p className="text-cv-muted text-[15px]">Read-only connections with scoped permissions.</p>
-          </div>
-          <div className="relative pl-6 border-l-2 border-cv-ink/20 dark:border-cv-line">
-            <h3 className="text-[18px] sm:text-[20px] font-semibold mb-2">Normalize</h3>
-            <p className="text-cv-muted text-[15px]">Unified taxonomy for accounts, tags, and services.</p>
-          </div>
-          <div className="relative pl-6 border-l-2 border-cv-ink/20 dark:border-cv-line">
-            <h3 className="text-[18px] sm:text-[20px] font-semibold mb-2">Automate</h3>
-            <p className="text-cv-muted text-[15px]">Apply safe actions and measure outcomes.</p>
-          </div>
-        </div>
-      </Section>
+      <HowItWorks />
 
       {/* Feature Band 1: Developer FinOps */}
       <Section padding="primary">
@@ -386,9 +365,9 @@ export default function Home() {
             We'll map your spend structure and the fastest path to measurable savings.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2">
-            <Link href="/demo" data-track="cta_demo" onClick={() => track("cta_demo", { location: "bottom_cta" })}>
+            <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" data-track="cta_demo" onClick={() => track("cta_demo", { location: "bottom_cta" })}>
               <Button size="lg" className="w-full sm:w-auto">Book a demo</Button>
-            </Link>
+            </a>
             <Link href="/contact" data-track="cta_contact" onClick={() => track("cta_contact", { location: "bottom_cta" })}>
               <Button variant="secondary" size="lg" className="w-full sm:w-auto">Contact sales</Button>
             </Link>
