@@ -64,9 +64,9 @@ export default function Home() {
       <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-14 lg:pb-16 overflow-hidden">
         <MotionHeroBackground />
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left: Copy Block (spans 6 cols) */}
-            <div className="lg:col-span-6 text-left space-y-6 flex flex-col justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] 2xl:grid-cols-[52%_48%] gap-10 lg:gap-12 items-start">
+            {/* Left: Copy Block */}
+            <div className="text-left space-y-6 flex flex-col justify-start">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
                 Cloud financial management for modern enterprises.
               </h1>
@@ -97,7 +97,7 @@ export default function Home() {
             </div>
 
             {/* Right: Hero Card with Outcomes */}
-            <div className="lg:col-span-6 w-full flex items-center">
+            <div className="w-full">
               <HeroCard />
             </div>
           </div>

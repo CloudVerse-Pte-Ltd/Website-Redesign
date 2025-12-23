@@ -45,9 +45,12 @@ export function HeroCard() {
 
 
   return (
-    <div className="w-full rounded-3xl border border-white/10 bg-white/4 backdrop-blur-sm overflow-hidden">
+    <div className="w-full max-w-[680px] rounded-[28px] border border-white/10 bg-white/4 backdrop-blur-sm overflow-hidden min-h-[540px] shadow-lg shadow-blue-500/5">
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] to-transparent pointer-events-none"></div>
+      
       {/* Window Header */}
-      <div className="bg-white/5 px-5 sm:px-6 py-3 sm:py-4 border-b border-white/10 flex items-center gap-2.5">
+      <div className="bg-white/5 px-8 py-5 border-b border-white/10 flex items-center gap-2.5 relative z-10">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-red-400/80"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-400/80"></div>
@@ -59,22 +62,22 @@ export function HeroCard() {
       </div>
 
       {/* Window Content */}
-      <div className="p-5 sm:p-6">
+      <div className="p-8 py-7 relative z-10">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           {/* Left: Outcomes List - Crossfading */}
-          <div className="flex-1 space-y-4 sm:space-y-5 min-h-[280px] sm:min-h-[320px] relative">
+          <div className="flex-1 space-y-3 sm:space-y-3.5 min-h-[320px] sm:min-h-[360px] relative">
             <div
               className={`absolute inset-0 transition-opacity duration-1000 ${
                 showSet2 ? "opacity-0" : "opacity-100"
               }`}
             >
               {heroOutcomesSet1.map((outcome, idx) => (
-                <div key={idx} className="flex gap-3 mb-4 sm:mb-5">
+                <div key={idx} className="flex gap-3">
                   <div className="flex-1">
-                    <h4 className="text-[13px] sm:text-[14px] font-semibold text-blue-400 mb-1">
+                    <h4 className="text-[14px] sm:text-[15px] font-semibold text-blue-400 mb-0.5">
                       {outcome.title}
                     </h4>
-                    <p className="text-[12px] sm:text-[13px] text-gray-400">
+                    <p className="text-[12px] sm:text-[13px] text-gray-400 leading-snug">
                       {outcome.desc}
                     </p>
                   </div>
@@ -87,12 +90,12 @@ export function HeroCard() {
               }`}
             >
               {heroOutcomesSet2.map((outcome, idx) => (
-                <div key={idx} className="flex gap-3 mb-4 sm:mb-5">
+                <div key={idx} className="flex gap-3">
                   <div className="flex-1">
-                    <h4 className="text-[13px] sm:text-[14px] font-semibold text-blue-400 mb-1">
+                    <h4 className="text-[14px] sm:text-[15px] font-semibold text-blue-400 mb-0.5">
                       {outcome.title}
                     </h4>
-                    <p className="text-[12px] sm:text-[13px] text-gray-400">
+                    <p className="text-[12px] sm:text-[13px] text-gray-400 leading-snug">
                       {outcome.desc}
                     </p>
                   </div>
@@ -103,38 +106,38 @@ export function HeroCard() {
 
           {/* Right: Supported Platforms + AI Providers */}
           <div className="flex-1 flex flex-col">
-            <h5 className="text-[11px] sm:text-[12px] font-semibold tracking-widest text-white/50 uppercase mb-4">
+            <h5 className="text-[11px] sm:text-[12px] font-semibold tracking-widest text-white/50 uppercase mb-3.5">
               Supported Platforms
             </h5>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 sm:gap-4 mb-6">
+            <div className="grid grid-cols-3 gap-4 mb-5">
               {supportedPlatforms.map((platform) => (
                 <div key={platform.name} className="flex items-center justify-center">
                   <img
                     src={platform.srcLight}
                     srcSet={`${platform.srcLight} 1x, ${platform.srcDark} 1x`}
                     alt={platform.name}
-                    className="h-6 w-auto grayscale opacity-80 dark:grayscale-0"
+                    className="h-7 w-auto grayscale opacity-80 dark:grayscale-0"
                   />
                 </div>
               ))}
             </div>
-            <p className="text-[11px] sm:text-[12px] text-gray-500 mb-6">
+            <p className="text-[11px] sm:text-[12px] text-gray-500 mb-5">
               Plus data, Kubernetes, and AI platforms
             </p>
 
             {/* AI Providers */}
-            <div className="border-t border-white/10 pt-4">
+            <div className="border-t border-white/10 pt-5">
               <h5 className="text-[11px] sm:text-[12px] font-semibold tracking-widest text-white/50 uppercase mb-3">
                 AI & GPU Providers
               </h5>
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 {gpuAiProviders.map((provider) => (
                   <div key={provider.name} className="flex items-center justify-center">
                     <img
                       src={provider.srcLight}
                       srcSet={`${provider.srcLight} 1x, ${provider.srcDark} 1x`}
                       alt={provider.name}
-                      className="h-5 w-auto grayscale opacity-80 dark:grayscale-0"
+                      className="h-6 w-auto grayscale opacity-80 dark:grayscale-0"
                     />
                   </div>
                 ))}
