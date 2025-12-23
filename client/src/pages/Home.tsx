@@ -5,9 +5,10 @@ import { Link } from "wouter";
 import { useEffect } from "react";
 import { DEMO_URL } from "@/lib/links";
 import { PillarCard } from "@/components/PillarCard";
-import { StepCard } from "@/components/StepCard";
 import { OutcomeTile } from "@/components/OutcomeTile";
 import { MotionHeroBackground } from "@/components/MotionHeroBackground";
+import { HeroCard } from "@/components/home/HeroCard";
+import { HowItWorks } from "@/components/home/HowItWorks";
 import { Globe, Receipt, Tag, Code2, Cpu, Activity } from "lucide-react";
 
 const customerLogos = [
@@ -60,45 +61,53 @@ export default function Home() {
   return (
     <BaseLayout>
       {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-14 lg:pb-16 overflow-hidden">
         <MotionHeroBackground />
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-5 sm:mb-6 leading-tight">
-              Cloud financial management for modern enterprises.
-            </h1>
-            <p className="text-lg sm:text-xl text-white/80 mb-4 sm:mb-5 leading-relaxed">
-              Unified visibility, allocation, anomalies, and automated optimization across cloud, data, and AI platforms.
-            </p>
-            <p className="text-base sm:text-lg text-white/60 mb-8 sm:mb-10 pb-8 sm:pb-10 border-b border-white/10 leading-relaxed">
-              Private deployment and air-gapped options available for regulated environments.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left: Copy Block (spans 6 cols) */}
+            <div className="lg:col-span-6 text-left space-y-6 flex flex-col justify-center">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+                Cloud financial management for modern enterprises.
+              </h1>
+              <p className="text-lg sm:text-xl text-white/80 leading-relaxed">
+                Unified visibility, allocation, anomalies, and automated optimization across cloud, data, and AI platforms.
+              </p>
+              <p className="text-base sm:text-lg text-white/60 pb-8 border-b border-white/10 leading-relaxed">
+                Private deployment and air-gapped options available for regulated environments.
+              </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8 sm:mb-10">
-              <Link href="/demo" onClick={() => track("cta_demo", { location: "hero" })}>
-                <Button size="lg" className="w-full sm:w-auto">
-                  Book a demo
-                </Button>
-              </Link>
-              <Link href="/tour" onClick={() => track("cta_watch_tour", { location: "hero" })}>
-                <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-                  Watch 90-second tour →
-                </Button>
-              </Link>
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/demo" onClick={() => track("cta_demo", { location: "hero" })}>
+                  <Button size="lg" className="w-full sm:w-auto">
+                    Book a demo
+                  </Button>
+                </Link>
+                <Link href="/tour" onClick={() => track("cta_watch_tour", { location: "hero" })}>
+                  <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+                    Watch 90-second tour →
+                  </Button>
+                </Link>
+              </div>
+
+              <p className="text-sm text-white/50 pt-2">
+                Trusted by FinOps and platform teams at leading enterprises.
+              </p>
             </div>
 
-            <p className="text-sm text-white/50">
-              Trusted by FinOps and platform teams at leading enterprises.
-            </p>
+            {/* Right: Hero Card with Outcomes */}
+            <div className="lg:col-span-6 w-full flex items-center">
+              <HeroCard />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Customer Logos Section */}
-      <section className="py-12 sm:py-16 lg:py-20 border-t border-white/10">
+      <section className="py-10 sm:py-12 lg:py-14 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <p className="text-center text-base sm:text-lg text-white/70 mb-10 sm:mb-12">
+          <p className="text-center text-base sm:text-lg text-white/70 mb-8 sm:mb-10">
             Used by FinOps teams at leading enterprises.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-6">
@@ -127,13 +136,13 @@ export default function Home() {
       </section>
 
       {/* What CloudVerse Offers Section */}
-      <section className="py-16 sm:py-20 lg:py-24 border-t border-white/10">
+      <section className="py-16 sm:py-18 lg:py-20 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="mb-12 sm:mb-16">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/50 mb-3 sm:mb-4">
+          <div className="mb-10 sm:mb-12">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/50 mb-3">
               What CloudVerse Offers
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
               Everything you need to manage cloud, data, and AI spend — in one platform.
             </h2>
             <p className="text-lg sm:text-xl text-white/70 max-w-2xl">
@@ -141,7 +150,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {pillarCards.map((card, idx) => (
               <PillarCard
                 key={idx}
@@ -162,65 +171,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How CloudVerse Works Section */}
-      <section className="py-16 sm:py-20 lg:py-24 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 sm:mb-6">
-              How CloudVerse works
-            </h2>
-            <p className="text-lg sm:text-xl text-white/70">
-              Connect once. Normalize everything. Automate what you can.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <StepCard
-              number="01"
-              title="Connect"
-              body="Read-only connections across cloud, data, and AI platforms."
-              bullets={[
-                "Scoped access and tenant isolation",
-                "Imports billing + usage signals",
-                "Fast onboarding with guided setup",
-              ]}
-            />
-            <StepCard
-              number="02"
-              title="Normalize"
-              body="A unified cost model for accounts, tags, owners, services, and products."
-              bullets={[
-                "Tag normalization + governance",
-                "Allocation-ready dimensions",
-                "Consistent reporting across platforms",
-              ]}
-            />
-            <StepCard
-              number="03"
-              title="Automate"
-              body="Recommendations and actions driven by ML models, with guardrails."
-              bullets={[
-                "Detect + predict anomalies",
-                "Apply safe actions with approvals",
-                "Track realized savings",
-              ]}
-            />
-          </div>
-
-          <div className="text-center">
-            <Link href="/platform" onClick={() => track("link_explore_platform", { location: "how_it_works" })}>
-              <span className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
-                Explore Platform →
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* How CloudVerse Works Section (imported premium component) */}
+      <div className="border-t border-white/10">
+        <HowItWorks />
+      </div>
 
       {/* Outcomes Section */}
-      <section className="py-16 sm:py-20 lg:py-24 border-t border-white/10">
+      <section className="py-16 sm:py-18 lg:py-20 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-10 sm:mb-12">
             A single platform for visibility, accountability, and action.
           </h2>
 
@@ -246,13 +205,13 @@ export default function Home() {
       </section>
 
       {/* Security & Deployment Section */}
-      <section className="py-16 sm:py-20 lg:py-24 border-t border-white/10">
+      <section className="py-16 sm:py-18 lg:py-20 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
               Security and compliance, built in.
             </h2>
-            <p className="text-lg sm:text-xl text-white/70 mb-6 sm:mb-8">
+            <p className="text-lg sm:text-xl text-white/70 mb-6">
               Designed for enterprise environments — from access control to auditability.
             </p>
             <p className="text-base sm:text-lg text-white/70 mb-6 pb-6 border-b border-white/10">
@@ -266,14 +225,14 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 sm:py-20 lg:py-24">
+      <section className="py-16 sm:py-18 lg:py-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-10 sm:p-12 lg:p-16">
             <div className="max-w-2xl">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 sm:mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
                 See CloudVerse on your data.
               </h2>
-              <p className="text-lg sm:text-xl text-white/70 mb-8 sm:mb-10">
+              <p className="text-lg sm:text-xl text-white/70 mb-8">
                 We'll map your spend structure and the fastest path to measurable savings.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">

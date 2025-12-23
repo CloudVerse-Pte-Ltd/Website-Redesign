@@ -1,0 +1,83 @@
+You are in the CloudVerse Website (Next.js + Tailwind). Update ONLY the Home page and any small shared components it uses (Hero, Section wrappers). Do NOT change the locked copy text. This task is strictly layout + missing components + spacing.
+
+PROBLEMS TO FIX (from latest screenshot)
+1) The right-hand AIX-style hero card is missing. Bring it back (like the earlier premium AIX hero card we used) so Hero becomes a 2-column layout on desktop: left = copy/CTAs, right = premium “CloudVerse Outcomes” card.
+2) The “How CloudVerse works” section lost the nice 3-step cards. Restore the earlier premium 3-card design (Connect / Normalize / Automate) with the mini preview panels inside each card (no empty skeleton boxes). Use compact, Apple-like cards with subtle border, gradient, and clean bullets.
+3) The page has too much vertical spacing between sections. Tighten section spacing to feel premium and dense:
+   - Desktop section padding: py-14 to py-18 (not 28+)
+   - Mobile: py-10 to py-12
+   - Reduce excessive margin between Hero -> logos -> pillars -> how-it-works -> outcomes.
+   - Keep consistent rhythm across sections (use one Section component for spacing).
+
+IMPLEMENTATION REQUIREMENTS
+A) HERO LAYOUT (restore right AIX-style card)
+- Desktop (lg+): 2 columns, left text, right hero card.
+- Tablet: stacked (card below text), with reduced top padding.
+- Mobile: stacked (card after CTAs).
+- Keep the same hero copy and CTAs already locked.
+- Add subtle animated background (keep it, but ensure it doesn’t push layout).
+- The hero card should be a “mac window” style:
+  - Rounded 24-28px, top bar with 3 dots, soft shadow, subtle glass gradient.
+  - Title on top-right: “CLOUDVERSE™ OUTCOMES”
+  - Left column inside card: outcome list (5 items) with blue headings + short grey description.
+  - Right column inside card: “SUPPORTED PLATFORMS” and “AI & GPU PROVIDERS” with logo grid.
+
+HERO CARD CONTENT (do not change wording):
+Left outcomes set A (Visibility-focused):
+- Unified Cost Visibility — Real-time view across all clouds and services
+- Real-time Anomalies — Detect and predict cost spikes before impact
+- Compliance Ready — Audit trails, access controls, and deployment options
+- Multi-cloud Native — Support for AWS, Azure, GCP, and emerging platforms
+- Audit-ready Reports — Export-ready reporting for stakeholders
+
+Also implement a slow crossfade between two sets (Visibility ↔ Automation), very subtle:
+- Every ~6–8 seconds, fade to set B (Automation-focused) and back.
+- Must respect prefers-reduced-motion (no crossfade then).
+Set B (Automation-focused):
+- Automated Optimization — AI-driven cost reduction and waste prevention
+- ML-powered Recommendations — Smart sizing, reservations, and savings plans
+- One-click Actions — Apply fixes with audit trails and rollbacks
+- Behavioral Learning — Adapts to workload patterns and seasonal changes
+- Realized Savings — Track outcomes, not estimates
+
+Right column logo groups inside the hero card:
+SUPPORTED PLATFORMS (show logos as monochrome/low-contrast, consistent size):
+- AWS, Microsoft Azure, Google Cloud, Oracle Cloud, Alibaba Cloud, Huawei Cloud, Tencent Cloud
+Also include a small line under: “Plus data, Kubernetes, and AI platforms”
+AI & GPU PROVIDERS:
+- OpenAI, Databricks
+(Use existing imported logos if present; if not available, use clean inline monochrome SVG marks or text pills, but prefer logos.)
+
+B) RESTORE “HOW CLOUDVERSE WORKS” PREMIUM CARDS
+- Bring back the 3 step cards layout (Connect / Normalize / Automate) with the mini preview panels.
+- The mini preview panels must be CONTENTFUL (no empty boxes):
+  Connect preview: “Typical setup” chips (AWS/Azure/GCP/OCI) + 3 bullets (Read-only access, Scoped roles, Usage + billing).
+  Normalize preview: “Normalized dimensions” chips (cost_center, owner, env, service) + small 2-row key/value mock table.
+  Automate preview: “Automation queue” with 3 items + status pills (High/Med/Low) + “Realized savings” mini line.
+- Keep copy exactly as currently locked in the section (bullets and body text).
+- Make the cards feel like Apple settings sheets: compact headings, consistent spacing, subtle separators.
+
+C) FIX VERTICAL SPACING (big gaps)
+- Create or update a shared <Section> wrapper component used by all sections on Home.
+- Default:
+  - Desktop: py-16
+  - Mobile: py-12
+- Between major blocks inside a section, use consistent spacing (gap-8/10 max).
+- Reduce the gap after the hero before the logo strip.
+- Reduce oversized top/bottom margins on headings.
+
+D) KEEP WHAT WORKS
+- Keep the existing nav.
+- Keep the existing logo strip section.
+- Keep the pillar cards section copy, but ensure it sits closer to logos (no huge black void).
+- Keep responsiveness: no overflow, no clipped sections.
+
+E) QA CHECKLIST (must do)
+- Verify Hero shows right card on desktop.
+- Verify crossfade works and is subtle; disabled if prefers-reduced-motion.
+- Verify “How CloudVerse works” shows 3 step cards with previews (no empty boxes).
+- Verify spacing feels tight and premium at 1440px, 1280px, 1024px, 768px, 390px.
+- Ensure no layout shift/jank.
+
+DELIVERABLE
+Commit changes. Home must look premium, dense, and consistent, with the restored right hero card, restored how-it-works cards, and reduced gaps between sections.
