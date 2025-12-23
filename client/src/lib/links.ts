@@ -22,4 +22,6 @@ export const ROUTES = {
   contact: "/contact",
   partners: "/partners",
   help: "/help",
+  tour: "/tour",
+  bookDemo: "/book-demo",
 } as const;

@@ -19,6 +19,9 @@ import ResourcesDocs from "@/pages/ResourcesDocs";
 import Contact from "@/pages/Contact";
 import Partners from "@/pages/Partners";
 import Help from "@/pages/Help";
+import Tour from "@/pages/Tour";
+import BookDemo from "@/pages/BookDemo";
+import Legal from "@/pages/Legal";
 import NotFound from "@/pages/not-found";
 import { SIGNIN_URL, DEMO_URL } from "@/lib/links";
 
@@ -39,14 +42,10 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/partners" component={Partners} />
       <Route path="/help" component={Help} />
-      
-      {/* Legal place holders */}
-      <Route path="/legal/terms">
-         {params => <Company />} 
-      </Route>
-      <Route path="/legal/privacy">
-         {params => <Company />}
-      </Route>
+      <Route path="/tour" component={Tour} />
+      <Route path="/book-demo" component={BookDemo} />
+      <Route path="/legal/terms" component={Legal} />
+      <Route path="/legal/privacy" component={Legal} />
 
       {/* External redirects */}
       <Route path="/signin">{() => { window.location.href = SIGNIN_URL; return null; }}</Route>
