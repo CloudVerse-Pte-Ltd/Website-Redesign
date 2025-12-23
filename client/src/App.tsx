@@ -22,6 +22,7 @@ import Help from "@/pages/Help";
 import Tour from "@/pages/Tour";
 import BookDemo from "@/pages/BookDemo";
 import Legal from "@/pages/Legal";
+import Compare from "@/pages/Compare";
 import NotFound from "@/pages/not-found";
 import { SIGNIN_URL, DEMO_URL } from "@/lib/links";
 
@@ -44,6 +45,7 @@ function Router() {
       <Route path="/help" component={Help} />
       <Route path="/tour" component={Tour} />
       <Route path="/book-demo" component={BookDemo} />
+      <Route path="/compare" component={Compare} />
       <Route path="/legal/terms" component={Legal} />
       <Route path="/legal/privacy" component={Legal} />
 

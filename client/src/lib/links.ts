@@ -24,4 +24,5 @@ export const ROUTES = {
   help: "/help",
   tour: "/tour",
   bookDemo: "/book-demo",
+  compare: "/compare",
 } as const;
