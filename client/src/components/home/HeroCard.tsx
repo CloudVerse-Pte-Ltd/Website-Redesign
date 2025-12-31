@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { LOGOS, CLOUD_PROVIDERS, AI_GPU_PROVIDERS, LOGO_DISPLAY_NAMES, type LogoKey } from "@/config/logos";
 
 const heroOutcomesSet1 = [
   { title: "Unified Cost Visibility", desc: "Real-time view across all clouds and services" },
@@ -14,19 +16,31 @@ const heroOutcomesSet2 = [
   { title: "Realized Savings", desc: "Track outcomes, not estimates" },
 ];
 
-const supportedPlatforms = [
-  { name: "AWS", src: "/logos/aws-full.svg" },
-  { name: "Azure", src: "/logos/azure-full.svg" },
-  { name: "GCP", src: "/logos/gcp-full.svg" },
-  { name: "Alibaba", src: "/logos/alibaba-full.svg" },
-  { name: "Huawei", src: "/logos/huawei-full.svg" },
-  { name: "Tencent", src: "/logos/tencent-full.svg" },
-];
+function LogoPill({ logoKey, className = "" }: { logoKey: LogoKey; className?: string }) {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-const gpuAiProviders = [
-  { name: "OpenAI", src: "/logos/openai-full.svg" },
-  { name: "Databricks", src: "/logos/databricks-full.svg" },
-];
+  const variant = mounted ? (resolvedTheme === 'dark' ? 'dark' : 'light') : 'dark';
+  const logoPath = LOGOS[logoKey][variant];
+  const displayName = LOGO_DISPLAY_NAMES[logoKey];
+
+  return (
+    <div 
+      className={`logo-pill flex items-center justify-center h-12 px-3 rounded-lg ${className}`}
+      data-testid={`logo-${logoKey}`}
+    >
+      <img
+        src={logoPath}
+        alt={displayName}
+        className="h-6 w-auto max-w-full object-contain"
+      />
+    </div>
+  );
+}
 
 export function HeroCard() {
   const [showSet2, setShowSet2] = useState(false);
@@ -105,17 +119,8 @@ export function HeroCard() {
             Supported Platforms
           </h5>
           <div className="grid grid-cols-3 gap-4">
-            {supportedPlatforms.map((platform) => (
-              <div 
-                key={platform.name} 
-                className="flex items-center justify-center h-12 px-3 rounded-lg bg-white border border-slate-200"
-              >
-                <img
-                  src={platform.src}
-                  alt={platform.name}
-                  className="h-6 w-auto max-w-full object-contain"
-                />
-              </div>
+            {CLOUD_PROVIDERS.map((key) => (
+              <LogoPill key={key} logoKey={key} />
             ))}
           </div>
         </div>
@@ -126,22 +131,10 @@ export function HeroCard() {
             AI & GPU Providers
           </h5>
           <div className="grid grid-cols-2 gap-4">
-            {gpuAiProviders.map((provider) => (
-              <div 
-                key={provider.name} 
-                className="flex items-center justify-center h-12 px-3 rounded-lg bg-white border border-slate-200"
-              >
-                <img
-                  src={provider.src}
-                  alt={provider.name}
-                  className="h-5 w-auto max-w-full object-contain"
-                />
-              </div>
+            {AI_GPU_PROVIDERS.map((key) => (
+              <LogoPill key={key} logoKey={key} />
             ))}
           </div>
-          <p className="text-[11px] text-slate-500 mt-4">
-            Plus Kubernetes, Snowflake, and data platforms
-          </p>
         </div>
       </div>
     </div>

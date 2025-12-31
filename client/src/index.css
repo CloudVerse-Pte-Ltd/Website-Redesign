@@ -216,4 +216,18 @@
   .cv-eyebrow {
     @apply text-xs tracking-[0.25em] uppercase text-cv-muted;
   }
+  
+  /* Logo visibility containers - Always white background for logo visibility */
+  .logo-pill {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 10px 14px;
+  }
+  
+  /* Light mode: slightly tinted background */
+  :root:not(.dark) .logo-pill {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
 }
