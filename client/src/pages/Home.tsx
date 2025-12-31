@@ -8,6 +8,7 @@ import { PillarCard } from "@/components/PillarCard";
 import { OutcomeTile } from "@/components/OutcomeTile";
 import { MotionHeroBackground } from "@/components/MotionHeroBackground";
 import { HeroCard } from "@/components/home/HeroCard";
+import { DeploymentOptions } from "@/components/home/DeploymentOptions";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { Globe, Receipt, Tag, Code2, Cpu, Activity } from "lucide-react";
 
@@ -103,6 +104,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <DeploymentOptions />
 
       {/* Customer Logos Section */}
       <section className="py-10 sm:py-12 lg:py-14 border-t border-white/10">

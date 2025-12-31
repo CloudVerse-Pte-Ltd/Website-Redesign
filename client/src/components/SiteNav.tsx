@@ -28,7 +28,6 @@ export function SiteNav() {
     { href: ROUTES.platform, label: "Platform", track: "nav_platform" },
     { href: ROUTES.solutions, label: "Solutions", track: "nav_solutions" },
     { href: ROUTES.integrations, label: "Integrations", track: "nav_integrations" },
-    { href: ROUTES.security, label: "Security", track: "nav_security" },
     { href: ROUTES.resources, label: "Resources", track: "nav_resources" },
     { href: ROUTES.pricing, label: "Pricing", track: "nav_pricing" },
   ];

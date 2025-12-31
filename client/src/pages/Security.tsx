@@ -92,38 +92,6 @@ export default function Security() {
         </div>
       </MotionHero>
 
-      <section className="py-14 sm:py-16 lg:py-20">
-        <div className="cv-container">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="cv-h2 mb-3">Deployment options</h2>
-            <p className="text-cv-muted">
-              Choose the deployment model that fits your security requirements.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {deploymentOptions.map((option, idx) => (
-              <div 
-                key={idx} 
-                className="border border-cv-line rounded-2xl p-6 sm:p-8 bg-cv-surface2 flex flex-col h-full"
-              >
-                <h3 className="text-xl font-semibold text-cv-ink mb-1">{option.title}</h3>
-                <p className="text-xs text-blue-400 font-medium mb-3">Best for: {option.bestFor}</p>
-                <p className="text-sm text-cv-muted mb-6">{option.description}</p>
-                <ul className="space-y-3 mt-auto">
-                  {option.bullets.map((bullet, bulletIdx) => (
-                    <li key={bulletIdx} className="flex items-start gap-3 text-sm text-cv-muted">
-                      <span className="text-blue-400 font-semibold mt-0.5 flex-shrink-0">•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[1000px]">
           <h2 className="cv-h2 mb-8 text-center">Designed for enterprise trust.</h2>
