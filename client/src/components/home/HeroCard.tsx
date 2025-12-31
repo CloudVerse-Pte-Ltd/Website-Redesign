@@ -15,17 +15,17 @@ const heroOutcomesSet2 = [
 ];
 
 const supportedPlatforms = [
-  { name: "AWS", src: "/logos/aws-colored.svg" },
-  { name: "Azure", src: "/logos/azure-colored.svg" },
-  { name: "GCP", src: "/logos/gcp-colored.svg" },
-  { name: "Alibaba", src: "/logos/alibaba-colored.svg" },
-  { name: "Huawei", src: "/logos/huawei.svg" },
-  { name: "Tencent", src: "/logos/tencent-colored.svg" },
+  { name: "AWS", color: "text-orange-400" },
+  { name: "Azure", color: "text-blue-400" },
+  { name: "GCP", color: "text-red-400" },
+  { name: "Alibaba", color: "text-orange-500" },
+  { name: "Huawei", color: "text-red-500" },
+  { name: "Tencent", color: "text-blue-500" },
 ];
 
 const gpuAiProviders = [
-  { name: "OpenAI", src: "/logos/openai-colored.svg" },
-  { name: "Databricks", src: "/logos/databricks-colored.svg" },
+  { name: "OpenAI", color: "text-emerald-400" },
+  { name: "Databricks", color: "text-orange-400" },
 ];
 
 export function HeroCard() {
@@ -104,18 +104,14 @@ export function HeroCard() {
           <h5 className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase mb-4">
             Supported Platforms
           </h5>
-          <div className="grid grid-cols-6 gap-3">
+          <div className="flex flex-wrap gap-2">
             {supportedPlatforms.map((platform) => (
-              <div 
+              <span 
                 key={platform.name} 
-                className="flex items-center justify-center h-10 rounded-lg bg-slate-800/60 border border-slate-700/40 hover:bg-slate-700/60 transition-colors"
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-800 border border-slate-700/60 ${platform.color}`}
               >
-                <img
-                  src={platform.src}
-                  alt={platform.name}
-                  className="h-5 w-auto object-contain"
-                />
-              </div>
+                {platform.name}
+              </span>
             ))}
           </div>
         </div>
@@ -125,22 +121,18 @@ export function HeroCard() {
           <h5 className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase mb-4">
             AI & GPU Providers
           </h5>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="flex flex-wrap gap-2">
             {gpuAiProviders.map((provider) => (
-              <div 
+              <span 
                 key={provider.name} 
-                className="flex items-center justify-center h-10 rounded-lg bg-slate-800/60 border border-slate-700/40 hover:bg-slate-700/60 transition-colors"
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-800 border border-slate-700/60 ${provider.color}`}
               >
-                <img
-                  src={provider.src}
-                  alt={provider.name}
-                  className="h-5 w-auto object-contain"
-                />
-              </div>
+                {provider.name}
+              </span>
             ))}
           </div>
           <p className="text-[11px] text-slate-500 mt-4">
-            Plus Kubernetes, OpenShift, and data platforms
+            Plus Kubernetes, Snowflake, Databricks, and more
           </p>
         </div>
       </div>
