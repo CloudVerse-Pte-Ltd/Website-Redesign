@@ -1,0 +1,223 @@
+OBJECTIVE
+
+Ensure all cloud, AI, GPU, and data provider logos across the CloudVerse website are:
+
+Theme-aware (dark + light)
+
+High-contrast and readable
+
+Consistent across all pages
+
+Loaded from local assets only
+
+Never regenerated, recolored, or fetched from random sources
+
+1️⃣ AUTHORITATIVE LOGO SOURCES (DO NOT DEVIATE)
+
+You must download and store official SVG logos only from these sources:
+
+Cloud Providers
+
+AWS → https://aws.amazon.com/branding/
+
+Azure → https://learn.microsoft.com/en-us/azure/architecture/icons/
+
+Google Cloud → https://cloud.google.com/brand
+
+Oracle Cloud (OCI) → https://www.oracle.com/corporate/marketing/brand/
+
+Alibaba Cloud → https://www.alibabacloud.com/help/en/legal/latest/alibaba-cloud-brand-guidelines
+
+Huawei Cloud → https://www.huawei.com/en/brand
+
+Tencent Cloud → https://intl.cloud.tencent.com/document/product/301/43505
+
+AI / GPU / Data Platforms
+
+OpenAI → https://openai.com/brand
+
+Databricks → https://www.databricks.com/brand
+
+Snowflake → https://www.snowflake.com/legal/brand-guidelines/
+
+Kubernetes → https://github.com/kubernetes/community/tree/master/icons
+
+❗ Only SVGs. No PNGs. No screenshots. No generated icons.
+
+2️⃣ REQUIRED FILE STRUCTURE (NO EXCEPTIONS)
+
+Store logos locally like this:
+
+/client/public/logos/
+  ├── aws/
+  │   ├── aws-dark.svg
+  │   └── aws-light.svg
+  ├── azure/
+  │   ├── azure-dark.svg
+  │   └── azure-light.svg
+  ├── gcp/
+  │   ├── gcp-dark.svg
+  │   └── gcp-light.svg
+  ├── oracle/
+  ├── alibaba/
+  ├── huawei/
+  ├── tencent/
+  ├── openai/
+  ├── databricks/
+  ├── snowflake/
+  └── kubernetes/
+
+
+If an official logo does not provide a light/dark variant:
+
+Use the monochrome SVG
+
+Place it inside a neutral container (see section 4)
+
+3️⃣ THEME-AWARE RENDERING (MANDATORY)
+DO NOT:
+
+Apply CSS filter: invert
+
+Change SVG fill colors
+
+Apply opacity hacks
+
+Let Tailwind auto-theme it
+
+MUST:
+
+Explicitly switch logo file by theme
+
+Example (React / Next.js):
+
+const theme = useTheme(); // dark | light
+
+<img
+  src={`/logos/aws/aws-${theme}.svg`}
+  alt="AWS"
+  className="h-6 w-auto"
+/>
+
+
+This logic must be reused everywhere logos appear:
+
+Hero cards
+
+Platform sections
+
+Partner page
+
+Solutions
+
+Footer
+
+AIX / DevX / BillOps pages
+
+4️⃣ VISIBILITY GUARANTEE (LOGO CONTAINERS)
+
+Every logo must be wrapped in a visibility-safe container:
+
+.logo-pill {
+  background: rgba(255,255,255,0.95); /* for dark mode */
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+
+Light mode equivalent:
+
+[data-theme="light"] .logo-pill {
+  background: rgba(0,0,0,0.05);
+}
+
+
+This is non-negotiable.
+
+5️⃣ GLOBAL LOGO REGISTRY (SINGLE SOURCE OF TRUTH)
+
+Create:
+
+/client/src/config/logos.ts
+
+
+Example:
+
+export const LOGOS = {
+  aws: {
+    light: "/logos/aws/aws-light.svg",
+    dark: "/logos/aws/aws-dark.svg",
+  },
+  azure: {
+    light: "/logos/azure/azure-light.svg",
+    dark: "/logos/azure/azure-dark.svg",
+  },
+  openai: {
+    light: "/logos/openai/openai-light.svg",
+    dark: "/logos/openai/openai-dark.svg",
+  },
+};
+
+
+All pages must import from here.
+No inline paths. No duplication.
+
+6️⃣ ENFORCEMENT RULES (VERY IMPORTANT)
+
+❌ Do NOT regenerate logos
+
+❌ Do NOT fetch logos dynamically
+
+❌ Do NOT replace missing logos with placeholders
+
+❌ Do NOT use icon libraries (Lucide, Heroicons, etc.)
+
+❌ Do NOT recolor SVGs
+
+If a logo is missing:
+➡ Stop and ask for approval before proceeding.
+
+7️⃣ PAGES THAT MUST BE FIXED
+
+Apply this system to:
+
+Home hero right-side card
+
+Solutions page
+
+Partners page
+
+Footer
+
+AIX page
+
+BillOps page
+
+Integrations page
+
+Any future page using provider logos
+
+8️⃣ FINAL VERIFICATION STEP (MANDATORY)
+
+Before committing:
+
+Toggle dark mode
+
+Toggle light mode
+
+Confirm:
+
+All logos visible
+
+No washed-out icons
+
+No broken images
+
+No layout shifts
+
+If any logo fails → fix before commit.
+
+❗ ABSOLUTE RULE
+
+CloudVerse branding accuracy > speed.
+If unsure, STOP.
