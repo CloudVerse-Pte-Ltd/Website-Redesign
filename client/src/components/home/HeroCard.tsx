@@ -15,17 +15,17 @@ const heroOutcomesSet2 = [
 ];
 
 const supportedPlatforms = [
-  { name: "AWS", color: "text-orange-400" },
-  { name: "Azure", color: "text-blue-400" },
-  { name: "GCP", color: "text-red-400" },
-  { name: "Alibaba", color: "text-orange-500" },
-  { name: "Huawei", color: "text-red-500" },
-  { name: "Tencent", color: "text-blue-500" },
+  { name: "AWS", src: "/logos/aws-full.svg" },
+  { name: "Azure", src: "/logos/azure-full.svg" },
+  { name: "GCP", src: "/logos/gcp-full.svg" },
+  { name: "Alibaba", src: "/logos/alibaba-full.svg" },
+  { name: "Huawei", src: "/logos/huawei-full.svg" },
+  { name: "Tencent", src: "/logos/tencent-full.svg" },
 ];
 
 const gpuAiProviders = [
-  { name: "OpenAI", color: "text-emerald-400" },
-  { name: "Databricks", color: "text-orange-400" },
+  { name: "OpenAI", src: "/logos/openai-full.svg" },
+  { name: "Databricks", src: "/logos/databricks-full.svg" },
 ];
 
 export function HeroCard() {
@@ -104,14 +104,18 @@ export function HeroCard() {
           <h5 className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase mb-4">
             Supported Platforms
           </h5>
-          <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-3 gap-4">
             {supportedPlatforms.map((platform) => (
-              <span 
+              <div 
                 key={platform.name} 
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-800 border border-slate-700/60 ${platform.color}`}
+                className="flex items-center justify-center h-12 px-3 rounded-lg bg-white border border-slate-200"
               >
-                {platform.name}
-              </span>
+                <img
+                  src={platform.src}
+                  alt={platform.name}
+                  className="h-6 w-auto max-w-full object-contain"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -121,18 +125,22 @@ export function HeroCard() {
           <h5 className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase mb-4">
             AI & GPU Providers
           </h5>
-          <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-2 gap-4">
             {gpuAiProviders.map((provider) => (
-              <span 
+              <div 
                 key={provider.name} 
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-800 border border-slate-700/60 ${provider.color}`}
+                className="flex items-center justify-center h-12 px-3 rounded-lg bg-white border border-slate-200"
               >
-                {provider.name}
-              </span>
+                <img
+                  src={provider.src}
+                  alt={provider.name}
+                  className="h-5 w-auto max-w-full object-contain"
+                />
+              </div>
             ))}
           </div>
           <p className="text-[11px] text-slate-500 mt-4">
-            Plus Kubernetes, Snowflake, Databricks, and more
+            Plus Kubernetes, Snowflake, and data platforms
           </p>
         </div>
       </div>
