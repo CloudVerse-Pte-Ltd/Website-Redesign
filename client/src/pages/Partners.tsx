@@ -1,45 +1,289 @@
 import { BaseLayout } from "@/layouts/BaseLayout";
-import { useState } from "react";
+import { Button } from "@/components/Button";
+import { track } from "@/lib/track";
+import { Link } from "wouter";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+import { Layers, TrendingUp, Users, CheckCircle2 } from "lucide-react";
+
+type PartnerType = "msp" | "gsi" | "reseller";
+
+const partnerTypes: { id: PartnerType; label: string }[] = [
+  { id: "msp", label: "MSP" },
+  { id: "gsi", label: "GSI" },
+  { id: "reseller", label: "Reseller" },
+];
+
+const partnerTypeContent: Record<PartnerType, {
+  bestFor: string;
+  motion: string;
+  delivers: string[];
+}> = {
+  msp: {
+    bestFor: "Managed service providers delivering ongoing cloud operations",
+    motion: "Embed CloudVerse into managed FinOps and optimization offerings",
+    delivers: [
+      "Multi-tenant portfolio visibility",
+      "Recurring optimization services",
+      "White-labeled reporting options",
+    ],
+  },
+  gsi: {
+    bestFor: "Global systems integrators with enterprise transformation practices",
+    motion: "Lead with CloudVerse in cloud modernization and FinOps programs",
+    delivers: [
+      "Enterprise implementation services",
+      "Change management and governance",
+      "Multi-cloud strategy alignment",
+    ],
+  },
+  reseller: {
+    bestFor: "Cloud resellers and distributors expanding service portfolio",
+    motion: "Bundle CloudVerse with cloud consumption to drive value",
+    delivers: [
+      "Margin-friendly pricing models",
+      "Customer success and retention",
+      "Differentiated cloud offerings",
+    ],
+  },
+};
+
+const valuePillars = [
+  {
+    icon: Layers,
+    title: "Embed into your delivery",
+    desc: "Bring visibility, allocation, and optimization into your FinOps or cloud managed services.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Grow revenue",
+    desc: "Create new advisory + managed savings offerings, usage-based programs, and implementation packages.",
+  },
+  {
+    icon: Users,
+    title: "Win and retain customers",
+    desc: "Differentiate with multi-cloud coverage + AI/Data spend optimization.",
+  },
+];
+
+const programComponents = [
+  "Co-selling support",
+  "Partner enablement & training",
+  "Multi-tenant portfolio support",
+  "Embed into workflows",
+  "Commercial coordination",
+  "Implementation toolkit",
+];
+
+const revenueStreams = [
+  { title: "Implementation services", desc: "Onboarding, integration, and configuration engagements" },
+  { title: "Managed FinOps retainer", desc: "Ongoing optimization and reporting services" },
+  { title: "Referral / resell margin", desc: "Commercial arrangements for customer referrals" },
+];
+
+const partnerWorkflow = [
+  { step: "01", title: "Qualify", desc: "Identify customer fit" },
+  { step: "02", title: "Connect", desc: "Link customer data" },
+  { step: "03", title: "Deliver", desc: "Baseline + roadmap" },
+  { step: "04", title: "Optimize", desc: "Ongoing value delivery" },
+];
 
 export default function Partners() {
-  const [email, setEmail] = useState("");
+  const [activeType, setActiveType] = useState<PartnerType>("msp");
+  const content = partnerTypeContent[activeType];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Placeholder for partner interest submission
-    alert("Thank you for your interest. We'll be in touch soon.");
-    setEmail("");
-  };
+  useEffect(() => {
+    document.title = "Partners — CloudVerse™";
+  }, []);
 
   return (
     <BaseLayout>
-      <section className="pt-16 lg:pt-24 pb-16 lg:pb-24 relative overflow-hidden">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center space-y-6">
-            <span className="inline-block text-xs uppercase tracking-widest text-cv-muted font-semibold">
-              CloudVerse™
-            </span>
-            <h1 className="cv-h1">Partner with us</h1>
-            <p className="text-lg text-white/70">
-              Build integrations, resell, or collaborate on cloud financial management.
+      {/* Hero */}
+      <section className="pt-20 sm:pt-24 lg:pt-28 pb-14 sm:pb-16 lg:pb-20 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/50 mb-4">
+              CloudVerse™ Partner Program
             </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+              Partner with CloudVerse™
+            </h1>
+            <p className="text-lg sm:text-xl text-white/70 mb-8 leading-relaxed">
+              For MSPs, GSIs, and Resellers who want to deliver measurable savings faster—and grow services revenue.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="mailto:partners@cloudverse.ai" onClick={() => track("cta_partner_apply", { location: "partners_hero" })} data-testid="link-partner-apply">
+                <Button size="lg" className="w-full sm:w-auto" data-testid="button-partner-apply">
+                  Become a partner
+                </Button>
+              </a>
+              <Link href="/demo" onClick={() => track("cta_partner_demo", { location: "partners_hero" })} data-testid="link-partner-demo">
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto" data-testid="button-partner-demo">
+                  Book a partner demo
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-3 max-w-sm mx-auto">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                required
-              />
+      {/* Value Pillars */}
+      <section className="py-14 sm:py-16 lg:py-20 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {valuePillars.map((pillar, idx) => {
+              const Icon = pillar.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+                >
+                  <div className="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 w-fit mb-6">
+                    <Icon className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{pillar.title}</h3>
+                  <p className="text-white/60 leading-relaxed">{pillar.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Partner Types */}
+      <section className="py-14 sm:py-16 lg:py-20 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+            Partner types
+          </h2>
+          
+          {/* Type Selector */}
+          <div className="flex justify-center gap-3 mb-10">
+            {partnerTypes.map((type) => (
               <button
-                type="submit"
-                className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors"
+                key={type.id}
+                onClick={() => setActiveType(type.id)}
+                data-testid={`button-partner-type-${type.id}`}
+                className={cn(
+                  "px-6 py-3 rounded-full text-sm font-medium transition-all",
+                  activeType === type.id
+                    ? "bg-blue-600 text-white"
+                    : "bg-white/5 text-white/70 hover:bg-white/10 border border-white/10"
+                )}
               >
-                Get in touch
+                {type.label}
               </button>
-            </form>
+            ))}
+          </div>
+
+          {/* Type Content */}
+          <div className="max-w-2xl mx-auto rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+            <div className="space-y-6">
+              <div>
+                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">Best for</p>
+                <p className="text-lg text-white/90">{content.bestFor}</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">Typical motion</p>
+                <p className="text-base text-white/70">{content.motion}</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">What you deliver</p>
+                <ul className="space-y-2">
+                  {content.delivers.map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-white/70">
+                      <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Program Components */}
+      <section className="py-14 sm:py-16 lg:py-20 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+            Program components
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {programComponents.map((component, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-xl border border-white/10 bg-white/[0.02] text-center"
+              >
+                <p className="text-sm font-medium text-white/80">{component}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Revenue Streams */}
+      <section className="py-14 sm:py-16 lg:py-20 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+            How partners make money
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {revenueStreams.map((stream, idx) => (
+              <div
+                key={idx}
+                className="p-6 rounded-2xl border border-white/10 bg-white/[0.02]"
+              >
+                <h3 className="text-lg font-semibold text-white mb-2">{stream.title}</h3>
+                <p className="text-sm text-white/60">{stream.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partner Workflow */}
+      <section className="py-14 sm:py-16 lg:py-20 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10 text-center">
+            Partner workflow
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
+            {partnerWorkflow.map((item, idx) => (
+              <div key={idx} className="text-center">
+                <div className="w-12 h-12 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center mx-auto mb-4">
+                  <span className="text-sm font-bold text-blue-400">{item.step}</span>
+                </div>
+                <h4 className="text-base font-semibold text-white mb-1">{item.title}</h4>
+                <p className="text-xs text-white/50">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-14 sm:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-xl mx-auto space-y-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              Talk to our partner team.
+            </h2>
+            <p className="text-white/60">
+              Learn how CloudVerse can help you grow services revenue and deliver measurable value.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="mailto:partners@cloudverse.ai" onClick={() => track("cta_partner_apply", { location: "partners_bottom" })} data-testid="link-partner-apply-bottom">
+                <Button size="lg" className="w-full sm:w-auto" data-testid="button-partner-apply-bottom">
+                  Apply now
+                </Button>
+              </a>
+              <Link href="/contact" onClick={() => track("cta_partner_contact", { location: "partners_bottom" })} data-testid="link-partner-contact">
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto" data-testid="button-partner-contact">
+                  Contact us
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
