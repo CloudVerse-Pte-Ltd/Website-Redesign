@@ -44,37 +44,22 @@ interface AnalysisResult {
   optimizationPotentialMax: number;
 }
 
-const MOCK_RESULT: AnalysisResult = {
-  score: 78,
-  currency: "USD",
-  totalSpend: 47832.14,
-  billingPeriodStart: "2024-11-01",
-  billingPeriodEnd: "2024-11-30",
-  providerDetected: "AWS",
-  lineItemCount: 1247,
-  topAccountIdentifier: "prod-main-account",
-  topServices: [
-    { name: "EC2", spend: 19612.17, percent: 41 },
-    { name: "S3", spend: 8609.78, percent: 18 },
-    { name: "RDS", spend: 6696.50, percent: 14 },
-  ],
-  topRegions: [
-    { name: "us-east-1", spend: 28699.28, percent: 60 },
-    { name: "eu-west-1", spend: 11958.04, percent: 25 },
-    { name: "ap-south-1", spend: 4783.21, percent: 10 },
-  ],
-  topLineItems: [
-    { displayName: "i-0abc123def456", service: "EC2", quantity: 720, unit: "hrs", cost: 3456.00 },
-    { displayName: "db-prod-primary", service: "RDS", quantity: 720, unit: "hrs", cost: 2890.50 },
-    { displayName: "logs-bucket-prod", service: "S3", quantity: 2.4, unit: "TB", cost: 1248.00 },
-    { displayName: "nat-gateway-main", service: "VPC", quantity: 720, unit: "hrs", cost: 1080.00 },
-    { displayName: "lambda-api-handler", service: "Lambda", quantity: 14.2, unit: "M req", cost: 892.40 },
-  ],
-  computeSpendPercent: 41,
-  onDemandPercent: 68,
-  optimizationPotentialMin: 12,
-  optimizationPotentialMax: 28,
-};
+async function analyzeInvoice(file: File): Promise<AnalysisResult> {
+  const formData = new FormData();
+  formData.append("invoice", file);
+
+  const response = await fetch("/api/invoice-analysis", {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({ error: "Failed to analyze invoice" }));
+    throw new Error(error.error || "Failed to analyze invoice");
+  }
+
+  return response.json();
+}
 
 const ACCEPTED_TYPES = [".pdf", ".csv", ".xlsx"];
 const ACCEPTED_MIME = [
@@ -117,7 +102,7 @@ export function InvoiceEfficiencySection() {
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const processFile = useCallback((file: File) => {
+  const processFile = useCallback(async (file: File) => {
     const error = validateFile(file);
     if (error) {
       setErrorMessage(error);
@@ -129,11 +114,15 @@ export function InvoiceEfficiencySection() {
     setState("processing");
     setErrorMessage("");
 
-    setTimeout(() => {
+    try {
+      const analysisResult = await analyzeInvoice(file);
       setState("result");
-      setResult(MOCK_RESULT);
-      track("invoice_analysis_complete", { score: MOCK_RESULT.score });
-    }, 1200);
+      setResult(analysisResult);
+      track("invoice_analysis_complete", { score: analysisResult.score });
+    } catch (err) {
+      setErrorMessage(err instanceof Error ? err.message : "Failed to analyze invoice");
+      setState("error");
+    }
   }, []);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
