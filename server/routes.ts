@@ -12,7 +12,8 @@ const require = createRequire(import.meta.url);
 const { PDFParse } = require("pdf-parse");
 
 async function extractPdfText(buffer: Buffer): Promise<{ text: string; numpages: number }> {
-  const parser = new PDFParse(buffer);
+  const uint8Array = new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength);
+  const parser = new PDFParse(uint8Array);
   await parser.load();
   const text = await parser.getText();
   const info = await parser.getInfo();
