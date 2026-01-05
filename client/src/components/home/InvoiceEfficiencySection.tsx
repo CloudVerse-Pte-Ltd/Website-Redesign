@@ -2,26 +2,78 @@ import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/Button";
 import { Link } from "wouter";
 import { track } from "@/lib/track";
-import { Upload, FileText, CheckCircle, AlertCircle } from "lucide-react";
+import { Upload, FileText, CheckCircle, AlertCircle, Calendar, DollarSign, FileStack, Server } from "lucide-react";
 
 type State = "idle" | "processing" | "result" | "error";
 
+interface TopService {
+  name: string;
+  spend: number;
+  percent: number;
+}
+
+interface TopRegion {
+  name: string;
+  spend: number;
+  percent: number;
+}
+
+interface TopLineItem {
+  displayName: string;
+  service: string;
+  quantity?: number;
+  unit?: string;
+  cost: number;
+}
+
 interface AnalysisResult {
   score: number;
-  spendCoverage: string[];
-  aiSignals: boolean;
-  wasteSignals: string;
-  commitmentCoverage: string;
-  optimizationPotential: string;
+  currency: string;
+  totalSpend: number;
+  billingPeriodStart: string;
+  billingPeriodEnd: string;
+  providerDetected: string;
+  lineItemCount: number;
+  topAccountIdentifier?: string;
+  topServices: TopService[];
+  topRegions: TopRegion[];
+  topLineItems: TopLineItem[];
+  computeSpendPercent: number;
+  onDemandPercent: number;
+  optimizationPotentialMin: number;
+  optimizationPotentialMax: number;
 }
 
 const MOCK_RESULT: AnalysisResult = {
   score: 78,
-  spendCoverage: ["Compute", "Storage", "Network"],
-  aiSignals: false,
-  wasteSignals: "Idle/overprovision indicators detected",
-  commitmentCoverage: "On-demand heavy: Medium",
-  optimizationPotential: "Estimated: 12–28%",
+  currency: "USD",
+  totalSpend: 47832.14,
+  billingPeriodStart: "2024-11-01",
+  billingPeriodEnd: "2024-11-30",
+  providerDetected: "AWS",
+  lineItemCount: 1247,
+  topAccountIdentifier: "prod-main-account",
+  topServices: [
+    { name: "EC2", spend: 19612.17, percent: 41 },
+    { name: "S3", spend: 8609.78, percent: 18 },
+    { name: "RDS", spend: 6696.50, percent: 14 },
+  ],
+  topRegions: [
+    { name: "us-east-1", spend: 28699.28, percent: 60 },
+    { name: "eu-west-1", spend: 11958.04, percent: 25 },
+    { name: "ap-south-1", spend: 4783.21, percent: 10 },
+  ],
+  topLineItems: [
+    { displayName: "i-0abc123def456", service: "EC2", quantity: 720, unit: "hrs", cost: 3456.00 },
+    { displayName: "db-prod-primary", service: "RDS", quantity: 720, unit: "hrs", cost: 2890.50 },
+    { displayName: "logs-bucket-prod", service: "S3", quantity: 2.4, unit: "TB", cost: 1248.00 },
+    { displayName: "nat-gateway-main", service: "VPC", quantity: 720, unit: "hrs", cost: 1080.00 },
+    { displayName: "lambda-api-handler", service: "Lambda", quantity: 14.2, unit: "M req", cost: 892.40 },
+  ],
+  computeSpendPercent: 41,
+  onDemandPercent: 68,
+  optimizationPotentialMin: 12,
+  optimizationPotentialMax: 28,
 };
 
 const ACCEPTED_TYPES = [".pdf", ".csv", ".xlsx"];
@@ -42,6 +94,20 @@ function validateFile(file: File): string | null {
     return `File too large. Maximum size is ${MAX_SIZE_MB}MB.`;
   }
   return null;
+}
+
+function formatCurrency(amount: number, currency: string): string {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 
 export function InvoiceEfficiencySection() {
@@ -101,7 +167,7 @@ export function InvoiceEfficiencySection() {
   return (
     <section className="pt-0 pb-10 sm:pb-12 lg:pb-14">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[50%_50%] gap-8 lg:gap-10 items-start">
           {/* Left Column: Copy */}
           <div className="space-y-6">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cv-muted">
@@ -148,7 +214,7 @@ export function InvoiceEfficiencySection() {
               </div>
 
               {/* Card Content */}
-              <div className="p-6 sm:p-8 min-h-[320px] flex flex-col justify-center">
+              <div className="p-5 sm:p-6">
                 {/* Idle State */}
                 {state === "idle" && (
                   <div
@@ -156,7 +222,7 @@ export function InvoiceEfficiencySection() {
                     onDrop={handleDrop}
                     onDragOver={handleDragOver}
                     onDragLeave={handleDragLeave}
-                    className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${
+                    className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all min-h-[280px] flex flex-col items-center justify-center ${
                       isDragOver
                         ? "border-blue-500 bg-blue-500/10"
                         : "border-cv-line dark:border-white/20 hover:border-blue-400 hover:bg-blue-500/5"
@@ -188,7 +254,7 @@ export function InvoiceEfficiencySection() {
 
                 {/* Processing State */}
                 {state === "processing" && (
-                  <div className="text-center py-8">
+                  <div className="text-center py-12 min-h-[280px] flex flex-col items-center justify-center">
                     <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-blue-500/10 flex items-center justify-center">
                       <FileText className="w-8 h-8 text-blue-500 animate-pulse" />
                     </div>
@@ -202,7 +268,7 @@ export function InvoiceEfficiencySection() {
 
                 {/* Error State */}
                 {state === "error" && (
-                  <div className="text-center py-8">
+                  <div className="text-center py-12 min-h-[280px] flex flex-col items-center justify-center">
                     <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/10 flex items-center justify-center">
                       <AlertCircle className="w-8 h-8 text-red-500" />
                     </div>
@@ -217,32 +283,119 @@ export function InvoiceEfficiencySection() {
 
                 {/* Result State */}
                 {state === "result" && result && (
-                  <div className="space-y-6">
+                  <div className="space-y-5">
                     {/* Score Badge */}
                     <div className="text-center pb-4 border-b border-cv-line dark:border-white/10">
                       <div className="inline-flex items-baseline gap-1">
-                        <span className="text-6xl font-bold text-cv-ink" data-testid="score-value">
+                        <span className="text-5xl sm:text-6xl font-bold text-cv-ink" data-testid="score-value">
                           {result.score}
                         </span>
-                        <span className="text-2xl text-cv-muted">/100</span>
+                        <span className="text-xl sm:text-2xl text-cv-muted">/100</span>
                       </div>
                       <p className="text-sm text-cv-muted mt-2">Preliminary efficiency score</p>
                     </div>
 
+                    {/* Invoice Snapshot */}
+                    <div className="space-y-3 pb-4 border-b border-cv-line dark:border-white/10">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-cv-muted">Invoice snapshot</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <SnapshotItem icon={Server} label="Provider" value={result.providerDetected} />
+                        <SnapshotItem icon={Calendar} label="Period" value={`${formatDate(result.billingPeriodStart)} → ${formatDate(result.billingPeriodEnd)}`} />
+                        <SnapshotItem icon={DollarSign} label="Total spend" value={formatCurrency(result.totalSpend, result.currency)} highlight />
+                        <SnapshotItem icon={FileStack} label="Line items" value={result.lineItemCount.toLocaleString()} />
+                      </div>
+                      {result.topAccountIdentifier && (
+                        <p className="text-xs text-cv-muted">Account: <span className="text-cv-ink font-medium">{result.topAccountIdentifier}</span></p>
+                      )}
+                    </div>
+
+                    {/* Top Spend Chips */}
+                    <div className="space-y-3 pb-4 border-b border-cv-line dark:border-white/10">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-cv-muted">Top spend</p>
+                      <div className="space-y-2">
+                        <div className="flex flex-wrap gap-2">
+                          {result.topServices.map((svc) => (
+                            <span key={svc.name} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 text-xs font-medium text-blue-600 dark:text-blue-400">
+                              {svc.name} <span className="text-cv-muted">{svc.percent}%</span>
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {result.topRegions.slice(0, 3).map((reg) => (
+                            <span key={reg.name} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-500/10 text-xs font-medium text-purple-600 dark:text-purple-400">
+                              {reg.name} <span className="text-cv-muted">{reg.percent}%</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Top Line Items Table */}
+                    <div className="space-y-3 pb-4 border-b border-cv-line dark:border-white/10">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-cv-muted">Top line items detected</p>
+                      <div className="space-y-2">
+                        {/* Desktop Table */}
+                        <div className="hidden sm:block overflow-x-auto">
+                          <table className="w-full text-xs">
+                            <thead>
+                              <tr className="text-cv-muted border-b border-cv-line dark:border-white/10">
+                                <th className="text-left py-1.5 font-medium">Resource</th>
+                                <th className="text-left py-1.5 font-medium">Service</th>
+                                <th className="text-right py-1.5 font-medium">Qty</th>
+                                <th className="text-right py-1.5 font-medium">Cost</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {result.topLineItems.map((item, idx) => (
+                                <tr key={idx} className="border-b border-cv-line/50 dark:border-white/5 last:border-0">
+                                  <td className="py-2 text-cv-ink font-mono text-[11px] truncate max-w-[100px]">{item.displayName}</td>
+                                  <td className="py-2 text-cv-muted">{item.service}</td>
+                                  <td className="py-2 text-right text-cv-muted">
+                                    {item.quantity && item.unit ? `${item.quantity} ${item.unit}` : "—"}
+                                  </td>
+                                  <td className="py-2 text-right text-cv-ink font-medium">{formatCurrency(item.cost, result.currency)}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* Mobile Stacked */}
+                        <div className="sm:hidden space-y-2">
+                          {result.topLineItems.slice(0, 5).map((item, idx) => (
+                            <div key={idx} className="flex justify-between items-start py-2 border-b border-cv-line/50 dark:border-white/5 last:border-0">
+                              <div className="min-w-0 flex-1 mr-3">
+                                <p className="text-xs text-cv-ink font-mono truncate">{item.displayName}</p>
+                                <p className="text-[10px] text-cv-muted">
+                                  {item.service}
+                                  {item.quantity && item.unit && ` • ${item.quantity} ${item.unit}`}
+                                </p>
+                              </div>
+                              <span className="text-xs text-cv-ink font-medium flex-shrink-0">{formatCurrency(item.cost, result.currency)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
                     {/* Insight Rows */}
-                    <div className="space-y-3">
-                      <InsightRow
-                        label="Spend coverage"
-                        value={result.spendCoverage.join(" • ")}
-                        subValue={result.aiSignals ? undefined : "AI signals: Not detected"}
+                    <div className="space-y-2 pb-4">
+                      <InsightRow 
+                        label="Compute concentration" 
+                        value={`${result.topServices[0]?.name || 'Compute'} ${result.computeSpendPercent}% of total`} 
                       />
-                      <InsightRow label="Waste signals" value={result.wasteSignals} />
-                      <InsightRow label="Commitment coverage" value={result.commitmentCoverage} />
-                      <InsightRow label="Optimization potential" value={result.optimizationPotential} highlight />
+                      <InsightRow 
+                        label="On-demand compute" 
+                        value={`${result.onDemandPercent}% on-demand`} 
+                      />
+                      <InsightRow 
+                        label="Optimization potential" 
+                        value={`${result.optimizationPotentialMin}–${result.optimizationPotentialMax}% savings`} 
+                        highlight 
+                      />
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                    <div className="flex flex-col sm:flex-row gap-3 pt-2">
                       <Link href="/demo" onClick={() => track("cta_demo", { location: "invoice_efficiency" })} className="flex-1">
                         <Button className="w-full" data-testid="button-book-demo">
                           Book a demo
@@ -263,28 +416,43 @@ export function InvoiceEfficiencySection() {
   );
 }
 
+function SnapshotItem({ 
+  icon: Icon, 
+  label, 
+  value, 
+  highlight 
+}: { 
+  icon: React.ElementType; 
+  label: string; 
+  value: string; 
+  highlight?: boolean;
+}) {
+  return (
+    <div className="flex items-start gap-2">
+      <Icon className="w-4 h-4 text-cv-muted flex-shrink-0 mt-0.5" />
+      <div className="min-w-0">
+        <p className="text-[10px] text-cv-muted uppercase tracking-wide">{label}</p>
+        <p className={`text-sm font-medium truncate ${highlight ? "text-green-600 dark:text-green-400" : "text-cv-ink"}`}>{value}</p>
+      </div>
+    </div>
+  );
+}
+
 function InsightRow({ 
   label, 
   value, 
-  subValue, 
   highlight 
 }: { 
   label: string; 
   value: string; 
-  subValue?: string; 
   highlight?: boolean;
 }) {
   return (
-    <div className="flex justify-between items-start gap-4 py-2">
-      <span className="text-sm text-cv-muted flex-shrink-0">{label}</span>
-      <div className="text-right">
-        <span className={`text-sm font-medium ${highlight ? "text-green-500" : "text-cv-ink"}`}>
-          {value}
-        </span>
-        {subValue && (
-          <p className="text-xs text-cv-muted/70 mt-0.5">{subValue}</p>
-        )}
-      </div>
+    <div className="flex justify-between items-center gap-4 py-1.5">
+      <span className="text-xs text-cv-muted flex-shrink-0">{label}</span>
+      <span className={`text-xs font-medium text-right ${highlight ? "text-green-600 dark:text-green-400" : "text-cv-ink"}`}>
+        {value}
+      </span>
     </div>
   );
 }

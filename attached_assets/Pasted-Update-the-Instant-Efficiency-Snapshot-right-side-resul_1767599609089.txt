@@ -1,0 +1,55 @@
+Update the “Instant Efficiency Snapshot” right-side result card to show clear proof we parsed the uploaded invoice.
+
+Goals:
+- Keep it an executive “snapshot”, but add invoice-derived facts so users trust we read the file.
+- Do NOT mention AIX anywhere.
+
+UI changes (Hero snapshot card):
+1) Add a new section directly under the score: “Invoice snapshot”
+   - Show these fields if available, otherwise hide the row:
+     - Provider
+     - Billing period (start → end)
+     - Total spend (with currency)
+     - Line items parsed (count)
+     - Account / Subscription / Project (top detected identifier)
+2) Add a “Top spend” row with 2–3 compact chips:
+   - Top services by spend (max 3)
+   - Top regions by spend (max 3)
+3) Add a small table titled “Top line items detected” (max 5 rows):
+   Columns: Resource/Meter, Service, Qty (optional), Cost
+   - If resource-level IDs are not available, fall back to SKU/Meter name + usage type.
+4) Rewrite the existing “Waste signals / Commitment coverage / Optimization potential” lines so they reference extracted facts,
+   e.g., “Compute spend concentration: EC2 41% of total”, “On-demand compute: 68%”.
+5) Improve spacing inside the card:
+   - Increase vertical padding
+   - Increase line-height
+   - Add subtle dividers between blocks
+   - Ensure readability on laptop + mobile (no cramped text)
+
+Data/logic changes:
+- Extend the invoice parsing output model to return:
+  - currency
+  - totalSpend
+  - billingPeriodStart / billingPeriodEnd
+  - providerDetected
+  - lineItemCount
+  - topServices[] (name, spend, percent)
+  - topRegions[] (name, spend, percent)
+  - topLineItems[] (displayName, service, quantity?, unit?, cost)
+  - topAccountIdentifier (string)
+- If parser currently returns only a score, implement a lightweight extraction layer:
+  - Map provider based on invoice fields or SKU patterns
+  - Sum total spend from line items
+  - Derive top services/regions from line items grouping
+  - Select top 5 line items by cost for the table
+- If a field cannot be derived, omit it in UI (do not show “N/A” rows).
+
+Implementation constraints:
+- No new pages. Only update the homepage upload + results section.
+- Keep components reusable and typed.
+- Add unit tests for the aggregation helpers (grouping + totals).
+- Ensure theme-aware rendering (dark/light): text and icons must stay visible.
+
+Acceptance:
+- After upload, the card clearly shows total spend, billing period, and at least 3 extracted items (services/regions/line items).
+- No layout overflow on mobile; table becomes stacked rows on small screens.
