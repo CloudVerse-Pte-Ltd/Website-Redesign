@@ -45,8 +45,8 @@ export function Footer() {
               onClick={() => track("footer_home")}
               className="flex items-center gap-2 text-xl font-bold tracking-tight mb-4"
             >
-              <img src="/logo.png" alt="CloudVerse" className="h-7 w-auto" />
-              <span>CloudVerse</span>
+              <img src="/logo.png" alt="CloudVerse.ai" className="h-7 w-auto" />
+              <span>CloudVerse.ai</span>
             </Link>
             <p className="text-muted-foreground text-[14px] sm:text-[15px] max-w-xs">
               Cloud financial management for modern engineering teams. Visibility, allocation, and optimization in one platform.
