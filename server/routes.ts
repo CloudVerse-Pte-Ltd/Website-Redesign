@@ -9,7 +9,13 @@ import * as XLSX from "xlsx";
 
 // pdf-parse doesn't have ESM exports, use createRequire
 const require = createRequire(import.meta.url);
-const pdfParse = require("pdf-parse");
+const { PDFParse } = require("pdf-parse");
+
+async function extractPdfText(buffer: Buffer): Promise<{ text: string; numpages: number }> {
+  const parser = new PDFParse(buffer);
+  const result = await parser.parse();
+  return { text: result.text || "", numpages: result.numpages || 0 };
+}
 
 // Configure multer for file uploads
 const upload = multer({
@@ -64,7 +70,7 @@ export async function registerRoutes(
         fileContent = sheets.join("\n\n");
       } else if (ext === "pdf") {
         const buffer = await fs.readFile(filePath);
-        const pdfData = await pdfParse(buffer);
+        const pdfData = await extractPdfText(buffer);
         fileContent = pdfData.text;
         
         if (!fileContent || fileContent.trim().length < 50) {
