@@ -36,6 +36,7 @@ export interface InvoiceAnalysisResult {
   onDemandPercent: number;
   optimizationPotentialMin: number;
   optimizationPotentialMax: number;
+  insights: string[];
 }
 
 function getOpenAIClient(): { client: OpenAI; model: string } {
@@ -83,7 +84,8 @@ Extract and return a JSON object with the following structure:
   "computeSpendPercent": <percent of total spend on compute>,
   "onDemandPercent": <estimated percent that is on-demand vs reserved/committed>,
   "optimizationPotentialMin": <conservative savings estimate percent>,
-  "optimizationPotentialMax": <optimistic savings estimate percent>
+  "optimizationPotentialMax": <optimistic savings estimate percent>,
+  "insights": ["<insight 1>", "<insight 2>", ...] // 3-5 key insights referencing specific data from the invoice
 }
 
 Analysis guidelines:
@@ -93,6 +95,7 @@ Analysis guidelines:
 - Estimate on-demand percentage from usage types and pricing
 - Be conservative with optimization estimates (5-15% min, 15-35% max typically)
 - If data is missing, make reasonable estimates based on typical patterns
+- Generate 3-5 specific insights referencing actual data (e.g., "EC2 accounts for 41% of total spend")
 
 Return ONLY valid JSON, no markdown or explanation.`;
 
@@ -129,6 +132,7 @@ Return ONLY valid JSON, no markdown or explanation.`;
       onDemandPercent: result.onDemandPercent || 50,
       optimizationPotentialMin: result.optimizationPotentialMin || 5,
       optimizationPotentialMax: result.optimizationPotentialMax || 20,
+      insights: (result.insights || []).slice(0, 5),
     };
   } catch (error) {
     console.error("Invoice parsing error:", error);

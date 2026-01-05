@@ -59,7 +59,7 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <section className="relative py-12 sm:py-16 lg:py-20">
+    <section className="relative py-8 sm:py-10 lg:py-12">
       {/* Animated gradient background */}
       <div
         className="absolute inset-0 -z-10 opacity-20"

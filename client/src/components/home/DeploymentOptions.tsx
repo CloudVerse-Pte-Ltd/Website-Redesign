@@ -23,7 +23,7 @@ const options = [
 
 export function DeploymentOptions() {
   return (
-    <section className="py-10 sm:py-12 lg:py-16 border-t border-cv-line dark:border-white/10">
+    <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="mb-10 sm:mb-12">
           <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/50 mb-3">

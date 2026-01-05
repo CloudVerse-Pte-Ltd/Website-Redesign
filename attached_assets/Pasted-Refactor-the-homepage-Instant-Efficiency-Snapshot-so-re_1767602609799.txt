@@ -1,0 +1,56 @@
+Refactor the homepage “Instant Efficiency Snapshot” so results are shown in a modal instead of inline on the page.
+
+Goal:
+- Keep the homepage clean and minimal.
+- After invoice upload + processing, show the output in a premium modal (executive tone).
+- Do NOT mention AIX anywhere.
+
+UI changes:
+1) Homepage section (immediately after Hero):
+   - Keep only: headline, one-paragraph explainer, drag/drop upload box, and “Get efficiency snapshot” button.
+   - Remove the large right-side results card from the page layout entirely.
+   - After parsing completes, show a small inline status row:
+     - “Snapshot ready” + a “View snapshot” button (opens modal).
+2) Add a modal component: <EfficiencySnapshotModal />
+   - Opens automatically after parsing completes successfully.
+   - Can also be opened manually via “View snapshot”.
+   - Must be responsive:
+     - Desktop: centered modal, max-width ~960px, scrollable body if needed
+     - Mobile: full-screen sheet style (or modal with 95% height)
+3) Modal content layout (in order):
+   A) Header: “Efficiency snapshot” + close button
+   B) Score block: big “XX/100” + small label + (optional) “Preliminary”
+   C) “Invoice snapshot” key/values (render only available fields):
+      - Provider
+      - Billing period (start → end)
+      - Total spend + currency
+      - Line items parsed
+      - Account/Subscription/Project identifier
+   D) “Top spend” chips:
+      - Top services by spend (max 3)
+      - Top regions by spend (max 3)
+   E) “Top line items detected” (max 5):
+      - Columns: Resource/Meter, Service, Qty (optional), Cost
+      - On mobile convert rows into stacked mini-cards
+   F) “Insights” list (3–5 bullets) referencing extracted facts (e.g., “EC2 is 41% of spend”)
+   G) Footer actions:
+      - Primary: Book a demo
+      - Secondary: Upload another (resets state and closes modal)
+
+Data/logic requirements:
+- Extend parsing output model to include:
+  currency, totalSpend, billingPeriodStart, billingPeriodEnd, providerDetected,
+  lineItemCount, topServices[], topRegions[], topLineItems[], topAccountIdentifier, insights[]
+- If resource IDs aren’t available, fall back to SKU/Meter name + usage type.
+- Hide fields that are missing (no “N/A” clutter).
+
+Implementation constraints:
+- Keep components reusable and typed.
+- Ensure theme-aware rendering (dark/light): text + logos must remain visible.
+- Reduce vertical spacing between homepage sections by ~30–40% (standardize section padding).
+- Add minimal tests for the aggregation helpers (totals, grouping).
+
+Acceptance criteria:
+- Upload → parse → modal opens automatically with extracted invoice facts (total spend, period, at least 3 detected items).
+- Homepage stays clean with no big results card inline.
+- No cramped text; modal spacing is premium and readable.
