@@ -1,0 +1,82 @@
+You are working in the CloudVerse Website repo (Next.js). Implement a new homepage section immediately AFTER the Hero (and BEFORE any “trusted by / logos” and BEFORE “How CloudVerse works”).
+
+GOAL
+Add an executive, conversion-focused “Invoice Efficiency Score” section:
+- Headline: “Know how efficient your cloud is?”
+- Subhead: “Upload a cloud invoice (PDF/CSV/XLSX) and get an instant efficiency score with a few high-signal insights.”
+- Must feel premium, Apple-clean, consistent with the existing CloudVerse dark theme and responsive for mobile/tablet.
+
+NON-NEGOTIABLES
+- Do NOT mention any other product name in UI, code comments, copy, routes, or variables.
+- Do NOT add credential prompts. This is upload-only.
+- Must work in both dark and light themes.
+- No broken layout at any viewport width (mobile/tablet/desktop).
+- No repeated sections or duplicate headings.
+- Keep vertical spacing tight: remove excessive gaps between sections (use consistent section padding).
+
+SECTION STRUCTURE (2-column, responsive)
+1) Left column (copy + trust):
+   - Eyebrow (small): “INSTANT EFFICIENCY SNAPSHOT”
+   - H2: “Know how efficient your cloud is?”
+   - Body: “Upload a cloud invoice and receive a read-only efficiency snapshot—highlighting waste signals, coverage gaps, and optimization potential.”
+   - 3 bullets (short, executive):
+     - “Preliminary efficiency score (0–100)”
+     - “Top waste signals and coverage gaps”
+     - “Optimization potential range”
+   - Trust line (small): “Read-only analysis. No credentials. Files encrypted in transit and deleted after processing.”
+
+2) Right column (interactive card):
+   Create a premium “macOS-window” style card (rounded 24px, subtle border, soft shadow) with:
+   - Top bar with 3 dots (red/yellow/green) + right aligned label “EFFICIENCY SCORE”
+   - Main content switches based on state:
+     A) Idle state: upload dropzone (dashed border, icon, “Drop invoice here or click to upload”, supported formats line)
+     B) Processing state: subtle progress bar shimmer + “Analyzing invoice…”
+     C) Result state: big score badge + 4 insight rows + CTA buttons
+
+RESULT STATE DETAILS
+When upload completes (mocked), render:
+- Score: large number (e.g., 78) with label “Preliminary efficiency score”
+- Insight rows (4):
+  1) “Spend coverage” → “Compute • Storage • Network” (and “AI signals: Not detected” if none)
+  2) “Waste signals” → “Idle/overprovision indicators detected”
+  3) “Commitment coverage” → “On-demand heavy: Medium”
+  4) “Optimization potential” → “Estimated: 12–28%”
+- Buttons:
+  - Primary: “Book a demo” (routes to existing /book or existing CTA handler used elsewhere)
+  - Secondary: “Upload another” (resets state)
+
+BEHAVIOR
+- Use a real <input type="file"> with drag-and-drop support.
+- Accept: .pdf,.csv,.xlsx
+- Max file size: 20MB (frontend validate)
+- Immediately on select/drop:
+  - set state to “processing” for ~1.2s (simulate analysis)
+  - then set state to “result” with mocked output
+- Add error state:
+  - Unsupported type or >20MB → show inline error message inside card; do not break layout.
+
+IMPLEMENTATION REQUIREMENTS
+- Create a new component: components/home/InvoiceEfficiencySection.tsx (or equivalent pattern used in repo).
+- Add it to the Home page directly under Hero.
+- Keep all copy in this component (no i18n needed unless repo already uses it).
+- Use existing design tokens, typography scale, and spacing conventions from the repo.
+- Ensure it is accessible (keyboard focus, aria labels for file input, contrast-safe text).
+
+RESPONSIVE RULES
+- Desktop: two columns (left text ~55%, right card ~45%), balanced heights, no cramped spacing.
+- Tablet: two columns but smaller; card must not shrink text too tightly (increase padding, allow wrapping).
+- Mobile: stack vertically; card goes first or second (choose the more premium flow: keep copy first, card second). Ensure padding and font sizes scale smoothly.
+
+TIGHTEN SPACING BETWEEN SECTIONS
+Audit homepage section wrappers and reduce excessive vertical gaps:
+- Standardize section padding to something like py-16 (desktop) / py-12 (tablet) / py-10 (mobile) unless a section intentionally needs more.
+- Remove any stray empty dividers, duplicate “trusted by” rows, or repeated hero blocks.
+
+DO NOT BREAK EXISTING NAV/CTA
+- Keep header/nav behavior intact.
+- Ensure “Book a demo” CTA continues to work as it already does elsewhere (reuse existing link component / route).
+
+DELIVERABLE
+- Implement the new section, wired and working with mocked analysis.
+- Ensure the homepage renders cleanly and consistently across breakpoints.
+- Provide a brief note in code comments ONLY where needed (avoid noise).

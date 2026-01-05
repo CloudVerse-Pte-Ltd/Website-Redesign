@@ -10,6 +10,7 @@ import { MotionHeroBackground } from "@/components/MotionHeroBackground";
 import { HeroCard } from "@/components/home/HeroCard";
 import { DeploymentOptions } from "@/components/home/DeploymentOptions";
 import { HowItWorks } from "@/components/home/HowItWorks";
+import { InvoiceEfficiencySection } from "@/components/home/InvoiceEfficiencySection";
 import { Globe, Receipt, Tag, Code2, Cpu, Activity } from "lucide-react";
 
 const customerLogos = [
@@ -104,6 +105,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Invoice Efficiency Score Section */}
+      <InvoiceEfficiencySection />
 
       <DeploymentOptions />
 
