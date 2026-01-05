@@ -1,24 +1,12 @@
 import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
-import { createRequire } from "module";
 import { storage } from "./storage";
 import { parseInvoice } from "./invoice-parser";
 import multer from "multer";
 import { promises as fs } from "fs";
+import path from "path";
 import * as XLSX from "xlsx";
-
-// pdf-parse doesn't have ESM exports, use createRequire
-const require = createRequire(import.meta.url);
-const { PDFParse } = require("pdf-parse");
-
-async function extractPdfText(buffer: Buffer): Promise<{ text: string; numpages: number }> {
-  const uint8Array = new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength);
-  const parser = new PDFParse(uint8Array);
-  await parser.load();
-  const text = await parser.getText();
-  const info = await parser.getInfo();
-  return { text: text || "", numpages: info?.numPages || 0 };
-}
+import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 
 // Configure multer for file uploads
 const upload = multer({
@@ -41,6 +29,29 @@ const upload = multer({
     }
   },
 });
+
+async function extractPdfText(buffer: Buffer): Promise<{ text: string; numpages: number }> {
+  const uint8Array = new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength);
+  
+  const loadingTask = pdfjsLib.getDocument({
+    data: uint8Array,
+    useSystemFonts: true,
+  });
+  
+  const pdfDocument = await loadingTask.promise;
+  let extractedText = "";
+  
+  for (let pageNum = 1; pageNum <= pdfDocument.numPages; pageNum++) {
+    const page = await pdfDocument.getPage(pageNum);
+    const textContent = await page.getTextContent();
+    const pageText = textContent.items
+      .map((item: any) => item.str)
+      .join(" ");
+    extractedText += pageText + "\n";
+  }
+  
+  return { text: extractedText, numpages: pdfDocument.numPages };
+}
 
 export async function registerRoutes(
   httpServer: Server,
