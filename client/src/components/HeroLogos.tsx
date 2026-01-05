@@ -12,7 +12,7 @@ export function HeroLogos() {
     <div className="flex flex-col items-center justify-center gap-8 lg:gap-10 w-full">
       {/* Title */}
       <div className="text-center">
-        <p className="text-xs uppercase tracking-widest text-white/50 font-semibold mb-4">
+        <p className="text-xs uppercase tracking-widest text-cv-muted font-semibold mb-4">
           Supported Cloud Providers
         </p>
       </div>
@@ -22,7 +22,7 @@ export function HeroLogos() {
         {providers.map((provider) => (
           <div
             key={provider.name}
-            className="flex items-center justify-center h-24 rounded-xl border border-white/20 bg-gradient-to-br from-white/[0.08] to-white/[0.04] hover:border-white/40 hover:bg-white/[0.12] transition-all backdrop-blur-sm p-3"
+            className="flex items-center justify-center h-24 rounded-xl border border-cv-line bg-cv-surface2/50 dark:bg-white/5 hover:border-cv-line hover:bg-cv-surface2 dark:hover:bg-white/[0.12] transition-all backdrop-blur-sm p-3"
           >
             {provider.customSvg ? (
               // Oracle logo - custom SVG
@@ -58,7 +58,7 @@ export function HeroLogos() {
       </div>
 
       {/* Supporting text */}
-      <p className="text-xs text-white/40 text-center max-w-xs">
+      <p className="text-xs text-cv-muted text-center max-w-xs">
         Enterprise cloud coverage across major global providers
       </p>
     </div>

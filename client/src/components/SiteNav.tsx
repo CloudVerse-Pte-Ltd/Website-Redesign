@@ -38,7 +38,7 @@ export function SiteNav() {
       className={cn(
         "sticky top-0 left-0 right-0 z-50 transition-all duration-200 h-16 lg:h-[72px] flex items-center",
         scrolled 
-          ? "bg-black/60 backdrop-blur border-b border-white/10" 
+          ? "bg-cv-surface/90 dark:bg-black/60 backdrop-blur border-b border-cv-line dark:border-white/10" 
           : "bg-transparent"
       )}
     >
@@ -68,13 +68,13 @@ export function SiteNav() {
                 className={cn(
                   "text-sm font-medium transition-colors relative",
                   location === link.href 
-                    ? "text-white" 
-                    : "text-white/80 hover:text-white"
+                    ? "text-cv-ink" 
+                    : "text-cv-muted hover:text-cv-ink"
                 )}
               >
                 {link.label}
                 {location === link.href && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white" />
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-cv-ink" />
                 )}
               </Link>
             ))}
@@ -86,7 +86,7 @@ export function SiteNav() {
             <a 
               href={SIGNIN_URL}
               onClick={() => track("nav_signin")}
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors hidden lg:block"
+              className="text-sm font-medium text-cv-muted hover:text-cv-ink transition-colors hidden lg:block"
             >
               Sign in
             </a>
@@ -103,7 +103,7 @@ export function SiteNav() {
             </a>
 
             {/* Dark mode toggle */}
-            <div className="text-white/40 hover:text-white/70 transition-colors">
+            <div className="text-cv-muted hover:text-cv-ink transition-colors">
               <ModeToggle />
             </div>
             
@@ -111,7 +111,7 @@ export function SiteNav() {
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
                 <button 
-                  className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
+                  className="lg:hidden p-2 text-cv-muted hover:text-cv-ink transition-colors"
                   aria-label="Toggle menu"
                 >
                   <Menu className="h-5 w-5" />
@@ -130,22 +130,22 @@ export function SiteNav() {
                       className={cn(
                         "text-[15px] font-medium py-3 px-3 rounded-lg transition-colors",
                         location === link.href 
-                          ? "text-white bg-white/10 font-semibold" 
-                          : "text-white/80 hover:text-white hover:bg-white/5"
+                          ? "text-cv-ink bg-cv-surface2/50 dark:bg-white/10 font-semibold" 
+                          : "text-cv-muted hover:text-cv-ink hover:bg-cv-surface2/50 dark:hover:bg-white/5"
                       )}
                     >
                       {link.label}
                     </Link>
                   ))}
                 </div>
-                <div className="border-t border-white/10 pt-4 space-y-3">
+                <div className="border-t border-cv-line dark:border-white/10 pt-4 space-y-3">
                   <a 
                     href={SIGNIN_URL}
                     onClick={() => {
                       track("nav_signin");
                       setMobileOpen(false);
                     }}
-                    className="block text-[15px] font-medium py-3 px-3 rounded-lg text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                    className="block text-[15px] font-medium py-3 px-3 rounded-lg text-cv-muted hover:text-cv-ink hover:bg-cv-surface2/50 dark:hover:bg-white/5 transition-colors"
                   >
                     Sign in
                   </a>

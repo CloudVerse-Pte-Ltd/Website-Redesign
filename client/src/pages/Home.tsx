@@ -69,13 +69,13 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] 2xl:grid-cols-[52%_48%] gap-10 lg:gap-12 items-start">
             {/* Left: Copy Block */}
             <div className="text-left space-y-6 flex flex-col justify-start">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cv-ink leading-tight">
                 Cloud financial management for modern enterprises.
               </h1>
-              <p className="text-lg sm:text-xl text-white/80 leading-relaxed">
+              <p className="text-lg sm:text-xl text-cv-ink/80 leading-relaxed">
                 Unified visibility, allocation, anomalies, and automated optimization across cloud, data, and AI platforms.
               </p>
-              <p className="text-base sm:text-lg text-white/60 pb-8 border-b border-white/10 leading-relaxed">
+              <p className="text-base sm:text-lg text-cv-muted pb-8 border-b border-cv-line leading-relaxed">
                 Private deployment and air-gapped options available for regulated environments.
               </p>
 
@@ -93,7 +93,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <p className="text-sm text-white/50 pt-2">
+              <p className="text-sm text-cv-muted pt-2">
                 Trusted by FinOps and platform teams at leading enterprises.
               </p>
             </div>
@@ -114,7 +114,7 @@ export default function Home() {
       {/* Customer Logos Section */}
       <section className="py-6 sm:py-8 lg:py-10 border-t border-cv-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <p className="text-center text-base sm:text-lg text-white/70 mb-8 sm:mb-10">
+          <p className="text-center text-base sm:text-lg text-cv-muted mb-8 sm:mb-10">
             Used by FinOps teams at leading enterprises.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-6">
@@ -146,13 +146,13 @@ export default function Home() {
       <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="mb-10 sm:mb-12">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/50 mb-3">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-cv-muted mb-3">
               What CloudVerse Offers
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-cv-ink mb-4">
               Everything you need to manage cloud, data, and AI spend — in one platform.
             </h2>
-            <p className="text-lg sm:text-xl text-white/70 max-w-2xl">
+            <p className="text-lg sm:text-xl text-cv-muted max-w-2xl">
               Built for enterprise scale, multi-tenant governance, and measurable outcomes.
             </p>
           </div>
@@ -170,7 +170,7 @@ export default function Home() {
 
           <div className="text-center">
             <Link href="/platform" onClick={() => track("link_explore_platform", { location: "pillar_cards" })}>
-              <span className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
+              <span className="text-cv-muted hover:text-cv-ink transition-colors inline-flex items-center gap-2">
                 Explore the platform →
               </span>
             </Link>
@@ -186,7 +186,7 @@ export default function Home() {
       {/* Outcomes Section */}
       <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-10 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-cv-ink mb-10 sm:mb-12">
             A single platform for visibility, accountability, and action.
           </h2>
 
@@ -215,16 +215,16 @@ export default function Home() {
       <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-cv-ink mb-4">
               Security and compliance, built in.
             </h2>
-            <p className="text-lg sm:text-xl text-white/70 mb-6">
+            <p className="text-lg sm:text-xl text-cv-muted mb-6">
               Designed for enterprise environments — from access control to auditability.
             </p>
-            <p className="text-base sm:text-lg text-white/70 mb-6 pb-6 border-b border-white/10">
+            <p className="text-base sm:text-lg text-cv-muted mb-6 pb-6 border-b border-cv-line">
               Private deployment options — including air-gapped environments — available for regulated enterprises.
             </p>
-            <p className="text-sm text-white/60">
+            <p className="text-sm text-cv-muted">
               ISO 27001 • SOC 2 Type II
             </p>
           </div>
@@ -234,12 +234,12 @@ export default function Home() {
       {/* Final CTA Section */}
       <section className="py-8 sm:py-10 lg:py-12">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-10 sm:p-12 lg:p-16">
+          <div className="rounded-2xl border border-cv-line bg-cv-surface2/50 dark:bg-gradient-to-b dark:from-white/[0.06] dark:to-white/[0.03] p-10 sm:p-12 lg:p-16">
             <div className="max-w-2xl">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-cv-ink mb-4">
                 See CloudVerse on your data.
               </h2>
-              <p className="text-lg sm:text-xl text-white/70 mb-8">
+              <p className="text-lg sm:text-xl text-cv-muted mb-8">
                 We'll map your spend structure and the fastest path to measurable savings.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">

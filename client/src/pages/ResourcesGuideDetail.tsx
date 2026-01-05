@@ -76,7 +76,7 @@ export default function ResourcesGuideDetail() {
       {/* Article Content */}
       <section className="py-cv-sec-md border-t border-cv-line">
         <div className="max-w-[840px] mx-auto px-6 lg:px-12">
-          <div className="prose prose-invert max-w-none">
+          <div className="prose dark:prose-invert max-w-none">
             <p className="text-base text-cv-muted leading-7 mb-6">
               {guide.summary}
             </p>

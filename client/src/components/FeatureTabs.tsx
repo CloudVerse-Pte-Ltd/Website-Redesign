@@ -81,7 +81,7 @@ export function FeatureTabs() {
             onClick={() => setActiveTab(tab.id)}
             className={`px-3 sm:px-4 py-2 text-sm font-medium transition-colors ${
               activeTab === tab.id
-                ? "bg-cv-ink/10 dark:bg-white/10 text-cv-ink rounded"
+                ? "bg-cv-surface2/50 dark:bg-white/5 text-cv-ink rounded"
                 : "text-cv-muted hover:text-cv-ink"
             } ${idx < featureTabs.length - 1 ? "mr-2 sm:mr-3" : ""}`}
           >
@@ -121,12 +121,12 @@ export function FeatureTabs() {
           <div className="hidden lg:flex items-center justify-center">
             <div className="w-full aspect-[4/3] rounded-2xl bg-cv-surface border border-cv-line overflow-hidden p-6">
               <div className="h-full w-full flex flex-col gap-4">
-                <div className="h-5 w-2/5 bg-cv-line/40 dark:bg-white/20 rounded-md"></div>
+                <div className="h-5 w-2/5 bg-cv-line/40 rounded-md"></div>
                 <div className="flex gap-4 flex-1">
-                  <div className="w-1/5 h-full bg-cv-line/30 dark:bg-white/15 rounded-lg"></div>
+                  <div className="w-1/5 h-full bg-cv-line/30 rounded-lg"></div>
                   <div className="w-4/5 flex flex-col gap-4">
-                    <div className="h-1/3 w-full bg-cv-line/30 dark:bg-white/15 rounded-lg"></div>
-                    <div className="h-2/3 w-full bg-cv-line/30 dark:bg-white/15 rounded-lg"></div>
+                    <div className="h-1/3 w-full bg-cv-line/30 rounded-lg"></div>
+                    <div className="h-2/3 w-full bg-cv-line/30 rounded-lg"></div>
                   </div>
                 </div>
               </div>

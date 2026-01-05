@@ -99,16 +99,16 @@ export default function Partners() {
   return (
     <BaseLayout>
       {/* Hero */}
-      <section className="pt-20 sm:pt-24 lg:pt-28 pb-14 sm:pb-16 lg:pb-20 border-b border-white/10">
+      <section className="pt-20 sm:pt-24 lg:pt-28 pb-14 sm:pb-16 lg:pb-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/50 mb-4">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-cv-muted mb-4">
               CloudVerse™ Partner Program
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cv-ink mb-6 leading-tight">
               Partner with CloudVerse™
             </h1>
-            <p className="text-lg sm:text-xl text-white/70 mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-cv-muted mb-8 leading-relaxed">
               For MSPs, GSIs, and Resellers who want to deliver measurable savings faster—and grow services revenue.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -128,7 +128,7 @@ export default function Partners() {
       </section>
 
       {/* Value Pillars */}
-      <section className="py-14 sm:py-16 lg:py-20 border-b border-white/10">
+      <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {valuePillars.map((pillar, idx) => {
@@ -136,13 +136,13 @@ export default function Partners() {
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+                  className="p-8 rounded-2xl border border-cv-line bg-cv-surface2/30 dark:bg-white/[0.02] hover:bg-cv-surface2/50 dark:hover:bg-white/[0.04] transition-colors"
                 >
                   <div className="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 w-fit mb-6">
                     <Icon className="w-6 h-6 text-blue-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{pillar.title}</h3>
-                  <p className="text-white/60 leading-relaxed">{pillar.desc}</p>
+                  <h3 className="text-xl font-bold text-cv-ink mb-3">{pillar.title}</h3>
+                  <p className="text-cv-muted leading-relaxed">{pillar.desc}</p>
                 </div>
               );
             })}
@@ -151,9 +151,9 @@ export default function Partners() {
       </section>
 
       {/* Partner Types */}
-      <section className="py-14 sm:py-16 lg:py-20 border-b border-white/10">
+      <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-8 text-center">
             Partner types
           </h2>
           
@@ -168,7 +168,7 @@ export default function Partners() {
                   "px-6 py-3 rounded-full text-sm font-medium transition-all",
                   activeType === type.id
                     ? "bg-blue-600 text-white"
-                    : "bg-white/5 text-white/70 hover:bg-white/10 border border-white/10"
+                    : "bg-cv-surface2/50 dark:bg-white/5 text-cv-muted hover:bg-cv-surface2 dark:hover:bg-white/10 border border-cv-line"
                 )}
               >
                 {type.label}
@@ -177,21 +177,21 @@ export default function Partners() {
           </div>
 
           {/* Type Content */}
-          <div className="max-w-2xl mx-auto rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+          <div className="max-w-2xl mx-auto rounded-2xl border border-cv-line bg-cv-surface2/30 dark:bg-white/[0.03] p-8">
             <div className="space-y-6">
               <div>
-                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">Best for</p>
-                <p className="text-lg text-white/90">{content.bestFor}</p>
+                <p className="text-xs font-semibold text-cv-muted uppercase tracking-wider mb-2">Best for</p>
+                <p className="text-lg text-cv-ink/90">{content.bestFor}</p>
               </div>
               <div>
-                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">Typical motion</p>
-                <p className="text-base text-white/70">{content.motion}</p>
+                <p className="text-xs font-semibold text-cv-muted uppercase tracking-wider mb-2">Typical motion</p>
+                <p className="text-base text-cv-muted">{content.motion}</p>
               </div>
               <div>
-                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">What you deliver</p>
+                <p className="text-xs font-semibold text-cv-muted uppercase tracking-wider mb-3">What you deliver</p>
                 <ul className="space-y-2">
                   {content.delivers.map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-white/70">
+                    <li key={idx} className="flex items-center gap-3 text-cv-muted">
                       <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -204,18 +204,18 @@ export default function Partners() {
       </section>
 
       {/* Program Components */}
-      <section className="py-14 sm:py-16 lg:py-20 border-b border-white/10">
+      <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-8 text-center">
             Program components
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {programComponents.map((component, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-xl border border-white/10 bg-white/[0.02] text-center"
+                className="p-5 rounded-xl border border-cv-line bg-cv-surface2/30 dark:bg-white/[0.02] text-center"
               >
-                <p className="text-sm font-medium text-white/80">{component}</p>
+                <p className="text-sm font-medium text-cv-ink/80">{component}</p>
               </div>
             ))}
           </div>
@@ -223,19 +223,19 @@ export default function Partners() {
       </section>
 
       {/* Revenue Streams */}
-      <section className="py-14 sm:py-16 lg:py-20 border-b border-white/10">
+      <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-8 text-center">
             How partners make money
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {revenueStreams.map((stream, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl border border-white/10 bg-white/[0.02]"
+                className="p-6 rounded-2xl border border-cv-line bg-cv-surface2/30 dark:bg-white/[0.02]"
               >
-                <h3 className="text-lg font-semibold text-white mb-2">{stream.title}</h3>
-                <p className="text-sm text-white/60">{stream.desc}</p>
+                <h3 className="text-lg font-semibold text-cv-ink mb-2">{stream.title}</h3>
+                <p className="text-sm text-cv-muted">{stream.desc}</p>
               </div>
             ))}
           </div>
@@ -243,9 +243,9 @@ export default function Partners() {
       </section>
 
       {/* Partner Workflow */}
-      <section className="py-14 sm:py-16 lg:py-20 border-b border-white/10">
+      <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-10 text-center">
             Partner workflow
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
@@ -254,8 +254,8 @@ export default function Partners() {
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center mx-auto mb-4">
                   <span className="text-sm font-bold text-blue-400">{item.step}</span>
                 </div>
-                <h4 className="text-base font-semibold text-white mb-1">{item.title}</h4>
-                <p className="text-xs text-white/50">{item.desc}</p>
+                <h4 className="text-base font-semibold text-cv-ink mb-1">{item.title}</h4>
+                <p className="text-xs text-cv-muted">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -266,10 +266,10 @@ export default function Partners() {
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <div className="max-w-xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            <h2 className="text-3xl sm:text-4xl font-bold text-cv-ink">
               Talk to our partner team.
             </h2>
-            <p className="text-white/60">
+            <p className="text-cv-muted">
               Learn how CloudVerse can help you grow services revenue and deliver measurable value.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">

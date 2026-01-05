@@ -73,10 +73,10 @@ export function HowItWorks() {
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20 space-y-3">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-cv-ink">
             How CloudVerse™ works
           </h2>
-          <p className="text-base sm:text-lg text-white/70 leading-relaxed">
+          <p className="text-base sm:text-lg text-cv-muted leading-relaxed">
             Connect once. Normalize everything. Automate what you can.
           </p>
         </div>
@@ -84,13 +84,13 @@ export function HowItWorks() {
         {/* Timeline Section */}
         <div
           ref={containerRef}
-          className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm overflow-hidden p-6 sm:p-8 lg:p-12"
+          className="rounded-3xl border border-cv-line dark:border-white/10 bg-cv-surface2/50 dark:bg-white/[0.03] backdrop-blur-sm overflow-hidden p-6 sm:p-8 lg:p-12"
           style={{
             boxShadow: "0 0 0 1px rgba(255, 255, 255, 0.06), 0 30px 80px rgba(0, 0, 0, 0.55)"
           }}
         >
           {/* Desktop Timeline Line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cv-line dark:via-white/20 to-transparent" />
 
           {/* Steps Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 relative z-10">
@@ -104,17 +104,17 @@ export function HowItWorks() {
                         "w-8 h-8 rounded-full border-2 flex items-center justify-center font-semibold text-xs transition-all",
                         activeStep === idx
                           ? "border-blue-500 bg-blue-500/20 text-blue-400"
-                          : "border-white/20 text-white/50"
+                          : "border-cv-line dark:border-white/20 text-cv-muted"
                       )}
                     >
                       {step.number}
                     </div>
                     {idx < steps.length - 1 && (
-                      <div className="w-0.5 h-12 bg-gradient-to-b from-white/20 to-transparent mt-2" />
+                      <div className="w-0.5 h-12 bg-gradient-to-b from-cv-line dark:from-white/20 to-transparent mt-2" />
                     )}
                   </div>
                   <div className="flex-1 pt-1">
-                    <span className="inline-block px-2 py-1 rounded-full text-xs font-semibold text-white/60 bg-white/5">
+                    <span className="inline-block px-2 py-1 rounded-full text-xs font-semibold text-cv-muted bg-cv-surface2/50 dark:bg-white/5">
                       Step {step.number}
                     </span>
                   </div>
@@ -127,7 +127,7 @@ export function HowItWorks() {
                       "w-12 h-12 rounded-full border-2 flex items-center justify-center font-semibold text-sm transition-all",
                       activeStep === idx
                         ? "border-blue-500 bg-blue-500/20 text-blue-400"
-                        : "border-white/20 text-white/50"
+                        : "border-cv-line dark:border-white/20 text-cv-muted"
                     )}
                   >
                     {step.number}
@@ -136,10 +136,10 @@ export function HowItWorks() {
 
                 {/* Card Content */}
                 <div className="space-y-4">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-cv-ink">
                     {step.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-white/70 leading-relaxed">
+                  <p className="text-sm sm:text-base text-cv-muted leading-relaxed">
                     {step.body}
                   </p>
 
@@ -148,7 +148,7 @@ export function HowItWorks() {
                     {step.bullets.map((bullet, bidx) => (
                       <li key={bidx} className="flex items-start gap-3">
                         <span className="text-blue-400 font-semibold mt-0.5">→</span>
-                        <span className="text-sm text-white/60">{bullet}</span>
+                        <span className="text-sm text-cv-muted">{bullet}</span>
                       </li>
                     ))}
                   </ul>

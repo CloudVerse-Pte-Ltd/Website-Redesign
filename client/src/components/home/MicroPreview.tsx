@@ -7,30 +7,30 @@ interface MicroPreviewProps {
 export function MicroPreview({ variant }: MicroPreviewProps) {
   if (variant === "connect") {
     return (
-      <div className="w-full h-full bg-black/40 rounded-xl border border-white/10 p-4 overflow-hidden flex flex-col gap-3">
+      <div className="w-full h-full bg-black/40 rounded-xl border border-cv-line p-4 overflow-hidden flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
-            <span className="text-[10px] font-medium text-white/50 uppercase tracking-wider">AWS Production</span>
+            <span className="text-[10px] font-medium text-cv-muted uppercase tracking-wider">AWS Production</span>
           </div>
-          <span className="text-[10px] text-white/30">Connected</span>
+          <span className="text-[10px] text-cv-muted">Connected</span>
         </div>
         <div className="space-y-2">
-          <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+          <div className="h-1.5 w-full bg-cv-surface2/50 dark:bg-white/5 rounded-full overflow-hidden">
             <div className="h-full w-[65%] bg-blue-500/50" />
           </div>
           <div className="flex justify-between items-center text-[9px]">
-            <span className="text-white/40">Syncing billing data...</span>
+            <span className="text-cv-muted">Syncing billing data...</span>
             <span className="text-blue-400">88%</span>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2 mt-1">
-          <div className="p-2 rounded-lg bg-white/5 border border-white/10 space-y-1">
-            <div className="text-[8px] text-white/30 uppercase">Latency</div>
-            <div className="text-xs font-semibold text-white/80">142ms</div>
+          <div className="p-2 rounded-lg bg-cv-surface2/50 dark:bg-white/5 border border-cv-line space-y-1">
+            <div className="text-[8px] text-cv-muted uppercase">Latency</div>
+            <div className="text-xs font-semibold text-cv-muted">142ms</div>
           </div>
-          <div className="p-2 rounded-lg bg-white/5 border border-white/10 space-y-1">
-            <div className="text-[8px] text-white/30 uppercase">Status</div>
+          <div className="p-2 rounded-lg bg-cv-surface2/50 dark:bg-white/5 border border-cv-line space-y-1">
+            <div className="text-[8px] text-cv-muted uppercase">Status</div>
             <div className="text-xs font-semibold text-green-400/80">Active</div>
           </div>
         </div>
@@ -40,36 +40,36 @@ export function MicroPreview({ variant }: MicroPreviewProps) {
 
   if (variant === "normalize") {
     return (
-      <div className="w-full h-full bg-black/40 rounded-xl border border-white/10 p-4 overflow-hidden flex flex-col gap-2.5">
-        <div className="text-[10px] font-medium text-white/50 uppercase tracking-wider mb-1">Cost Dimensions</div>
+      <div className="w-full h-full bg-black/40 rounded-xl border border-cv-line p-4 overflow-hidden flex flex-col gap-2.5">
+        <div className="text-[10px] font-medium text-cv-muted uppercase tracking-wider mb-1">Cost Dimensions</div>
         <div className="space-y-2">
           {[
             { label: "Environment", value: "Production", color: "bg-blue-500" },
             { label: "Team", value: "Platform Engineering", color: "bg-purple-500" },
             { label: "Service", value: "Auth-API", color: "bg-cyan-500" },
           ].map((item, i) => (
-            <div key={i} className="flex items-center justify-between p-1.5 rounded-lg bg-white/5 border border-white/5">
+            <div key={i} className="flex items-center justify-between p-1.5 rounded-lg bg-cv-surface2/50 dark:bg-white/5 border border-cv-surface2/50 dark:border-white/5">
               <div className="flex items-center gap-2">
                 <div className={cn("w-1 h-3 rounded-full", item.color)} />
-                <span className="text-[10px] text-white/60">{item.label}</span>
+                <span className="text-[10px] text-cv-muted">{item.label}</span>
               </div>
-              <span className="text-[10px] font-medium text-white/80">{item.value}</span>
+              <span className="text-[10px] font-medium text-cv-muted">{item.value}</span>
             </div>
           ))}
         </div>
         <div className="mt-auto pt-2 flex items-center justify-center gap-1">
-          <div className="w-1 h-1 rounded-full bg-white/20" />
-          <div className="w-1 h-1 rounded-full bg-white/40" />
-          <div className="w-1 h-1 rounded-full bg-white/20" />
+          <div className="w-1 h-1 rounded-full bg-cv-muted/30" />
+          <div className="w-1 h-1 rounded-full bg-cv-muted/50" />
+          <div className="w-1 h-1 rounded-full bg-cv-muted/30" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full h-full bg-black/40 rounded-xl border border-white/10 p-4 overflow-hidden flex flex-col gap-3">
+    <div className="w-full h-full bg-black/40 rounded-xl border border-cv-line p-4 overflow-hidden flex flex-col gap-3">
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-medium text-white/50 uppercase tracking-wider">Anomalies</span>
+        <span className="text-[10px] font-medium text-cv-muted uppercase tracking-wider">Anomalies</span>
         <div className="px-1.5 py-0.5 rounded bg-red-500/10 border border-red-500/20 text-[8px] text-red-400 uppercase font-bold">Alert</div>
       </div>
       <div className="relative h-16 w-full mt-1">
@@ -96,8 +96,8 @@ export function MicroPreview({ variant }: MicroPreviewProps) {
         </svg>
       </div>
       <div className="space-y-1 mt-1">
-        <div className="text-[10px] font-semibold text-white/90">Unexpected Spike Detected</div>
-        <div className="text-[9px] text-white/40">EC2 usage increased by 42% in us-east-1</div>
+        <div className="text-[10px] font-semibold text-cv-ink">Unexpected Spike Detected</div>
+        <div className="text-[9px] text-cv-muted">EC2 usage increased by 42% in us-east-1</div>
       </div>
     </div>
   );

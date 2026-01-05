@@ -131,7 +131,7 @@ export function InvoiceEfficiencySection() {
                   className={`border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all ${
                     isDragOver
                       ? "border-blue-500 bg-blue-500/10"
-                      : "border-cv-line dark:border-white/20 hover:border-blue-400 hover:bg-blue-500/5"
+                      : "border-cv-line hover:border-blue-400 hover:bg-blue-500/5"
                   }`}
                   role="button"
                   tabIndex={0}
@@ -160,12 +160,12 @@ export function InvoiceEfficiencySection() {
 
               {/* Processing State */}
               {state === "processing" && (
-                <div className="border-2 border-cv-line dark:border-white/20 rounded-2xl p-8 text-center">
+                <div className="border-2 border-cv-line rounded-2xl p-8 text-center">
                   <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-blue-500/10 flex items-center justify-center">
                     <FileText className="w-7 h-7 text-blue-500 animate-pulse" />
                   </div>
                   <p className="text-base font-medium text-cv-ink mb-4">Analyzing invoice…</p>
-                  <div className="w-48 h-2 mx-auto bg-cv-line dark:bg-white/10 rounded-full overflow-hidden">
+                  <div className="w-48 h-2 mx-auto bg-cv-line rounded-full overflow-hidden">
                     <div className="h-full w-full bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 animate-shimmer" 
                          style={{ backgroundSize: "200% 100%" }} />
                   </div>

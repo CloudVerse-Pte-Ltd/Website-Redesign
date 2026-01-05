@@ -38,29 +38,29 @@ export default function Help() {
 
             <div className="space-y-4">
               {faqItems.map((item, idx) => (
-                <div key={idx} className="border border-white/10 rounded-lg overflow-hidden">
+                <div key={idx} className="border border-cv-line rounded-lg overflow-hidden">
                   <button
                     onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                    className="w-full px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors text-left"
+                    className="w-full px-6 py-4 flex items-center justify-between bg-cv-surface2/50 dark:bg-white/5 hover:bg-cv-surface2 dark:hover:bg-white/10 transition-colors text-left"
                   >
-                    <span className="font-semibold text-white">{item.question}</span>
+                    <span className="font-semibold text-cv-ink">{item.question}</span>
                     <ChevronDown
-                      className={`h-5 w-5 text-white/60 transition-transform ${
+                      className={`h-5 w-5 text-cv-muted transition-transform ${
                         openIndex === idx ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                   {openIndex === idx && (
-                    <div className="px-6 py-4 border-t border-white/10 bg-white/5">
-                      <p className="text-white/70">{item.answer}</p>
+                    <div className="px-6 py-4 border-t border-cv-line bg-cv-surface2/50 dark:bg-white/5">
+                      <p className="text-cv-muted">{item.answer}</p>
                     </div>
                   )}
                 </div>
               ))}
             </div>
 
-            <div className="mt-12 p-6 border border-white/10 rounded-lg bg-white/5 text-center">
-              <p className="text-white/70 mb-4">Need more help?</p>
+            <div className="mt-12 p-6 border border-cv-line rounded-lg bg-cv-surface2/50 dark:bg-white/5 text-center">
+              <p className="text-cv-muted mb-4">Need more help?</p>
               <a
                 href="https://meetings.hubspot.com"
                 target="_blank"

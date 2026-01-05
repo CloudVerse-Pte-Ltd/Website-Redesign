@@ -19,17 +19,17 @@ export default function Legal() {
     <BaseLayout>
       <section className="pt-20 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 lg:pb-24">
         <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-8">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-cv-ink mb-8">
             {isTerms ? "Terms of Service" : "Privacy Policy"}
           </h1>
 
-          <div className="prose prose-invert max-w-none text-white/70">
+          <div className="prose max-w-none text-cv-muted">
             <p className="mb-6">
               {isTerms
                 ? "Terms of Service content goes here."
                 : "Privacy Policy content goes here."}
             </p>
-            <p className="text-sm text-white/50">
+            <p className="text-sm text-cv-muted">
               Last updated: {new Date().toLocaleDateString()}
             </p>
           </div>

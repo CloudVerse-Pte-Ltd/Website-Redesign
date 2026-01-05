@@ -106,16 +106,16 @@ export default function Solutions() {
   return (
     <BaseLayout>
       {/* Hero */}
-      <section className="pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-14 lg:pb-16 border-b border-white/10">
+      <section className="pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-14 lg:pb-16 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/50 mb-4">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-cv-muted mb-4">
               CloudVerse™ Solutions
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cv-ink mb-6 leading-tight">
               Solutions for every team that touches spend.
             </h1>
-            <p className="text-lg sm:text-xl text-white/70 mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-cv-muted mb-8 leading-relaxed">
               Finance, Engineering, IT, Business, and AI/Data teams use CloudVerse to see spend clearly, enforce accountability, and act on savings.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -135,7 +135,7 @@ export default function Solutions() {
       </section>
 
       {/* Role Selector */}
-      <section className="py-10 sm:py-12 lg:py-14 border-b border-white/10">
+      <section className="py-10 sm:py-12 lg:py-14 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
             {roles.map((role) => {
@@ -149,7 +149,7 @@ export default function Solutions() {
                     "flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-medium transition-all",
                     activeRole === role.id
                       ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
-                      : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white border border-white/10"
+                      : "bg-cv-surface2/50 dark:bg-white/5 text-cv-muted hover:bg-cv-surface2/80 dark:hover:bg-white/10 hover:text-cv-ink border border-cv-line"
                   )}
                 >
                   <Icon className="w-4 h-4" />
@@ -169,14 +169,14 @@ export default function Solutions() {
             <div className="space-y-10">
               {/* Top Outcomes */}
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+                <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-6">
                   Top outcomes
                 </h2>
                 <ul className="space-y-4">
                   {content.outcomes.map((outcome, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <span className="text-blue-400 font-bold mt-0.5">→</span>
-                      <span className="text-base sm:text-lg text-white/80 leading-relaxed">{outcome}</span>
+                      <span className="text-base sm:text-lg text-cv-ink/80 leading-relaxed">{outcome}</span>
                     </li>
                   ))}
                 </ul>
@@ -184,14 +184,14 @@ export default function Solutions() {
 
               {/* Use Cases */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-cv-ink mb-6">
                   Use cases
                 </h3>
                 <div className="space-y-4">
                   {content.useCases.map((uc, idx) => (
-                    <div key={idx} className="p-5 rounded-xl border border-white/10 bg-white/[0.02]">
-                      <h4 className="text-base font-semibold text-white mb-1">{uc.title}</h4>
-                      <p className="text-sm text-white/60">{uc.desc}</p>
+                    <div key={idx} className="p-5 rounded-xl border border-cv-line bg-cv-surface2/30 dark:bg-white/[0.02]">
+                      <h4 className="text-base font-semibold text-cv-ink mb-1">{uc.title}</h4>
+                      <p className="text-sm text-cv-muted">{uc.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -201,45 +201,45 @@ export default function Solutions() {
             {/* Right: Preview Card + Workflow */}
             <div className="space-y-8">
               {/* Preview Card */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
-                <div className="bg-white/5 px-6 py-4 border-b border-white/10 flex items-center gap-2">
+              <div className="rounded-2xl border border-cv-line bg-cv-surface2/30 dark:bg-white/[0.03] overflow-hidden">
+                <div className="bg-cv-surface2/50 dark:bg-white/5 px-6 py-4 border-b border-cv-line flex items-center gap-2">
                   <div className="flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400/70"></div>
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70"></div>
                     <div className="w-2.5 h-2.5 rounded-full bg-green-400/70"></div>
                   </div>
-                  <span className="text-[10px] font-semibold tracking-widest text-white/40 uppercase ml-auto">
+                  <span className="text-[10px] font-semibold tracking-widest text-cv-muted uppercase ml-auto">
                     Dashboard Preview
                   </span>
                 </div>
                 <div className="p-6 sm:p-8">
                   <div className="space-y-4">
-                    <div className="h-3 w-3/4 bg-white/10 rounded"></div>
-                    <div className="h-3 w-1/2 bg-white/10 rounded"></div>
+                    <div className="h-3 w-3/4 bg-cv-surface2/50 dark:bg-white/10 rounded"></div>
+                    <div className="h-3 w-1/2 bg-cv-surface2/50 dark:bg-white/10 rounded"></div>
                     <div className="grid grid-cols-3 gap-3 mt-6">
                       <div className="h-20 bg-blue-500/10 rounded-lg border border-blue-500/20"></div>
                       <div className="h-20 bg-purple-500/10 rounded-lg border border-purple-500/20"></div>
                       <div className="h-20 bg-cyan-500/10 rounded-lg border border-cyan-500/20"></div>
                     </div>
-                    <div className="h-32 bg-white/5 rounded-lg border border-white/10 mt-4"></div>
+                    <div className="h-32 bg-cv-surface2/50 dark:bg-white/5 rounded-lg border border-cv-line mt-4"></div>
                   </div>
-                  <p className="text-sm text-white/50 mt-6 italic">{content.preview}</p>
+                  <p className="text-sm text-cv-muted mt-6 italic">{content.preview}</p>
                 </div>
               </div>
 
               {/* Workflow Strip */}
               <div>
-                <h4 className="text-sm font-semibold text-white/50 uppercase tracking-widest mb-4">
+                <h4 className="text-sm font-semibold text-cv-muted uppercase tracking-widest mb-4">
                   How CloudVerse helps
                 </h4>
                 <div className="flex flex-wrap items-center gap-2">
                   {content.workflow.map((step, idx) => (
                     <div key={idx} className="flex items-center">
-                      <span className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white/70">
+                      <span className="px-3 py-1.5 rounded-full bg-cv-surface2/50 dark:bg-white/5 border border-cv-line text-xs font-medium text-cv-muted">
                         {step}
                       </span>
                       {idx < content.workflow.length - 1 && (
-                        <span className="text-white/30 mx-2">→</span>
+                        <span className="text-cv-muted mx-2">→</span>
                       )}
                     </div>
                   ))}
@@ -251,10 +251,10 @@ export default function Solutions() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-14 sm:py-16 lg:py-20 border-t border-white/10">
+      <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <div className="max-w-xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            <h2 className="text-3xl sm:text-4xl font-bold text-cv-ink">
               See CloudVerse on your data.
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-4">

@@ -76,13 +76,13 @@ export default function Compare() {
       <section className="pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-14 lg:pb-16">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cv-ink mb-6">
               Cloud Spending Comparison
             </h1>
-            <p className="text-lg sm:text-xl text-white/80 mb-4">
+            <p className="text-lg sm:text-xl text-cv-ink/80 mb-4">
               Benchmark your cloud spending against industry averages.
             </p>
-            <p className="text-base sm:text-lg text-white/60">
+            <p className="text-base sm:text-lg text-cv-muted">
               See how your organization compares to peers in your industry and identify optimization opportunities.
             </p>
           </div>
@@ -90,32 +90,32 @@ export default function Compare() {
       </section>
 
       {/* Quick Metrics Section */}
-      <section className="py-14 sm:py-16 lg:py-18 border-t border-white/10">
+      <section className="py-14 sm:py-16 lg:py-18 border-t border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-8">
             Your vs. Industry Average
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {comparisonMetrics.map((item, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+                className="rounded-2xl border border-cv-line bg-cv-surface2/50 dark:bg-white/5 p-6"
               >
-                <p className="text-sm text-white/60 mb-3">{item.metric}</p>
+                <p className="text-sm text-cv-muted mb-3">{item.metric}</p>
                 <div className="space-y-2">
                   <div>
-                    <p className="text-xs text-white/40">Industry</p>
-                    <p className="text-lg sm:text-xl font-semibold text-white">
+                    <p className="text-xs text-cv-muted">Industry</p>
+                    <p className="text-lg sm:text-xl font-semibold text-cv-ink">
                       {item.industry}
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs text-white/40">Your Organization</p>
-                    <p className="text-lg sm:text-xl font-semibold text-white">
+                    <p className="text-xs text-cv-muted">Your Organization</p>
+                    <p className="text-lg sm:text-xl font-semibold text-cv-ink">
                       {item.yours}
                     </p>
                   </div>
-                  <div className="pt-2 border-t border-white/10">
+                  <div className="pt-2 border-t border-cv-line">
                     <span
                       className={`text-xs font-semibold ${
                         item.status === "Higher"
@@ -134,12 +134,12 @@ export default function Compare() {
       </section>
 
       {/* Spending by Industry Section */}
-      <section className="py-14 sm:py-16 lg:py-18 border-t border-white/10">
+      <section className="py-14 sm:py-16 lg:py-18 border-t border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-8">
             Average Spending by Industry
           </h2>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+          <div className="rounded-2xl border border-cv-line bg-cv-surface2/50 dark:bg-white/5 p-8">
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={spendingByIndustry}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
@@ -158,14 +158,14 @@ export default function Compare() {
             </ResponsiveContainer>
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {spendingByIndustry.map((item, idx) => (
-                <div key={idx} className="rounded-lg border border-white/10 bg-white/[0.02] p-4">
-                  <p className="text-sm font-semibold text-white mb-2">
+                <div key={idx} className="rounded-lg border border-cv-line bg-cv-surface2/50 dark:bg-white/5 p-4">
+                  <p className="text-sm font-semibold text-cv-ink mb-2">
                     {item.industry}
                   </p>
                   <p className="text-2xl font-bold text-blue-400">
                     ${(item.avgSpending / 1000000).toFixed(1)}M
                   </p>
-                  <p className="text-xs text-white/50 mt-1">Range: {item.range}</p>
+                  <p className="text-xs text-cv-muted mt-1">Range: {item.range}</p>
                 </div>
               ))}
             </div>
@@ -174,13 +174,13 @@ export default function Compare() {
       </section>
 
       {/* Cost Breakdown */}
-      <section className="py-14 sm:py-16 lg:py-18 border-t border-white/10">
+      <section className="py-14 sm:py-16 lg:py-18 border-t border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-8">
             Industry Average Cost Breakdown
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 flex items-center justify-center">
+            <div className="rounded-2xl border border-cv-line bg-cv-surface2/50 dark:bg-white/5 p-8 flex items-center justify-center">
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                   <Pie
@@ -212,16 +212,16 @@ export default function Compare() {
               {costBreakdown.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.02] p-4"
+                  className="flex items-center justify-between rounded-lg border border-cv-line bg-cv-surface2/50 dark:bg-white/5 p-4"
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className="w-3 h-3 rounded-full"
                       style={{ backgroundColor: item.fill }}
                     />
-                    <span className="text-white font-medium">{item.name}</span>
+                    <span className="text-cv-ink font-medium">{item.name}</span>
                   </div>
-                  <span className="text-lg font-semibold text-white">
+                  <span className="text-lg font-semibold text-cv-ink">
                     {item.value}%
                   </span>
                 </div>
@@ -232,12 +232,12 @@ export default function Compare() {
       </section>
 
       {/* Optimization Opportunities */}
-      <section className="py-14 sm:py-16 lg:py-18 border-t border-white/10">
+      <section className="py-14 sm:py-16 lg:py-18 border-t border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-8">
             Optimization Opportunities (% Savings Potential)
           </h2>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+          <div className="rounded-2xl border border-cv-line bg-cv-surface2/50 dark:bg-white/5 p-8">
             <ResponsiveContainer width="100%" height={400}>
               <LineChart data={optimizationOpportunities}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
@@ -279,14 +279,14 @@ export default function Compare() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-14 sm:py-16 lg:py-18 border-t border-white/10">
+      <section className="py-14 sm:py-16 lg:py-18 border-t border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-10 sm:p-12">
+          <div className="rounded-2xl border border-cv-line bg-gradient-to-b from-cv-surface2/80 to-cv-surface2/50 dark:from-white/[0.06] dark:to-white/[0.03] p-10 sm:p-12">
             <div className="max-w-2xl">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-cv-ink mb-4">
                 Ready to optimize your cloud spend?
               </h2>
-              <p className="text-lg text-white/70 mb-8">
+              <p className="text-lg text-cv-muted mb-8">
                 CloudVerse can help you identify and implement cost optimization strategies
                 specific to your organization.
               </p>
