@@ -109,6 +109,16 @@ export function EfficiencySnapshotModal({
               <span className="text-2xl sm:text-3xl text-cv-muted">/100</span>
             </div>
             <p className="text-sm text-cv-muted mt-2">Preliminary efficiency score</p>
+            
+            {/* Savings Range */}
+            {typeof result.optimizationPotentialMin === 'number' && typeof result.optimizationPotentialMax === 'number' && (
+              <div className="mt-4 pt-4 border-t border-cv-line dark:border-white/10">
+                <p className="text-sm text-cv-muted mb-1">Estimated savings potential</p>
+                <p className="text-lg font-semibold text-green-600 dark:text-green-400" data-testid="modal-savings-range">
+                  {result.optimizationPotentialMin}% – {result.optimizationPotentialMax}%
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Invoice Snapshot */}
