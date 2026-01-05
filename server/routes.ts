@@ -1,10 +1,15 @@
 import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
+import { createRequire } from "module";
 import { storage } from "./storage";
 import { parseInvoice } from "./invoice-parser";
 import multer from "multer";
 import { promises as fs } from "fs";
 import * as XLSX from "xlsx";
+
+// pdf-parse doesn't have ESM exports, use createRequire
+const require = createRequire(import.meta.url);
+const pdfParse = require("pdf-parse");
 
 // Configure multer for file uploads
 const upload = multer({
@@ -38,18 +43,17 @@ export async function registerRoutes(
       return res.status(400).json({ error: "No file uploaded" });
     }
 
+    const filePath = req.file.path;
+    const fileName = req.file.originalname;
+    
     try {
-      const filePath = req.file.path;
-      const fileName = req.file.originalname;
       const ext = fileName.split(".").pop()?.toLowerCase();
       
       let fileContent: string;
       
       if (ext === "csv") {
-        // Read CSV directly
         fileContent = await fs.readFile(filePath, "utf-8");
       } else if (ext === "xlsx" || ext === "xls") {
-        // Parse Excel file
         const workbook = XLSX.readFile(filePath);
         const sheets: string[] = [];
         for (const sheetName of workbook.SheetNames) {
@@ -59,16 +63,16 @@ export async function registerRoutes(
         }
         fileContent = sheets.join("\n\n");
       } else if (ext === "pdf") {
-        // For PDF, we'll read the raw buffer and send to AI
-        // The AI can extract text from the content description
         const buffer = await fs.readFile(filePath);
-        fileContent = `[PDF file with ${buffer.length} bytes - filename: ${fileName}]\n\nNote: This is a PDF invoice. Extract information based on typical cloud provider invoice formats (AWS, Azure, GCP). Look for billing periods, total amounts, service breakdowns, and resource details.`;
+        const pdfData = await pdfParse(buffer);
+        fileContent = pdfData.text;
+        
+        if (!fileContent || fileContent.trim().length < 50) {
+          fileContent = `[PDF file: ${fileName}]\nExtracted text was minimal or empty. This may be a scanned/image-based PDF.\nFile size: ${buffer.length} bytes\nPages: ${pdfData.numpages || 'unknown'}`;
+        }
       } else {
         fileContent = await fs.readFile(filePath, "utf-8");
       }
-
-      // Clean up the uploaded file
-      await fs.unlink(filePath).catch(() => {});
 
       // Parse the invoice with AI
       const result = await parseInvoice(fileContent, fileName);
@@ -79,6 +83,9 @@ export async function registerRoutes(
       res.status(500).json({ 
         error: error instanceof Error ? error.message : "Failed to analyze invoice" 
       });
+    } finally {
+      // Clean up the uploaded file
+      await fs.unlink(filePath).catch(() => {});
     }
   });
 
