@@ -112,7 +112,7 @@ export default function Home() {
       <DeploymentOptions />
 
       {/* Customer Logos Section */}
-      <section className="py-10 sm:py-12 lg:py-14 border-t border-white/10">
+      <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <p className="text-center text-base sm:text-lg text-white/70 mb-8 sm:mb-10">
             Used by FinOps teams at leading enterprises.
@@ -143,7 +143,7 @@ export default function Home() {
       </section>
 
       {/* What CloudVerse Offers Section */}
-      <section className="py-16 sm:py-18 lg:py-20 border-t border-white/10">
+      <section className="py-12 sm:py-16 lg:py-20 border-t border-cv-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="mb-10 sm:mb-12">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/50 mb-3">
@@ -179,12 +179,12 @@ export default function Home() {
       </section>
 
       {/* How CloudVerse Works Section (imported premium component) */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-cv-line dark:border-white/10">
         <HowItWorks />
       </div>
 
       {/* Outcomes Section */}
-      <section className="py-16 sm:py-18 lg:py-20 border-t border-white/10">
+      <section className="py-12 sm:py-16 lg:py-20 border-t border-cv-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-10 sm:mb-12">
             A single platform for visibility, accountability, and action.
@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* Security & Deployment Section */}
-      <section className="py-16 sm:py-18 lg:py-20 border-t border-white/10">
+      <section className="py-10 sm:py-12 lg:py-16 border-t border-cv-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
@@ -232,7 +232,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 sm:py-18 lg:py-20">
+      <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-10 sm:p-12 lg:p-16">
             <div className="max-w-2xl">

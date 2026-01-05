@@ -99,7 +99,7 @@ export function InvoiceEfficiencySection() {
   };
 
   return (
-    <section className="py-12 sm:py-14 lg:py-16 border-t border-cv-line dark:border-white/10">
+    <section className="pt-0 pb-10 sm:pb-12 lg:pb-14">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8 lg:gap-12 items-center">
           {/* Left Column: Copy */}
