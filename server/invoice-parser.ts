@@ -45,14 +45,14 @@ function getOpenAIClient(): { client: OpenAI; model: string } {
         apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
         baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
       }),
-      model: "gpt-5",
+      model: "gpt-4o-mini",
     };
   }
   
   if (process.env.OPENAI_API_KEY) {
     return {
       client: new OpenAI({ apiKey: process.env.OPENAI_API_KEY }),
-      model: "gpt-5",
+      model: "gpt-3.5-turbo",
     };
   }
   
@@ -98,21 +98,16 @@ Return ONLY valid JSON, no markdown or explanation.`;
 
   try {
     const { client, model } = getOpenAIClient();
-    console.log("Using model:", model, "with base URL:", process.env.AI_INTEGRATIONS_OPENAI_BASE_URL ? "Replit AI" : "OpenAI direct");
     
     const response = await client.chat.completions.create({
       model,
       messages: [{ role: "user", content: prompt }],
       response_format: { type: "json_object" },
-      max_completion_tokens: 8192,
+      max_tokens: 2048,
     });
 
-    console.log("API Response received, choices:", response.choices?.length);
     const content = response.choices[0]?.message?.content;
-    console.log("Content length:", content?.length || 0);
-    
     if (!content) {
-      console.error("Full response:", JSON.stringify(response, null, 2));
       throw new Error("No response from AI");
     }
 
