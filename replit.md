@@ -107,3 +107,18 @@ Preferred communication style: Simple, everyday language.
 - Theme-aware colors: using `bg-cv-surface2`, `border-cv-line` instead of hardcoded grays
 - Mobile-first responsive design (375px, 768px, 1280px+ verified)
 - No horizontal overflow at any breakpoint
+
+### Comprehensive Theme Fix (Latest)
+- Replaced all hardcoded dark-theme colors with theme-aware tokens
+- `text-white` → `text-cv-ink` (adapts to light/dark)
+- `text-white/70`, `text-white/80` → `text-cv-muted` or `text-cv-ink/80`
+- `border-white/10` → `border-cv-line`
+- `bg-white/5`, `bg-white/[0.04]` → `bg-cv-surface2/50 dark:bg-white/5`
+- All pages and components now work correctly in both light and dark modes
+- Blue CTA buttons intentionally keep white text for accessibility
+
+### Invoice Efficiency Section
+- AI-powered invoice parsing with gpt-4o-mini (Replit AI) or gpt-3.5-turbo fallback
+- Premium modal design showing score, snapshot, top spend chips, line items, and AI insights
+- Savings range display: "Estimated savings potential: X% – Y%"
+- Section spacing reduced by ~30-40% for tighter homepage layout
