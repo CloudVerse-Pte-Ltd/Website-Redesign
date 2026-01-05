@@ -1,8 +1,5 @@
 import OpenAI from "openai";
 
-// the newest OpenAI model is "gpt-5" which was released August 7, 2025. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
 export interface TopService {
   name: string;
   spend: number;
@@ -39,6 +36,27 @@ export interface InvoiceAnalysisResult {
   onDemandPercent: number;
   optimizationPotentialMin: number;
   optimizationPotentialMax: number;
+}
+
+function getOpenAIClient(): { client: OpenAI; model: string } {
+  if (process.env.AI_INTEGRATIONS_OPENAI_BASE_URL && process.env.AI_INTEGRATIONS_OPENAI_API_KEY) {
+    return {
+      client: new OpenAI({
+        apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
+        baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
+      }),
+      model: "gpt-5",
+    };
+  }
+  
+  if (process.env.OPENAI_API_KEY) {
+    return {
+      client: new OpenAI({ apiKey: process.env.OPENAI_API_KEY }),
+      model: "gpt-5",
+    };
+  }
+  
+  throw new Error("No OpenAI API configuration found. Please set up AI integrations or provide OPENAI_API_KEY.");
 }
 
 export async function parseInvoice(fileContent: string, fileName: string): Promise<InvoiceAnalysisResult> {
@@ -79,21 +97,27 @@ Analysis guidelines:
 Return ONLY valid JSON, no markdown or explanation.`;
 
   try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-5",
+    const { client, model } = getOpenAIClient();
+    console.log("Using model:", model, "with base URL:", process.env.AI_INTEGRATIONS_OPENAI_BASE_URL ? "Replit AI" : "OpenAI direct");
+    
+    const response = await client.chat.completions.create({
+      model,
       messages: [{ role: "user", content: prompt }],
       response_format: { type: "json_object" },
-      max_completion_tokens: 4096,
+      max_completion_tokens: 8192,
     });
 
+    console.log("API Response received, choices:", response.choices?.length);
     const content = response.choices[0]?.message?.content;
+    console.log("Content length:", content?.length || 0);
+    
     if (!content) {
+      console.error("Full response:", JSON.stringify(response, null, 2));
       throw new Error("No response from AI");
     }
 
     const result = JSON.parse(content) as InvoiceAnalysisResult;
     
-    // Validate and sanitize the response
     return {
       score: Math.max(0, Math.min(100, Math.round(result.score || 50))),
       currency: result.currency || "USD",
