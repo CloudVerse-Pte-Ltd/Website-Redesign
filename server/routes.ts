@@ -13,8 +13,10 @@ const { PDFParse } = require("pdf-parse");
 
 async function extractPdfText(buffer: Buffer): Promise<{ text: string; numpages: number }> {
   const parser = new PDFParse(buffer);
-  const result = await parser.parse();
-  return { text: result.text || "", numpages: result.numpages || 0 };
+  await parser.load();
+  const text = await parser.getText();
+  const info = await parser.getInfo();
+  return { text: text || "", numpages: info?.numPages || 0 };
 }
 
 // Configure multer for file uploads
