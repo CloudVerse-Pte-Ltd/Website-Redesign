@@ -43,9 +43,10 @@ export function Footer() {
             <Link 
               href="/" 
               onClick={() => track("footer_home")}
-              className="text-xl font-bold tracking-tight mb-4 block"
+              className="flex items-center gap-2 text-xl font-bold tracking-tight mb-4"
             >
-              CloudVerse
+              <img src="/logo.png" alt="CloudVerse" className="h-7 w-auto" />
+              <span>CloudVerse</span>
             </Link>
             <p className="text-muted-foreground text-[14px] sm:text-[15px] max-w-xs">
               Cloud financial management for modern engineering teams. Visibility, allocation, and optimization in one platform.

@@ -45,17 +45,13 @@ export function SiteNav() {
       <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-8 w-full">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <Link href="/" onClick={() => track("nav_home")} className="flex items-center flex-shrink-0">
+          <Link href="/" onClick={() => track("nav_home")} className="flex items-center gap-2 flex-shrink-0">
             <img 
-              src="/assets/logo-white.png" 
-              alt="CloudVerse AI" 
-              className="h-6 lg:h-7 w-auto hidden dark:block"
+              src="/logo.png" 
+              alt="CloudVerse" 
+              className="h-7 lg:h-8 w-auto"
             />
-            <img 
-              src="/assets/logo-black.png" 
-              alt="CloudVerse AI" 
-              className="h-6 lg:h-7 w-auto dark:hidden"
-            />
+            <span className="text-lg font-semibold text-cv-ink hidden sm:inline">CloudVerse</span>
           </Link>
 
           {/* Desktop Menu */}
