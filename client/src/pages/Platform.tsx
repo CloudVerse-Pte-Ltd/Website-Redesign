@@ -90,7 +90,7 @@ export default function Platform() {
                 </Button>
               </Link>
               <Link href="/integrations" onClick={() => track("cta_explore_integrations", { location: "platform_hero" })}>
-                <Button variant="tertiary" size="lg" className="w-full sm:w-auto">
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto">
                   View integrations
                 </Button>
               </Link>
