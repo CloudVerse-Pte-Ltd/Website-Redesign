@@ -2,6 +2,18 @@ import { useState } from "react";
 
 const featureTabs = [
   {
+    id: "developer-finops",
+    label: "Developer FinOps",
+    title: "Shift cost awareness left.",
+    body: "brings cost context into engineering workflows before changes ship.",
+    bullets: [
+      "Cost context aligned to services and environments",
+      "Recommendations engineers can act on",
+      "Fewer surprises, less rework",
+    ],
+    image: null,
+  },
+  {
     id: "visibility",
     label: "Visibility",
     title: "See spend clearly across clouds and orgs.",
@@ -10,18 +22,6 @@ const featureTabs = [
       "Multi-cloud and multi-account views",
       "Drill-down without rebuilding dashboards",
       "Export-ready views for reporting",
-    ],
-    image: null,
-  },
-  {
-    id: "developer-finops",
-    label: "Developer FinOps",
-    title: "Shift cost awareness left.",
-    body: "Bring cost signals into engineering decisions early.",
-    bullets: [
-      "Cost context aligned to services and environments",
-      "Recommendations engineers can act on",
-      "Fewer surprises, less rework",
     ],
     image: null,
   },
@@ -65,7 +65,7 @@ const featureTabs = [
 ];
 
 export function FeatureTabs() {
-  const [activeTab, setActiveTab] = useState("visibility");
+  const [activeTab, setActiveTab] = useState("developer-finops");
   const activeTabContent = featureTabs.find((tab) => tab.id === activeTab);
 
   return (
