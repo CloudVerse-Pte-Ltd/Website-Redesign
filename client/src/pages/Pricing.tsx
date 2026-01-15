@@ -54,14 +54,16 @@ export default function Pricing() {
     <BaseLayout>
       {/* Hero */}
       <section className="pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-16 lg:pb-20">
-        <div className="cv-container text-center space-y-4 sm:space-y-6 max-w-[720px] mx-auto">
-          <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase">
-            Pricing
-          </span>
-          <h1 className="cv-h1">Simple pricing that scales with you</h1>
-          <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-cv-muted">
-            CloudVerse pricing is designed for enterprise environments: clear, predictable, and aligned to real usage.
-          </p>
+        <div className="cv-container-full space-y-4 sm:space-y-6">
+          <div className="max-w-3xl">
+            <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase mb-4 inline-block">
+              Pricing
+            </span>
+            <h1 className="cv-h1 mb-4">Simple pricing that scales with you</h1>
+            <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-cv-muted">
+              CloudVerse pricing is designed for enterprise environments: clear, predictable, and aligned to real usage.
+            </p>
+          </div>
         </div>
       </section>
       {/* Pricing Plans */}
