@@ -111,7 +111,9 @@ export function FeatureTabs() {
                   key={idx}
                   className="flex items-start gap-3 text-sm text-cv-muted"
                 >
-                  <span className="text-primary font-semibold mt-0.5 flex-shrink-0">•</span>
+                  <span className="text-primary font-semibold mt-0.5 flex-shrink-0">
+                    •
+                  </span>
                   <span>{bullet}</span>
                 </li>
               ))}
@@ -119,11 +121,11 @@ export function FeatureTabs() {
           </div>
 
           <div className="hidden lg:flex items-center justify-center">
-            <div className="w-full aspect-[4/3] rounded-2xl bg-cv-surface border border-cv-line overflow-hidden">
-              <img 
-                src="/assets/anomaly-dashboard.png" 
-                alt="Anomaly Dashboard" 
-                className="w-full h-full object-cover"
+            <div className="w-full rounded-2xl bg-cv-surface border border-cv-line overflow-hidden">
+              <img
+                src="/assets/anomaly-dashboard.png"
+                alt="Anomaly Dashboard"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
