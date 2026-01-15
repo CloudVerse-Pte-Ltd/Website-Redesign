@@ -60,7 +60,7 @@ const featureTabs = [
       "Track savings as realized—not estimated",
       "GPU and model inference optimization paths",
     ],
-    image: null,
+    image: "/assets/automation-dashboard.png",
   },
 ];
 
@@ -125,17 +125,21 @@ export function FeatureTabs() {
             </ul>
           </div>
 
-          {activeTabContent.image && (
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="w-full rounded-2xl bg-cv-surface border border-cv-line overflow-hidden">
+          <div className="hidden lg:flex items-center justify-center">
+            <div className="w-full rounded-xl bg-cv-surface border border-cv-line overflow-hidden min-h-[300px]">
+              {activeTabContent.image ? (
                 <img
                   src={activeTabContent.image}
                   alt={activeTabContent.title}
                   className="w-full h-full object-contain"
                 />
-              </div>
+              ) : (
+                <div className="w-full h-full min-h-[300px] flex items-center justify-center">
+                  <span className="text-cv-muted text-sm">Preview coming soon</span>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       )}
     </div>
