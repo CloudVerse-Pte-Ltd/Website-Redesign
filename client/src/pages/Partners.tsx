@@ -100,7 +100,7 @@ export default function Partners() {
     <BaseLayout>
       {/* Hero */}
       <section className="pt-20 sm:pt-24 lg:pt-28 pb-14 sm:pb-16 lg:pb-20 border-b border-cv-line">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20 pl-[48px] pr-[48px]">
           <div className="max-w-3xl">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-cv-muted mb-4">
               CloudVerse™ Partner Program
