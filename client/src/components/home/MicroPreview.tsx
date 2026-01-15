@@ -40,7 +40,7 @@ export function MicroPreview({ variant }: MicroPreviewProps) {
 
   if (variant === "normalize") {
     return (
-      <div className="w-full h-full bg-black/40 rounded-xl border border-cv-line p-4 overflow-hidden flex flex-col gap-2.5">
+      <div className="w-full h-full rounded-xl border border-cv-line p-4 overflow-hidden flex flex-col gap-2.5 bg-[#fcfcfc]">
         <div className="text-[10px] font-medium text-cv-muted uppercase tracking-wider mb-1">Cost Dimensions</div>
         <div className="space-y-2">
           {[
