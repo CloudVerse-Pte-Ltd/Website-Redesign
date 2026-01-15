@@ -37,7 +37,7 @@ export default function Integrations() {
     <BaseLayout>
       {/* Hero */}
       <section className="pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-16 lg:pb-20">
-        <div className="cv-container-full space-y-6">
+        <div className="cv-container-full space-y-6 pl-[48px] pr-[48px]">
           <div className="max-w-[900px]">
             <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase mb-4 inline-block">
               Integrations
@@ -61,7 +61,6 @@ export default function Integrations() {
           </div>
         </div>
       </section>
-
       {/* Normalization Layer Strip */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container-full">
@@ -88,7 +87,6 @@ export default function Integrations() {
           </div>
         </div>
       </section>
-
       {/* Integrations Explorer */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line" id="explorer">
         <div className="cv-container-full">
@@ -164,7 +162,6 @@ export default function Integrations() {
           )}
         </div>
       </section>
-
       {/* Enterprise Connectors */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container-full">
@@ -196,7 +193,6 @@ export default function Integrations() {
           </div>
         </div>
       </section>
-
       {/* Request Integration CTA */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[800px] text-center">
@@ -211,7 +207,6 @@ export default function Integrations() {
           </Link>
         </div>
       </section>
-
       {/* FAQ */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[800px]">
@@ -251,7 +246,6 @@ export default function Integrations() {
           </div>
         </div>
       </section>
-
       {/* Drawer */}
       <IntegrationDrawer
         integration={selectedIntegration}
