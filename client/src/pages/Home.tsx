@@ -209,9 +209,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-cv-ink mb-4">
               Security and compliance, built in.
             </h2>
-            <p className="text-lg sm:text-xl text-cv-muted mb-6">
-              Designed for enterprise environments, from access control to auditability.
-            </p>
+            <p className="text-lg sm:text-xl text-cv-muted mb-6">Designed for enterprise environments with strong access control and full auditability.</p>
             <p className="text-base sm:text-lg text-cv-muted mb-6 pb-6 border-b border-cv-line">
               Private deployment options, including air-gapped environments, available for regulated enterprises.
             </p>
