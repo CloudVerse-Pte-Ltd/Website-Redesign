@@ -83,7 +83,7 @@ export default function Platform() {
             <p className="text-[15px] sm:text-[16px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[30px] text-cv-muted max-w-[40rem]">
               Manage cloud, data, and AI spend with clean dimensions, anomalies, and automated actions.
             </p>
-            <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4">
               <Link href="/demo" onClick={() => track("cta_demo", { location: "platform_hero" })}>
                 <Button size="lg" className="w-full sm:w-auto">
                   Book a demo
