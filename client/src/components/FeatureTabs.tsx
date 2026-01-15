@@ -119,16 +119,12 @@ export function FeatureTabs() {
           </div>
 
           <div className="hidden lg:flex items-center justify-center">
-            <div className="w-full aspect-[4/3] rounded-2xl bg-cv-surface border border-cv-line overflow-hidden p-6">
-              <div className="h-full w-full flex flex-col gap-4">
-                <div className="h-5 w-2/5 bg-cv-line/40 rounded-md"></div>
-                <div className="flex gap-4 flex-1">
-                  <div className="w-4/5 flex flex-col gap-4">
-                    <div className="h-1/3 w-full bg-cv-line/30 rounded-lg"></div>
-                    <div className="h-2/3 w-full bg-cv-line/30 rounded-lg"></div>
-                  </div>
-                </div>
-              </div>
+            <div className="w-full aspect-[4/3] rounded-2xl bg-cv-surface border border-cv-line overflow-hidden">
+              <img 
+                src="/assets/anomaly-dashboard.png" 
+                alt="Anomaly Dashboard" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
