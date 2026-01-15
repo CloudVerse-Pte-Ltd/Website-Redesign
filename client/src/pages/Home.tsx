@@ -211,7 +211,7 @@ export default function Home() {
             </h2>
             <p className="text-lg sm:text-xl text-cv-muted mb-6">Designed for enterprise environments with strong access control and full auditability.</p>
             <p className="text-base sm:text-lg text-cv-muted mb-6 pb-6 border-b border-cv-line">
-              Private deployment options, including air-gapped environments, available for regulated enterprises.
+              Private deployment options are available for regulated enterprises, including air gapped environments.
             </p>
             <p className="text-sm text-cv-muted">
               ISO 27001 • SOC 2 Type II
