@@ -137,7 +137,7 @@ export function OutcomesWindow({
                   <h6 className="text-[11px] uppercase tracking-widest text-cv-muted font-semibold mb-3">
                     AI & Data
                   </h6>
-                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                     {aiProviders.map((provider) => (
                       <div
                         key={provider.name}
@@ -151,12 +151,11 @@ export function OutcomesWindow({
                       </div>
                     ))}
                   </div>
+                  <p className="text-xs text-cv-muted mt-3">
+                    Kubernetes, SaaS, and more available.
+                  </p>
                 </div>
               )}
-
-              <p className="text-xs text-cv-muted mt-auto">
-                Kubernetes, SaaS, and more available.
-              </p>
             </div>
           )}
         </div>
