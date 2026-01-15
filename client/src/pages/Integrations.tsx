@@ -42,7 +42,7 @@ export default function Integrations() {
             <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase mb-4 inline-block">
               Integrations
             </span>
-            <h1 className="cv-h1 mb-4">Connect your cloud, data, and AI platforms.</h1>
+            <h1 className="cv-h1 mb-4">Connect your cloud, data, and AI platforms</h1>
             <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-cv-muted max-w-[800px]">
               CloudVerse normalizes billing, usage, tags, and ownership into one consistent model—so reporting and automation work everywhere.
             </p>

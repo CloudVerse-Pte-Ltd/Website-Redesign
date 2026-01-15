@@ -58,7 +58,7 @@ export default function Pricing() {
           <span className="cv-cap font-semibold tracking-widest text-cv-muted uppercase">
             Pricing
           </span>
-          <h1 className="cv-h1">Simple pricing that scales with you.</h1>
+          <h1 className="cv-h1">Simple pricing that scales with you</h1>
           <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-cv-muted">
             CloudVerse pricing is designed for enterprise environments—clear, predictable, and aligned to real usage.
           </p>

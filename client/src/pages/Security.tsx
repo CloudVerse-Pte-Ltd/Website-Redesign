@@ -61,7 +61,7 @@ export default function Security() {
               CloudVerse™ Security
             </span>
             <h1 className="cv-h1">
-              Security and compliance, built in.
+              Security and compliance, built in
             </h1>
             <p className="text-[15px] sm:text-[16px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[30px] text-cv-muted max-w-[40rem]">
               Designed for enterprise environments—from access control to auditability.
