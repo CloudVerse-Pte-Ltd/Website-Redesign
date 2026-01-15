@@ -11,7 +11,7 @@ const featureTabs = [
       "Recommendations engineers can act on",
       "Fewer surprises, less rework",
     ],
-    image: null,
+    image: "/assets/developer-finops-dashboard.png",
   },
   {
     id: "visibility",
