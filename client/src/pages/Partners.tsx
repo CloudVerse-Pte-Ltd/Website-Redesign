@@ -126,7 +126,6 @@ export default function Partners() {
           </div>
         </div>
       </section>
-
       {/* Value Pillars */}
       <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -149,7 +148,6 @@ export default function Partners() {
           </div>
         </div>
       </section>
-
       {/* Partner Types */}
       <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -202,7 +200,6 @@ export default function Partners() {
           </div>
         </div>
       </section>
-
       {/* Program Components */}
       <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -221,7 +218,6 @@ export default function Partners() {
           </div>
         </div>
       </section>
-
       {/* Revenue Streams */}
       <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -241,7 +237,6 @@ export default function Partners() {
           </div>
         </div>
       </section>
-
       {/* Partner Workflow */}
       <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -261,14 +256,11 @@ export default function Partners() {
           </div>
         </div>
       </section>
-
       {/* CTA */}
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <div className="max-w-xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-cv-ink">
-              Talk to our partner team.
-            </h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-cv-ink">Talk to our partner team</h2>
             <p className="text-cv-muted">
               Learn how CloudVerse can help you grow services revenue and deliver measurable value.
             </p>
