@@ -115,9 +115,8 @@ export function InvoiceEfficiencySection() {
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-cv-ink leading-tight">
               Know how efficient your cloud is?
             </h2>
-            <p className="text-base sm:text-lg text-cv-muted leading-relaxed max-w-xl mx-auto">
-              Upload a cloud invoice and receive a read-only efficiency snapshot highlighting waste signals, coverage gaps, and optimization potential.
-            </p>
+            <p className="text-base sm:text-lg text-cv-muted leading-relaxed max-w-xl mx-auto ml-[0px] mr-[0px]">Upload a cloud invoice and receive a read-only efficiency snapshot.
+            We highlight your waste signals, coverage gaps, and optimization potential.</p>
 
             {/* Upload Card */}
             <div className="mt-8 max-w-md mx-auto">
@@ -226,7 +225,6 @@ export function InvoiceEfficiencySection() {
           </div>
         </div>
       </section>
-
       <EfficiencySnapshotModal
         open={modalOpen}
         onOpenChange={setModalOpen}
