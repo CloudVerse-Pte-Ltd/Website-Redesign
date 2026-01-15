@@ -13,14 +13,14 @@ export default function Resources() {
     <BaseLayout>
       {/* Hero */}
       <section className="pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-16 lg:pb-20">
-        <div className="cv-container-full text-left pl-[48px] pr-[48px]">
-          <div className="max-w-[760px] mx-auto text-center space-y-4 sm:space-y-6">
-            <span className="text-xs uppercase tracking-widest text-cv-muted">CloudVerse™ Resources</span>
-            <h1 className="cv-h1">Guides and documentation for enterprise FinOps</h1>
-            <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-cv-muted">
+        <div className="cv-container-full space-y-4 sm:space-y-6">
+          <div className="max-w-3xl">
+            <span className="text-xs uppercase tracking-widest text-cv-muted mb-4 inline-block">CloudVerse™ Resources</span>
+            <h1 className="cv-h1 mb-4">Guides and documentation for enterprise FinOps</h1>
+            <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-cv-muted mb-6">
               Practical guidance on visibility, allocation, anomalies, and automation across cloud, data, and AI platforms.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
               <Link href="/resources/guides" data-track="resources_guides_open">
                 <Button size="lg" className="w-full sm:w-auto">
                   Browse guides
