@@ -41,7 +41,7 @@ const pillarCards = [
   {
     icon: Code2,
     title: "Developer FinOps (Shift-left)",
-    description: "Cost context where engineers work — services, environments, pipelines, and workloads.",
+    description: "Cost context where engineers work: services, environments, pipelines, and workloads.",
   },
   {
     icon: Cpu,
@@ -150,7 +150,7 @@ export default function Home() {
               What CloudVerse Offers
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-cv-ink mb-4">
-              Everything you need to manage cloud, data, and AI spend — in one platform.
+              Everything you need to manage cloud, data, and AI spend in one platform.
             </h2>
             <p className="text-lg sm:text-xl text-cv-muted max-w-2xl">
               Built for enterprise scale, multi-tenant governance, and measurable outcomes.
@@ -201,7 +201,7 @@ export default function Home() {
             />
             <OutcomeTile
               title="Anomalies"
-              description="Detect and predict spend spikes before impact — with alerting and context."
+              description="Detect and predict spend spikes before impact, with alerting and context."
             />
             <OutcomeTile
               title="Automation"
@@ -219,10 +219,10 @@ export default function Home() {
               Security and compliance, built in.
             </h2>
             <p className="text-lg sm:text-xl text-cv-muted mb-6">
-              Designed for enterprise environments — from access control to auditability.
+              Designed for enterprise environments, from access control to auditability.
             </p>
             <p className="text-base sm:text-lg text-cv-muted mb-6 pb-6 border-b border-cv-line">
-              Private deployment options — including air-gapped environments — available for regulated enterprises.
+              Private deployment options, including air-gapped environments, available for regulated enterprises.
             </p>
             <p className="text-sm text-cv-muted">
               ISO 27001 • SOC 2 Type II

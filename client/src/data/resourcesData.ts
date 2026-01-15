@@ -69,7 +69,7 @@ export const resourcesData: Resource[] = [
     readingTime: "7 min",
     date: "2024-11-28",
     content: [
-      "Cost anomalies—unexpected spikes or drops in spend—can indicate misconfigurations, runaway processes, or security incidents.",
+      "Cost anomalies (unexpected spikes or drops in spend) can indicate misconfigurations, runaway processes, or security incidents.",
       "This guide explains how anomaly detection works and how to configure alerts that are actionable rather than noisy.",
       "We cover setting baselines, tuning sensitivity, and building response playbooks.",
       "The result is early warning for cost issues before they hit your bill."
@@ -99,7 +99,7 @@ export const resourcesData: Resource[] = [
     readingTime: "6 min",
     date: "2024-11-15",
     content: [
-      "FinOps isn't just for Finance—Engineering teams play a critical role in cost efficiency.",
+      "FinOps isn't just for Finance. Engineering teams play a critical role in cost efficiency.",
       "This guide provides practical tips for developers to understand their cost footprint and make cost-aware decisions.",
       "We cover reading cost reports, understanding unit economics, and integrating cost into CI/CD.",
       "The goal is cost-conscious engineering without slowing down delivery."
@@ -129,7 +129,7 @@ export const resourcesData: Resource[] = [
     readingTime: "11 min",
     date: "2024-11-05",
     content: [
-      "Kubernetes adds complexity to cost allocation—containers share nodes, and traditional tagging doesn't apply.",
+      "Kubernetes adds complexity to cost allocation. Containers share nodes, and traditional tagging doesn't apply.",
       "This guide explains how to attribute Kubernetes costs using namespace labels, pod annotations, and resource requests.",
       "We cover agent deployment, metric collection, and allocation methodologies.",
       "The result is accurate container cost attribution that integrates with your overall FinOps practice."

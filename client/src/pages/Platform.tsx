@@ -56,7 +56,7 @@ const capabilities = [
   },
   {
     title: "Developer FinOps (Shift-left)",
-    body: "Cost context in engineering workflows—before changes ship.",
+    body: "Cost context in engineering workflows, before changes ship.",
   },
   {
     title: "AI & GPU Cost Optimization",
@@ -113,7 +113,7 @@ export default function Platform() {
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="cv-h2 mb-3">What you get with CloudVerse</h2>
             <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-cv-muted">
-              A platform built to report, detect, and act—automatically.
+              A platform built to report, detect, and act automatically.
             </p>
           </div>
 
@@ -158,7 +158,7 @@ export default function Platform() {
           <div className="max-w-2xl mx-auto space-y-3">
             <h2 className="cv-h2">Security and compliance, built in</h2>
             <p className="cv-body text-cv-muted">
-              Designed for enterprise environments—from access control to auditability.
+              Designed for enterprise environments, from access control to auditability.
             </p>
             <p className="cv-cap font-semibold text-cv-muted pt-2">
               ISO 27001 • SOC 2 Type II

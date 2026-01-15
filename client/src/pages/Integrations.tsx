@@ -44,7 +44,7 @@ export default function Integrations() {
             </span>
             <h1 className="cv-h1 mb-4">Connect your cloud, data, and AI platforms</h1>
             <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-cv-muted max-w-[800px]">
-              CloudVerse normalizes billing, usage, tags, and ownership into one consistent model—so reporting and automation work everywhere.
+              CloudVerse normalizes billing, usage, tags, and ownership into one consistent model so reporting and automation work everywhere.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 pt-2">
@@ -181,7 +181,7 @@ export default function Integrations() {
               },
               {
                 title: "Multiple ingestion modes",
-                body: "API, exports, and agents—depending on the platform."
+                body: "API, exports, and agents depending on the platform."
               }
             ].map((card, idx) => (
               <div key={idx} className="p-6 rounded-xl border border-cv-line bg-cv-surface2">
@@ -202,7 +202,7 @@ export default function Integrations() {
         <div className="cv-container max-w-[800px] text-center">
           <h2 className="cv-h2 mb-3">Need a connector that isn't listed?</h2>
           <p className="cv-body text-cv-muted mb-6">
-            Tell us what you use—we'll prioritize it with you.
+            Tell us what you use. We'll prioritize it with you.
           </p>
           <Link href="/contact" onClick={() => track("cta_request_integration", { location: "integrations_cta" })}>
             <Button size="lg">
@@ -228,15 +228,15 @@ export default function Integrations() {
               },
               {
                 q: "Do you support multi-account and multi-org setups?",
-                a: "Yes—CloudVerse supports enterprise hierarchies and tenancy boundaries."
+                a: "Yes, CloudVerse supports enterprise hierarchies and tenancy boundaries."
               },
               {
                 q: "Can we use exports instead of APIs?",
-                a: "Yes—billing exports are supported when APIs aren't available."
+                a: "Yes, billing exports are supported when APIs aren't available."
               },
               {
                 q: "Do integrations affect production performance?",
-                a: "No—connections are designed to be low overhead and read-only."
+                a: "No, connections are designed to be low overhead and read-only."
               }
             ].map((faq, idx) => (
               <div key={idx} className="pb-4 border-b border-cv-line last:border-b-0">

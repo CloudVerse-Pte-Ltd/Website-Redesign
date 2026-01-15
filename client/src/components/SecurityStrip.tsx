@@ -13,7 +13,7 @@ export function SecurityStrip() {
             Security and compliance, built in.
           </h2>
           <p className="text-[17px] leading-[28px] text-zinc-400">
-            CloudVerse™ is designed for enterprise security—from access controls to auditability.
+            CloudVerse™ is designed for enterprise security, from access controls to auditability.
           </p>
           
           <div className="flex flex-wrap justify-center gap-8 items-center pt-2 grayscale opacity-90">

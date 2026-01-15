@@ -60,7 +60,7 @@ export default function Pricing() {
           </span>
           <h1 className="cv-h1">Simple pricing that scales with you</h1>
           <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-cv-muted">
-            CloudVerse pricing is designed for enterprise environments—clear, predictable, and aligned to real usage.
+            CloudVerse pricing is designed for enterprise environments: clear, predictable, and aligned to real usage.
           </p>
         </div>
       </section>
@@ -123,7 +123,7 @@ export default function Pricing() {
         <div className="cv-container max-w-[800px]">
           <h2 className="cv-h2 mb-6 text-center">Designed for enterprise scale</h2>
           <p className="text-[15px] leading-[24px] text-cv-muted mb-6 text-center">
-            CloudVerse supports multi-account, multi-org, and multi-cloud environments. Pricing scales with usage and complexity—not arbitrary limits.
+            CloudVerse supports multi-account, multi-org, and multi-cloud environments. Pricing scales with usage and complexity, not arbitrary limits.
           </p>
           <div className="space-y-3">
             <div className="flex items-start gap-3">
@@ -191,7 +191,7 @@ export default function Pricing() {
               },
               {
                 q: "Do you support multi-cloud pricing?",
-                a: "Yes—pricing supports environments spanning multiple clouds and platforms."
+                a: "Yes, pricing supports environments spanning multiple clouds and platforms."
               },
               {
                 q: "Are there limits on accounts or teams?",
@@ -199,7 +199,7 @@ export default function Pricing() {
               },
               {
                 q: "Can we start small and scale?",
-                a: "Yes—most customers start with visibility and expand into automation."
+                a: "Yes, most customers start with visibility and expand into automation."
               },
               {
                 q: "Is support included?",

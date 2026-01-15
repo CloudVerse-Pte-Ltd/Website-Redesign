@@ -40,7 +40,7 @@ export default function Company() {
             <div className="lg:col-span-8">
               <div className="rounded-2xl border border-cv-line bg-cv-surface2/50 dark:bg-white/5 p-6 sm:p-8">
                 <p className="text-base sm:text-lg text-cv-ink/80 leading-relaxed">
-                  Give every enterprise complete visibility, allocation, and control over multi-cloud spend—while keeping teams fast, secure, and compliant.
+                  Give every enterprise complete visibility, allocation, and control over multi-cloud spend while keeping teams fast, secure, and compliant.
                 </p>
               </div>
             </div>

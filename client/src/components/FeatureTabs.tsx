@@ -4,7 +4,7 @@ const featureTabs = [
   {
     id: "visibility",
     label: "Visibility",
-    title: "See spend clearly—across clouds and orgs.",
+    title: "See spend clearly across clouds and orgs.",
     body: "Understand cost drivers from organization down to resource.",
     bullets: [
       "Multi-cloud and multi-account views",
@@ -17,7 +17,7 @@ const featureTabs = [
     id: "developer-finops",
     label: "Developer FinOps",
     title: "Shift cost awareness left.",
-    body: "Bring cost signals into engineering decisions—early.",
+    body: "Bring cost signals into engineering decisions early.",
     bullets: [
       "Cost context aligned to services and environments",
       "Recommendations engineers can act on",
@@ -52,12 +52,12 @@ const featureTabs = [
   {
     id: "automation",
     label: "Automation",
-    title: "Move from insight to action—automatically.",
+    title: "Move from insight to action, automatically.",
     body: "CloudVerse applies recommendations safely, not just reports them.",
     bullets: [
       "40+ ML models powering recommendations",
       "Guardrails, approvals, and safe automation",
-      "Track savings as realized—not estimated",
+      "Track savings as realized, not estimated",
       "GPU and model inference optimization paths",
     ],
     image: "/assets/automation-dashboard.png",

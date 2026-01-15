@@ -64,7 +64,7 @@ export default function Security() {
               Security and compliance, built in
             </h1>
             <p className="text-[15px] sm:text-[16px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[30px] text-cv-muted max-w-[40rem]">
-              Designed for enterprise environments—from access control to auditability.
+              Designed for enterprise environments, from access control to auditability.
             </p>
             <p className="text-sm text-cv-muted/70 border-l-2 border-cv-line pl-4">
               Private deployment and air-gapped options available for regulated environments.

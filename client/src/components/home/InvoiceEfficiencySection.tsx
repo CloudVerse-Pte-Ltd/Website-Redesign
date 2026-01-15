@@ -116,7 +116,7 @@ export function InvoiceEfficiencySection() {
               Know how efficient your cloud is?
             </h2>
             <p className="text-base sm:text-lg text-cv-muted leading-relaxed max-w-xl mx-auto">
-              Upload a cloud invoice and receive a read-only efficiency snapshot—highlighting waste signals, coverage gaps, and optimization potential.
+              Upload a cloud invoice and receive a read-only efficiency snapshot highlighting waste signals, coverage gaps, and optimization potential.
             </p>
 
             {/* Upload Card */}

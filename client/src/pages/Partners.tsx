@@ -109,7 +109,7 @@ export default function Partners() {
               Partner with CloudVerse™
             </h1>
             <p className="text-lg sm:text-xl text-cv-muted mb-8 leading-relaxed">
-              For MSPs, GSIs, and Resellers who want to deliver measurable savings faster—and grow services revenue.
+              For MSPs, GSIs, and Resellers who want to deliver measurable savings faster and grow services revenue.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="mailto:partners@cloudverse.ai" onClick={() => track("cta_partner_apply", { location: "partners_hero" })} data-testid="link-partner-apply">
