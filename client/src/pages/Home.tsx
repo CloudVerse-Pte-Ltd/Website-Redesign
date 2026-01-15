@@ -65,7 +65,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-14 lg:pb-16 overflow-hidden">
         <MotionHeroBackground />
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20 relative z-10">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20 relative z-10 pl-[32px] pr-[32px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
             {/* Left: Copy Block */}
             <div className="text-left space-y-6 flex flex-col justify-start">
@@ -105,12 +105,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Invoice Efficiency Score Section */}
       <InvoiceEfficiencySection />
-
       <DeploymentOptions />
-
       {/* Customer Logos Section */}
       <section className="py-6 sm:py-8 lg:py-10 border-t border-cv-line dark:border-white/10">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
@@ -141,7 +138,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* What CloudVerse Offers Section */}
       <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
@@ -177,12 +173,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* How CloudVerse Works Section (imported premium component) */}
       <div className="border-t border-cv-line dark:border-white/10">
         <HowItWorks />
       </div>
-
       {/* Outcomes Section */}
       <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
@@ -210,7 +204,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Security & Deployment Section */}
       <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
@@ -230,7 +223,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Final CTA Section */}
       <section className="py-8 sm:py-10 lg:py-12">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
