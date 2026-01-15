@@ -112,9 +112,7 @@ export default function Solutions() {
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-cv-muted mb-4">
               CloudVerse™ Solutions
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cv-ink mb-6 leading-tight">
-              Solutions for every team that touches spend.
-            </h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cv-ink mb-6 leading-tight">Solutions for every team that touches spend</h1>
             <p className="text-lg sm:text-xl text-cv-muted mb-8 leading-relaxed">
               Finance, Engineering, IT, Business, and AI/Data teams use CloudVerse to see spend clearly, enforce accountability, and act on savings.
             </p>
@@ -133,7 +131,6 @@ export default function Solutions() {
           </div>
         </div>
       </section>
-
       {/* Role Selector */}
       <section className="py-10 sm:py-12 lg:py-14 border-b border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -160,7 +157,6 @@ export default function Solutions() {
           </div>
         </div>
       </section>
-
       {/* Role Content */}
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -249,7 +245,6 @@ export default function Solutions() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
