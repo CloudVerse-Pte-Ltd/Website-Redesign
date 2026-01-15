@@ -11,6 +11,7 @@ const featureTabs = [
       "Drill-down without rebuilding dashboards",
       "Export-ready views for reporting",
     ],
+    image: null,
   },
   {
     id: "developer-finops",
@@ -22,6 +23,7 @@ const featureTabs = [
       "Recommendations engineers can act on",
       "Fewer surprises, less rework",
     ],
+    image: null,
   },
   {
     id: "tag-engine",
@@ -33,6 +35,7 @@ const featureTabs = [
       "Ownership mapping using rules + ML",
       "Allocation that holds up under scrutiny",
     ],
+    image: null,
   },
   {
     id: "anomalies",
@@ -44,6 +47,7 @@ const featureTabs = [
       "Predicted anomalies using ML models",
       "Clear paths to investigate and fix",
     ],
+    image: "/assets/anomaly-dashboard.png",
   },
   {
     id: "automation",
@@ -56,6 +60,7 @@ const featureTabs = [
       "Track savings as realized—not estimated",
       "GPU and model inference optimization paths",
     ],
+    image: null,
   },
 ];
 
@@ -120,15 +125,17 @@ export function FeatureTabs() {
             </ul>
           </div>
 
-          <div className="hidden lg:flex items-center justify-center">
-            <div className="w-full rounded-2xl bg-cv-surface border border-cv-line overflow-hidden">
-              <img
-                src="/assets/anomaly-dashboard.png"
-                alt="Anomaly Dashboard"
-                className="w-full h-full object-contain"
-              />
+          {activeTabContent.image && (
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="w-full rounded-2xl bg-cv-surface border border-cv-line overflow-hidden">
+                <img
+                  src={activeTabContent.image}
+                  alt={activeTabContent.title}
+                  className="w-full h-full object-contain"
+                />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </div>
