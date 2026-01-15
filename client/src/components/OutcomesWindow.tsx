@@ -56,10 +56,10 @@ export function OutcomesWindow({
       </div>
 
       {/* Body */}
-      <div className="p-6">
+      <div className="px-6 py-6 pb-8">
         <div className={`grid ${hasProviders ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'} gap-10 lg:gap-12`}>
           {/* Left: Outcomes List */}
-          <div className="relative min-h-[260px]">
+          <div className="relative min-h-[280px]">
             <div
               className={`absolute inset-0 transition-opacity ${hasMultipleSets ? 'duration-1000' : ''} ${
                 showSet2 && hasMultipleSets ? 'opacity-0 pointer-events-none' : 'opacity-100'
