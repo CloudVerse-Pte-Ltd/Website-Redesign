@@ -7,7 +7,7 @@ interface MicroPreviewProps {
 export function MicroPreview({ variant }: MicroPreviewProps) {
   if (variant === "connect") {
     return (
-      <div className="w-full h-full rounded-xl border border-cv-line p-4 overflow-hidden flex flex-col gap-3 bg-[#fcfcfc]">
+      <div className="w-full h-full rounded-xl border border-cv-line p-4 overflow-hidden flex flex-col gap-3 bg-white dark:bg-black">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
@@ -67,7 +67,7 @@ export function MicroPreview({ variant }: MicroPreviewProps) {
   }
 
   return (
-    <div className="w-full h-full rounded-xl border border-cv-line p-4 overflow-hidden flex flex-col gap-3 bg-[#fcfcfc]">
+    <div className="w-full h-full rounded-xl border border-cv-line p-4 overflow-hidden flex flex-col gap-3 bg-white dark:bg-black">
       <div className="flex items-center justify-between">
         <span className="text-[10px] font-medium text-cv-muted uppercase tracking-wider">Anomalies</span>
         <div className="px-1.5 py-0.5 rounded bg-red-500/10 border border-red-500/20 text-[8px] text-red-400 uppercase font-bold">Alert</div>
