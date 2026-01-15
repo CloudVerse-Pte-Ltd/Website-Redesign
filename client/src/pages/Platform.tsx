@@ -108,7 +108,6 @@ export default function Platform() {
           </div>
         </div>
       </MotionHero>
-
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="cv-container-full">
           <div className="text-center max-w-3xl mx-auto mb-10">
@@ -128,13 +127,11 @@ export default function Platform() {
           </div>
         </div>
       </section>
-
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="cv-container-full">
           <FeatureTabs />
         </div>
       </section>
-
       <section className="py-10 sm:py-12 lg:py-14 border-y border-cv-line">
         <div className="cv-container-full">
           <div className="text-center mb-8">
@@ -156,7 +153,6 @@ export default function Platform() {
           </div>
         </div>
       </section>
-
       <section className="py-10 sm:py-12 lg:py-14">
         <div className="cv-container text-center">
           <div className="max-w-2xl mx-auto space-y-3">
@@ -170,11 +166,10 @@ export default function Platform() {
           </div>
         </div>
       </section>
-
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="cv-container text-center">
           <div className="max-w-2xl mx-auto space-y-4 sm:space-y-5">
-            <h2 className="cv-h2">Get a platform view of your cloud economics.</h2>
+            <h2 className="cv-h2">Get a platform view of your cloud economics</h2>
             <p className="cv-body text-cv-muted">
               We'll map your structure and automation opportunities.
             </p>
