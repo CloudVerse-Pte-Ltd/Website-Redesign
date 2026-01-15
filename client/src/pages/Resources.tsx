@@ -13,7 +13,7 @@ export default function Resources() {
     <BaseLayout>
       {/* Hero */}
       <section className="pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-16 lg:pb-20">
-        <div className="cv-container-full">
+        <div className="cv-container-full text-left pl-[48px] pr-[48px]">
           <div className="max-w-[760px] mx-auto text-center space-y-4 sm:space-y-6">
             <span className="text-xs uppercase tracking-widest text-cv-muted">CloudVerse™ Resources</span>
             <h1 className="cv-h1">Guides and documentation for enterprise FinOps</h1>
@@ -35,7 +35,6 @@ export default function Resources() {
           </div>
         </div>
       </section>
-
       {/* Two Primary Cards */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[1000px]">
@@ -64,7 +63,6 @@ export default function Resources() {
           </div>
         </div>
       </section>
-
       {/* Featured Guides */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[1000px]">
@@ -93,7 +91,6 @@ export default function Resources() {
           </div>
         </div>
       </section>
-
       {/* Browse by Category */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[1000px]">
@@ -111,7 +108,6 @@ export default function Resources() {
           </div>
         </div>
       </section>
-
       {/* Product Updates CTA */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[800px] text-center">
@@ -126,7 +122,6 @@ export default function Resources() {
           </Link>
         </div>
       </section>
-
       {/* Bottom CTA */}
       <section className="py-cv-sec-lg border-t border-cv-line">
         <div className="max-w-[760px] mx-auto px-6 lg:px-12 text-center">
