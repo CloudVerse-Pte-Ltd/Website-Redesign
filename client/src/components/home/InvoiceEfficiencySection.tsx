@@ -115,8 +115,7 @@ export function InvoiceEfficiencySection() {
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-cv-ink leading-tight">
               Know how efficient your cloud is?
             </h2>
-            <p className="text-base sm:text-lg text-cv-muted leading-relaxed max-w-xl mx-auto ml-[0px] mr-[0px]">Upload a cloud invoice and receive a read-only efficiency snapshot.
-            We highlight your waste signals, coverage gaps, and optimization potential.</p>
+            <p className="text-base sm:text-lg text-cv-muted leading-relaxed max-w-xl mx-auto">Upload a cloud invoice and receive a read-only efficiency snapshot. We highlight your waste signals, coverage gaps, and optimization potential.</p>
 
             {/* Upload Card */}
             <div className="mt-8 max-w-md mx-auto">
@@ -193,7 +192,7 @@ export function InvoiceEfficiencySection() {
                     <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
                       <CheckCircle className="w-5 h-5 text-green-500" />
                     </div>
-                    <div className="text-left">
+                    <div className="text-center">
                       <p className="text-base font-medium text-cv-ink">Snapshot ready</p>
                       <p className="text-sm text-cv-muted">Score: {result.score}/100</p>
                     </div>
