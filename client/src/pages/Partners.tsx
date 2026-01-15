@@ -100,7 +100,7 @@ export default function Partners() {
     <BaseLayout>
       {/* Hero */}
       <section className="pt-20 sm:pt-24 lg:pt-28 pb-14 sm:pb-16 lg:pb-20 border-b border-cv-line">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20">
           <div className="max-w-3xl">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-cv-muted mb-4">
               CloudVerse™ Partner Program
@@ -128,7 +128,7 @@ export default function Partners() {
       </section>
       {/* Value Pillars */}
       <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {valuePillars.map((pillar, idx) => {
               const Icon = pillar.icon;
@@ -150,7 +150,7 @@ export default function Partners() {
       </section>
       {/* Partner Types */}
       <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20">
           <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-8 text-center">
             Partner types
           </h2>
@@ -202,7 +202,7 @@ export default function Partners() {
       </section>
       {/* Program Components */}
       <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20">
           <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-8 text-center">
             Program components
           </h2>
@@ -220,7 +220,7 @@ export default function Partners() {
       </section>
       {/* Revenue Streams */}
       <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20">
           <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-8 text-center">
             How partners make money
           </h2>
@@ -239,7 +239,7 @@ export default function Partners() {
       </section>
       {/* Partner Workflow */}
       <section className="py-14 sm:py-16 lg:py-20 border-b border-cv-line">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20">
           <h2 className="text-2xl sm:text-3xl font-bold text-cv-ink mb-10 text-center">
             Partner workflow
           </h2>
@@ -258,7 +258,7 @@ export default function Partners() {
       </section>
       {/* CTA */}
       <section className="py-14 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20 text-center">
           <div className="max-w-xl mx-auto space-y-6">
             <h2 className="text-3xl sm:text-4xl font-bold text-cv-ink">Talk to our partner team</h2>
             <p className="text-cv-muted">

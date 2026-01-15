@@ -193,15 +193,15 @@
 }
 
 @layer components {
-  /* Container utilities */
+  /* Container utilities - consistent 80px side padding on desktop */
   .cv-container {
-    @apply max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-10 xl:px-12;
+    @apply max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20;
   }
   .cv-container-wide {
-    @apply max-w-[1440px] mx-auto px-5 sm:px-6 lg:px-10 xl:px-12;
+    @apply max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20;
   }
   .cv-container-full {
-    @apply max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-10 xl:px-12;
+    @apply max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-20;
   }
   
   /* Section spacing tokens */

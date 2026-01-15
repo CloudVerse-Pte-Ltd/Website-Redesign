@@ -65,7 +65,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-14 lg:pb-16 overflow-hidden">
         <MotionHeroBackground />
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-[100px] relative z-10">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
             {/* Left: Copy Block */}
             <div className="text-left space-y-6 flex flex-col justify-start">
@@ -113,7 +113,7 @@ export default function Home() {
 
       {/* Customer Logos Section */}
       <section className="py-6 sm:py-8 lg:py-10 border-t border-cv-line dark:border-white/10">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-[100px]">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
           <p className="text-center text-base sm:text-lg text-cv-muted mb-8 sm:mb-10">
             Used by FinOps teams at leading enterprises.
           </p>
@@ -144,7 +144,7 @@ export default function Home() {
 
       {/* What CloudVerse Offers Section */}
       <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-[100px]">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
           <div className="mb-10 sm:mb-12">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-cv-muted mb-3">
               What CloudVerse Offers
@@ -185,7 +185,7 @@ export default function Home() {
 
       {/* Outcomes Section */}
       <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-[100px]">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-cv-ink mb-10 sm:mb-12">
             A single platform for visibility, accountability, and action.
           </h2>
@@ -213,7 +213,7 @@ export default function Home() {
 
       {/* Security & Deployment Section */}
       <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-[100px]">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
           <div className="max-w-2xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-cv-ink mb-4">
               Security and compliance, built in.
@@ -233,7 +233,7 @@ export default function Home() {
 
       {/* Final CTA Section */}
       <section className="py-8 sm:py-10 lg:py-12">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-[100px]">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
           <div className="rounded-2xl border border-cv-line bg-cv-surface2/50 dark:bg-gradient-to-b dark:from-white/[0.06] dark:to-white/[0.03] p-10 sm:p-12 lg:p-16">
             <div className="max-w-2xl">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-cv-ink mb-4">
