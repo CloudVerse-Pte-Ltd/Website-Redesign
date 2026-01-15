@@ -5,7 +5,7 @@ const featureTabs = [
     id: "developer-finops",
     label: "Developer FinOps",
     title: "Shift cost awareness left.",
-    body: "brings cost context into engineering workflows before changes ship.",
+    body: "Brings cost context into engineering workflows before changes ship.",
     bullets: [
       "Cost context aligned to services and environments",
       "Recommendations engineers can act on",
