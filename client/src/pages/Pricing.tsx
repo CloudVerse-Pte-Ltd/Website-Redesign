@@ -64,7 +64,6 @@ export default function Pricing() {
           </p>
         </div>
       </section>
-
       {/* Pricing Plans */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container-full">
@@ -106,7 +105,6 @@ export default function Pricing() {
           </div>
         </div>
       </section>
-
       {/* What's Included */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container-full">
@@ -120,11 +118,10 @@ export default function Pricing() {
           </div>
         </div>
       </section>
-
       {/* Usage & Scale */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[800px]">
-          <h2 className="cv-h2 mb-6 text-center">Designed for enterprise scale.</h2>
+          <h2 className="cv-h2 mb-6 text-center">Designed for enterprise scale</h2>
           <p className="text-[15px] leading-[24px] text-cv-muted mb-6 text-center">
             CloudVerse supports multi-account, multi-org, and multi-cloud environments. Pricing scales with usage and complexity—not arbitrary limits.
           </p>
@@ -148,7 +145,6 @@ export default function Pricing() {
           </div>
         </div>
       </section>
-
       {/* Enterprise & Custom */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[800px]">
@@ -183,7 +179,6 @@ export default function Pricing() {
           </div>
         </div>
       </section>
-
       {/* FAQ */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[800px]">
@@ -223,7 +218,6 @@ export default function Pricing() {
           </div>
         </div>
       </section>
-
       {/* Final CTA */}
       <section className="py-14 sm:py-16 lg:py-20 border-t border-cv-line">
         <div className="cv-container max-w-[720px] text-center">
