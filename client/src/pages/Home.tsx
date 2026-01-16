@@ -202,23 +202,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Security & Deployment Section */}
-      <section className="py-8 sm:py-10 lg:py-12 border-t border-cv-line dark:border-white/10">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-cv-ink mb-4">
-              Security and compliance, built in.
-            </h2>
-            <p className="text-lg sm:text-xl text-cv-muted mb-6">Designed for enterprise environments with strong access control and full auditability.</p>
-            <p className="text-base sm:text-lg text-cv-muted mb-6 pb-6 border-b border-cv-line">
-              Private deployment options are available for regulated enterprises, including air gapped environments.
-            </p>
-            <p className="text-sm text-cv-muted">
-              ISO 27001 • SOC 2 Type II
-            </p>
-          </div>
-        </div>
-      </section>
       {/* Final CTA Section */}
       <section className="py-8 sm:py-10 lg:py-12">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-20">
