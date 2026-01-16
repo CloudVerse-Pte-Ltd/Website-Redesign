@@ -116,8 +116,9 @@ Return ONLY valid JSON, no markdown or explanation.`;
 
     const result = JSON.parse(content) as InvoiceAnalysisResult;
     
+    // Explicitly validate that we are not using fallback data if we have a real response
     return {
-      score: Math.max(0, Math.min(100, Math.round(result.score || 50))),
+      score: Math.max(0, Math.min(100, Math.round(result.score))),
       currency: result.currency || "USD",
       totalSpend: result.totalSpend || 0,
       billingPeriodStart: result.billingPeriodStart || new Date().toISOString().split("T")[0],
@@ -129,9 +130,9 @@ Return ONLY valid JSON, no markdown or explanation.`;
       topRegions: (result.topRegions || []).slice(0, 3),
       topLineItems: (result.topLineItems || []).slice(0, 5),
       computeSpendPercent: result.computeSpendPercent || 0,
-      onDemandPercent: result.onDemandPercent || 50,
-      optimizationPotentialMin: result.optimizationPotentialMin || 5,
-      optimizationPotentialMax: result.optimizationPotentialMax || 20,
+      onDemandPercent: result.onDemandPercent || 0,
+      optimizationPotentialMin: result.optimizationPotentialMin || 0,
+      optimizationPotentialMax: result.optimizationPotentialMax || 0,
       insights: (result.insights || []).slice(0, 5),
     };
   } catch (error) {
